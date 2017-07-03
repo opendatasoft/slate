@@ -11,9 +11,11 @@ toc_footers:
 includes:
   - introduction
   - topics
+  - datasets
   - changelog
-  - jobs
   - dataset_metadata
+  - form_widgets
+  - jobs
 
 search: true
 ---

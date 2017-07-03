@@ -344,12 +344,15 @@ html, body {
     clear: both;
   }
 
+  &>h1, &>h2 {
+    clear: both;
+  }
+
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
     display: block;
-    text-shadow: $main-embossed-text-shadow;
 
     @extend %left-col;
   }
@@ -405,8 +408,12 @@ html, body {
     margin-bottom: 0.8em;
   }
 
-  h4, h5, h6 {
-    font-size: 10px;
+  h4 {
+    font-size: 14px;
+  }
+
+  h5, h6 {
+    font-size: 13px;
   }
 
   hr {
@@ -468,7 +475,6 @@ html, body {
     background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
-    @extend %break-words;
     @extend %code-font;
   }
 
@@ -477,23 +483,44 @@ html, body {
     padding: 0;
   }
 
+  em.expandable {
+    background-color: rgba(36, 103, 175, 0.69);
+    color: white;
+    display: inline;
+    border-radius: 1em;
+    padding: 0 0.33em;
+    font-style: normal;
+  }
+
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    margin-left: $main-padding;
+    margin-right: calc(50% + #{$main-padding});
+
+    &:before {
+      display: block;
+      content: 'Note';
+      position: static;
+      background-color: $nav-active-bg;
+      color: white;
+      padding: 1em $main-padding;
+      margin-left: -$main-padding;
+      margin-right: -$main-padding;
+      margin-top: -1em;
+      margin-bottom: 1em;
+    }
 
     &.warning {
       background-color: $aside-warning-bg;
-      text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
     &.success {
       background-color: $aside-success-bg;
-      text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
     }
   }
 
@@ -520,7 +547,6 @@ html, body {
     margin: -2px;
     border-radius: 4px;
     border: 1px solid #F7E633;
-    text-shadow: 1px 1px 0 #666;
     background: linear-gradient(to top left, #F7E633 0%, #F1D32F 100%);
   }
 }
@@ -537,13 +563,13 @@ html, body {
 
     padding: 2em $main-padding;
     margin: 0;
+    margin-bottom: 2em;
     width: $examples-width;
 
     float:right;
     clear:right;
 
     box-sizing: border-box;
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
 
     @extend %right-col;
 
@@ -561,14 +587,8 @@ html, body {
   }
 
   blockquote {
-    &>p {
-      background-color: $code-annotation-bg;
-      border-radius: 5px;
-      padding: $code-annotation-padding;
-      color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
-    }
+    padding: 0 $main-padding;
+    background-color: transparent;
   }
 }
 
