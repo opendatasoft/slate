@@ -14,6 +14,7 @@ includes:
   - datasets
   - changes
   - dataset_metadata
+  - dataset_security
   - form_widgets
   - jobs
 
