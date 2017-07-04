@@ -2,14 +2,6 @@
 
 Dataset metadata are grouped within metadata templates that you can think of as namespaces. On top of the `default` metadata template, you may also find (depending on your domain's configuration) the `inspire`, `dcat` or `citadeljson` templates. Many other templates also exist and you can contact the support to define your own templates.
 
-## The metadata definition object
-
-This object contains all the information necessary to generate a form component for the given metadata.
-
-### Attributes
-
-
-
 ## The metadata object
 
 ### Attributes
@@ -30,7 +22,7 @@ This object contains all the information necessary to generate a form component 
 Attribute | Description
 --------- | -----------
 `name` <br> *string* | Identifier for the object (inherited from the [definition](#the-metadata-definition-object)'s name)
-`template` <br> *string* | Identifier for the metadata template the object falls in
+`template` <br> *string* | Identifier for the group of metadata
 `definition` <br> *[form object](#the-form-object)* <br> <em class="expandable">expandable</em> | The definition of the metadata type and widget
 `value` <br> *type depends on `definition` type* | The object's value (may not be the indexed value, see below)
 `remote_value` <br> *type depends on `definition` type* | The remote object's metadata value (see below)
@@ -171,8 +163,6 @@ The updated [metadata object](#the-metadata-object).
 
 ## Reset a metadata value
 
-Resets a metadata value, that is deleting the `value` property and setting the `override_remote_value` flag to `false` (federated and harvested datasets only). The metadata value won't show up in the explore API output anymore (unless it is a federated or harvested dataset with a `remote_value` set).
-
 > Definition
 
 ```HTTP
@@ -199,3 +189,9 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/me
     "override_remote_value": false
 }
 ```
+
+Resets a metadata value by deleting the `value` property.
+
+For federated and harvested datasets, it also sets the `override_remote_value` flag to `false`.
+
+As a result, the metadata value won't show up in the explore API output anymore. Unless it is a federated or harvested dataset with a `remote_value` set.

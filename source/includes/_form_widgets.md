@@ -1,6 +1,6 @@
 # Form widgets
 
-A few endpoints in the API return definitions along their objects in order to help you build correct requests. These definitions are specifications your objects must conform to in order to be accepted by the API.
+A few endpoints in the API return definitions along with their objects in order to help you build correct requests. These definitions are specifications your objects must conform to in order to be accepted by the API.
 
 Some of these API will contain a `widget` attribute that contains all you need to generate an HTML input that will match the object's structure.
 
@@ -40,9 +40,9 @@ Attribute | Description
 `type` <br> *string* | Nature of the object. <br> Possible values are `text`, `multitext`, `choice`, `multichoice`, `date`, `datetime`, `html`, `boolean` and `number`
 `label` <br> *string* | Plain english name of the object
 `widget` <br> *[widget object](#the-widget-object)* | Characteristics of the expected rendered UI component for the object
-`choices` <br> *array of strings* | *`choice` and `multichoice` only* List of all accepted values by the object, any other value will be rejected.
-`decimals` <br> *int* | *`number` only* Number of accepted decimals for the object's value
-`precision` <br> *string* | *`date` and `datetime` only* The required time precision of the object's value <br> Possible values are `year`, `month`, `day`, `hour`, `minute`, `second`
+`choices` <br> *array of strings* | List of all accepted values by the object, any other value will be rejected <br> *`choice` and `multichoice` only*
+`decimals` <br> *int* | Number of accepted decimals for the object's value <br> *`number` only*
+`precision` <br> *string* | The required time precision of the object's value <br> *`date` and `datetime` only* <br> Possible values are `year`, `month`, `day`, `hour`, `minute`, `second`
 
 ## The widget object
 
@@ -51,7 +51,7 @@ Attribute | Description
 Attribute | Description
 --------- | -----------
 `type` <br> *string* | The widget's type <br> Accepted values are `textinput`, `select`, `datalist`, `multitextinput`, `multiselect`, `multidatalist`, `tags`, `dateinput`, `datetimeinput`, `toggle` and `number`
-`help_text` <br> *string* | Help text describing the constraints and uses of this form object
+`help_text` <br> *string* | Short sentence describing the constraints and uses of this form object
 
 #### The `textinput` widget
 
@@ -121,7 +121,7 @@ Options of this element must match the `choices` defined in the parent [form obj
 
 #### The `datalist` widget
 
-The `datalist` widget is to be rendered as a text input with an autocomplete feature. If the `suggest_values` attributes is set, then a simple html datalist is enough.
+The `datalist` widget is to be rendered as a text input with an autocomplete feature. If the `suggest_values` attribute is set, then a simple html datalist is enough.
 
 Attribute | Description
 --------- | -----------
@@ -171,7 +171,7 @@ The `multitextinput` widget is to be rendered as multiple simple text inputs, wi
 
 Attribute | Description
 --------- | -----------
-`orderable` <br> *boolean* | Flag indicated whether the visual component should allow values to be reordered or not
+`orderable` <br> *boolean* | Flag indicating whether the visual component should allow values to be reordered or not
 
 #### The `multiselect` widget
 #### The `multidatalist` widget
