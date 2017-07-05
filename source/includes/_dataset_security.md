@@ -74,10 +74,12 @@ PUT `datasets/<dataset_uid>/security/is_access_restricted`
 
 ## Retrieve the default security ruleset
 
+Retrieves the default security ruleset, that is the ruleset that applies when no more specific ruleset is declared for the user.
+
 > Definition
 
 ```http
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/security/default
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/security/default
 ```
 
 > Example request
@@ -109,10 +111,12 @@ DELETE `datasets/<dataset_uid>/security/default`
 
 ## Retrieve all user level security rulesets
 
+Retrieves all rulesets defined for specific users. The rulesets are ordered by ascending username.
+
 > Definition
 
 ```http
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/security/users
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/security/users
 ```
 
 > Example request
@@ -147,10 +151,13 @@ POST `datasets/<dataset_uid>/security/users/`
 
 ## Retrieve a user level security ruleset
 
+Retrieves the ruleset defined for a specific user. Returns an error if no ruleset is defined for the user.
+
+
 > Definition
 
 ```http
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/security/users/{USERNAME}
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/security/users/{USERNAME}
 ```
 
 > Example request
@@ -177,10 +184,12 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/se
 
 ## Update a user level security ruleset
 
+Updates the ruleset defined for the given user. Returns an error if no such ruleset is defined.
+
 > Definition
 
 ```http
-PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/security/users/{USERNAME}
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/security/users/{USERNAME}
 ```
 
 > Example request
