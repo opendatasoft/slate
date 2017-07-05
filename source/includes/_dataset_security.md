@@ -16,9 +16,9 @@ As a result, the default security ruleset has no meaning for restricted datasets
 
 All people having access to the domain will be able to see the dataset in the catalog.
 
-If a user has at least ruleset declared for him/her (directly, through a group or both), he/she will be able to see the union of everything each of the rulesets grants access to.
+If a user has at least a ruleset declared for them (directly, through a group or both), they will be able to see the union of everything each of the rulesets grants access to.
 
-Otherwise, if nothing has been declared for him/her (neither directly nor through a group), he/she will be able to see what the default ruleset grants access to.
+Otherwise, if nothing has been declared for them (neither directly nor through a group), they will be able to see what the default ruleset grants access to.
 
 ### The dataset security API in a nutshell
 
@@ -70,9 +70,9 @@ A set of rules defining what the target can see.
 
 The target can be:
 
-* anyone having access to the portal (the default ruleset)
 * a specific user
 * a specific group
+* anyone having access to the portal (the default ruleset) and not being affected by a user/group ruleset
 
 > Example object
 
