@@ -41,9 +41,7 @@ Attribute | Description
 `group` <br> *[group object](#the-group-object)* <br> <em class="expandable">expandable</em> | The group targeted by this ruleset. <br> Only available for group-lebel rulesets.
 
 <aside>
-    Setting `is_data_visible` to `true` will void the effect of the `fields` and `filter_query` value.
-
-    -> TODO: access to data schema with is_data_visible=true ? yes or no ? I'd say no (leaking information).
+    Setting `is_data_visible` to `false` will void the effect of the `filter_query` value.
 </aside>
 
 * `datasets/<dataset_uid>/security/users/<username>` GET / PUT / DELETE
@@ -52,7 +50,19 @@ Attribute | Description
 
 ## Inheritance of security properties
 
-TODO
+### Restricted datasets
+
+If the dataset is [set as restricted](#set-the-global-accessibility-policy), then the dataset will only appear in the catalog for users who have a ruleset declared for them, either directly or through a group. Other users won't have any access to the dataset.
+
+As a result, the default security ruleset has no meaning for restricted datasets.
+
+### Unrestricted datasets
+
+All people having access to the domain will be able to see the dataset in the catalog.
+
+If a user has at least ruleset declared for him/her (directly, through a group or both), he/she will be able to see the union of everything each of the rulesets grants access to.
+
+Otherwise, if nothing has been declared for him/her (neither directly nor through a group), he/she will be able to see what the default ruleset grants access to.
 
 ## Retrieve the global accessibility policy
 
