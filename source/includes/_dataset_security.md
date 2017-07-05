@@ -20,6 +20,50 @@ If a user has at least ruleset declared for him/her (directly, through a group o
 
 Otherwise, if nothing has been declared for him/her (neither directly nor through a group), he/she will be able to see what the default ruleset grants access to.
 
+### The dataset security API in a nutshell
+
+#### General security policy
+
+`/dataset/{DATASET_UID}/security/is_access_restricted`
+
+* `GET` [retrieve general security policy](#retrieve-the-general-accessibility-policy)
+* `PUT` [set general security policy](#set-the-general-accessibility-policy)
+
+#### Default security ruleset
+
+`/dataset/{DATASET_UID}/security/default`
+
+* `GET` [retrieve the default security ruleset](#retrieve-the-default-security-ruleset)
+* `PUT` [update the default security ruleset](#update-the-default-security-ruleset)
+* `DELETE` [reset the default security ruleset](#reset-the-default-security-ruleset)
+
+#### User level security ruleset
+
+`/dataset/{DATASET_UID}/security/users`
+
+* `GET` [Retrieve all user level security rulesets](#retrieve-all-user-level-security-rulesets)
+* `POST` [Create a new user level security ruleset](#create-a-new-user-level-security-ruleset)
+
+`/dataset/{DATASET_UID}/security/users/{USERNAME}`
+
+* `GET` [Retrieve a user level security ruleset](#retrieve-a-user-level-security-ruleset)
+* `PUT` [Update a user level security ruleset](#update-a-user-level-security-ruleset)
+* `DELETE` [Delete a user level security ruleset](#delete-a-user-level-security-ruleset)
+
+#### Group level security ruleset
+
+`/dataset/{DATASET_UID}/security/groups`
+
+* `GET` [Retrieve all group level security rulesets](#retrieve-all-group-level-security-rulesets)
+* `POST` [Create a new group level security ruleset](#create-a-new-group-level-security-ruleset)
+
+`/dataset/{DATASET_UID}/security/groups/{group_id}`
+
+* `GET` [Retrieve a group level security ruleset](#retrieve-a-group-level-security-ruleset)
+* `PUT` [Update a group level security ruleset](#update-a-group-level-security-ruleset)
+* `DELETE` [Delete a group level security ruleset](#delete-a-group-level-security-ruleset)
+
+
 ## The ruleset object
 
 A set of rules defining what the target can see.
@@ -64,11 +108,11 @@ Attribute | Description
     Setting <code>is_data_visible</code> to <code>false</code> will void the effect of the <code>filter_query</code> value. No data at all will be visible by the target.
 </aside>
 
-## Retrieve the global accessibility policy
+## Retrieve the general accessibility policy
 
 GET `datasets/<dataset_uid>/security/is_access_restricted`
 
-## Set the global accessibility policy
+## Set the general accessibility policy
 
 PUT `datasets/<dataset_uid>/security/is_access_restricted`
 
@@ -224,7 +268,7 @@ DELETE `datasets/<dataset_uid>/security/users/<username>`
 
 GET `datasets/<dataset_uid>/security/groups/`
 
-## Create a group level security ruleset
+## Create a new group level security ruleset
 
 POST `datasets/<dataset_uid>/security/groups`
 
@@ -236,6 +280,6 @@ GET `datasets/<dataset_uid>/security/groups/<group_id>`
 
 PUT `datasets/<dataset_uid>/security/groups/<group_id>`
 
-## Delete a new group level security ruleset
+## Delete a group level security ruleset
 
 DELETE `datasets/<dataset_uid>/security/groups/<username>`
