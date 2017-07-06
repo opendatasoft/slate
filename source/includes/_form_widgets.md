@@ -36,14 +36,14 @@ Some of these API will contain a `widget` attribute that contains all you need t
 
 Attribute | Description
 --------- | -----------
-`name` <br> *string* | Identifier for the object
+`name` <br> *string* | Identifier of the object
 `type` <br> *string* | Nature of the object. <br> Possible values are `text`, `multitext`, `choice`, `multichoice`, `date`, `datetime`, `html`, `boolean`, `int`, `number`, `geographicarea`
 `label` <br> *string* | Plain name of the object depending of the language
 `widget` <br> *[widget object](#the-widget-object)* | Characteristics of the expected rendered UI component for the object
-`choices` <br> *array of strings* | *`choice` and `multichoice` only* List of all accepted values by the object, any other value will be rejected.
-`decimals` <br> *int* | *`number` only* Number of accepted decimals for the object's value
-`precision` <br> *string* | *`date` and `datetime` only* The required time precision of the object's value <br> Possible values are `year`, `month`, `day`, `hour`, `minute`, `second`  
-`max_length` <br> *int* | *`text` only* Number of accepted characters for the object's value
+`choices` <br> *array of strings* | *`choice` and `multichoice` only* <br> List of all accepted values by the object, any other value will be rejected.
+`decimals` <br> *int* | *`number` only* <br> Number of accepted decimals for the object's value
+`precision` <br> *string* | *`date` and `datetime` only* <br> The required time precision of the object's value <br> Possible values are `year`, `month`, `day`, `hour`, `minute`, `second`  
+`max_length` <br> *int* | *`text` only* <br> Number of accepted characters for the object's value
 
 ## The widget object
 
@@ -52,7 +52,7 @@ Attribute | Description
 Attribute | Description
 --------- | -----------
 `type` <br> *string* | The widget's type <br> Accepted values are `textinput`, `select`, `datalist`, `multitextinput`, `multiselect`, `multidatalist`, `tags`, `dateinput`, `datetimeinput`, `toggle`, `number` and `geographicarea`
-`help_text` <br> *string* | Help text describing the constraints and uses of this form object
+`help_text` <br> *string* | Informational text describing the constraints and uses of the form object
 
 #### The `textinput` widget
 
@@ -172,7 +172,7 @@ The `multitextinput` widget is to be rendered as multiple simple text inputs, wi
 
 Attribute | Description
 --------- | -----------
-`orderable` <br> *boolean* | Flag indicated whether the visual component should allow values to be reordered or not
+`orderable` <br> *boolean* | Flag indicating whether the visual component should allow values to be reordered or not
 
 #### The `multiselect` widget
 
@@ -181,7 +181,7 @@ Options of this element must match the `choices` defined in the parent [form obj
 
 Attribute | Description
 --------- | -----------
-`orderable` <br> *boolean* | Flag indicated whether the visual component should allow values to be reordered or not
+`orderable` <br> *boolean* | Flag indicating whether the visual component should allow values to be reordered or not
 
 #### The `multidatalist` widget
 
@@ -189,7 +189,7 @@ The `multidatalist` widget is to be rendered as multiple text inputs with an aut
 
 Attribute | Description
 --------- | -----------
-`orderable` <br> *boolean* | Flag indicated whether the visual component should allow values to be reordered or not
+`orderable` <br> *boolean* | Flag indicating whether the visual component should allow values to be reordered or not
 
 #### The `tags` widget
 #### The `dateinput` widget
@@ -259,7 +259,7 @@ The `toggle` widget is to be rendered as a ods-toggle input.
 > Example HTML widget
 
 ```html
-Note : je sais pas ce que je fais :)
+@jmorel : fixme
 <ods-catalog-context context="catalog" catalog-domain="public.opendatasoft.com">
  
     <input type="checkbox" ods-toggle-model="catalog.parameters" ods-toggle-key="refine.publisher" ods-toggle-value="Government">
@@ -308,21 +308,22 @@ Attribute | Description
 
 ```json
 {
-    "name": "language",
-    "type": "text",
-    "label": "Language",
-    "choices": ["fr", "en"],
+    "name": "records_count",
+    "type": "int",
+    "label": "Records count",
     "widget": {
-        "type": "radio"
+        "type": "number",
+        "min": 0,
+        "max": 100,
+        "step": 10
     }
 }
 ```
 > Example HTML widget
 
 ```html
-<label for="language">Language</label>
-<input type="radio" name="language" value="fr">fr<br>
-<input type="radio" name="language" value="en">en<br>
+<label for="records_count">Records count</label>
+<input type="number" name="points" min="0" max="100" step="10">
 
 ```
 #### The `radio` widget
@@ -353,4 +354,4 @@ The `radio` widget is to be rendered as a radio input.
 ```
 
 #### The `geographicarea` widget
-FIXME
+@jmorel : fixme (paste an image of whatever)
