@@ -1,18 +1,18 @@
 # Dataset security
 
-The dataset security is defined through 3 variables:
+The dataset security is the set of rules that defines who (which users / groups) can access what (which metadata / records / fields) at what frequency (api calls quota) for a given this dataset.
 
-* a general access policy
+It is defined through 3 variables:
+
+* a general access policy that sets whether the dataset is accessible to anyone or just a few specific users
 * specific rulesets for users and groups
 * a default ruleset that applies to anybody else
-
-The general access policy sets whether the dataset is accessible to anyone or just a few specific users.
 
 ### Restricted datasets
 
 If the dataset is [set as restricted](#set-the-general-access-policy), then the dataset will only appear in the catalog for users who have a ruleset declared for them, either directly or through a group. Other users won't have any access to the dataset.
 
-As a result, the default security ruleset has no meaning for restricted datasets.
+The default security ruleset has no meaning for restricted datasets.
 
 ### Standard access datasets
 
@@ -20,7 +20,7 @@ All people having access to the domain will be able to see the dataset in the ca
 
 If a user has at least a ruleset declared for them (directly, through a group or both), they will be able to see the union of everything each of the rulesets grants access to.
 
-Otherwise, if nothing has been declared for them (neither directly nor through a group), they will be able to see what the default ruleset grants access to.
+Otherwise, if no ruleset has been declared for them (neither directly nor through a group), they will be able to see what the default ruleset grants access to.
 
 ### The dataset security API in a nutshell
 
