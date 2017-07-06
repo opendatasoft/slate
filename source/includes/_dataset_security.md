@@ -124,7 +124,7 @@ Sets the general access policy for the dataset.
 
 ### Payload
 
-A single string. <br> Possible values are `domain` and `resticted`.
+A single string. <br> Possible values are `domain` and `restricted`.
 
 ## The ruleset object
 
@@ -134,7 +134,7 @@ The target can be:
 
 * a specific user
 * a specific group
-* anyone having access to the portal (the default ruleset) and not being affected by a user/group ruleset
+* anyone who has access to the portal (the default ruleset) and who's not affected by a user/group ruleset
 
 > Example object
 
@@ -159,12 +159,12 @@ The target can be:
 Attribute | Description
 --------- | -----------
 `visible_fields` <br> *array of field names (string)* | The target will only have access to the fields from this list. <br> `['*']` means that the target has access to all fields. <br> An empty list means that the target won't see any field (empty dataset schema).
-`is_data_visible` <br> *boolean* | Flag indicating whether the target will have access the dataset's records or not.
+`is_data_visible` <br> *boolean* | Flag indicating whether the target will have access the records of the dataset or not.
 `filter_query` <br> *string* | The target will only have access to the records matching this query. An empty query means that all records are accessible.
 `permissions` <br> *array of strings* | List of special permissions granted to the target. <br> Only available for user and group-level rulesets. <br> Possible values are `edit_dataset`, `publish_dataset`, `manage_dataset`
 `api_calls_quota` <br> *[quota object](#the-quota-object)* | Upper limit set on the number of api calls the target can make to this dataset in a given timeframe. <br> Can be set to null for no specific quota.
 `user` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user targeted by this ruleset. <br> Only available for user-level rulesets.
-`group` <br> *[group object](#the-group-object)* <br> <em class="expandable">expandable</em> | The group targeted by this ruleset. <br> Only available for group-lebel rulesets.
+`group` <br> *[group object](#the-group-object)* <br> <em class="expandable">expandable</em> | The group targeted by this ruleset. <br> Only available for group-level rulesets.
 
 <aside>
     Setting <code>is_data_visible</code> to <code>false</code> will void the effect of the <code>filter_query</code> value. No data at all will be visible by the target.
@@ -245,7 +245,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/se
 
 ## Create a new user level security ruleset
 
-POST `datasets/<dataset_uid>/security/users/`
+POST `datasets/<dataset_uid>/security/users`
 
 ## Retrieve a user level security ruleset
 
@@ -320,7 +320,7 @@ DELETE `datasets/<dataset_uid>/security/users/<username>`
 
 ## Retrieve all group level security rulesets
 
-GET `datasets/<dataset_uid>/security/groups/`
+GET `datasets/<dataset_uid>/security/groups`
 
 ## Create a new group level security ruleset
 
