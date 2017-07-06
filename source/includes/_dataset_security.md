@@ -2,17 +2,19 @@
 
 The dataset security is defined through 3 variables:
 
-* a global accessibility policy
+* a general access policy
 * specific rulesets for users and groups
 * a default ruleset that applies to anybody else
 
+The general access policy sets whether the dataset is accessible to anyone or just a few specific users.
+
 ### Restricted datasets
 
-If the dataset is [set as restricted](#set-the-global-accessibility-policy), then the dataset will only appear in the catalog for users who have a ruleset declared for them, either directly or through a group. Other users won't have any access to the dataset.
+If the dataset is [set as restricted](#set-the-general-access-policy), then the dataset will only appear in the catalog for users who have a ruleset declared for them, either directly or through a group. Other users won't have any access to the dataset.
 
 As a result, the default security ruleset has no meaning for restricted datasets.
 
-### Unrestricted datasets
+### Standard access datasets
 
 All people having access to the domain will be able to see the dataset in the catalog.
 
@@ -22,12 +24,12 @@ Otherwise, if nothing has been declared for them (neither directly nor through a
 
 ### The dataset security API in a nutshell
 
-#### General security policy
+#### General access policy
 
-`/dataset/{DATASET_UID}/security/is_access_restricted`
+`/dataset/{DATASET_UID}/security/access_policy`
 
-* `GET` [retrieve general security policy](#retrieve-the-general-accessibility-policy)
-* `PUT` [set general security policy](#set-the-general-accessibility-policy)
+* `GET` [retrieve general access policy](#retrieve-the-general-access-policy)
+* `PUT` [set general access policy](#set-the-general-access-policy)
 
 #### Default security ruleset
 
@@ -63,6 +65,66 @@ Otherwise, if nothing has been declared for them (neither directly nor through a
 * `PUT` [Update a group level security ruleset](#update-a-group-level-security-ruleset)
 * `DELETE` [Delete a group level security ruleset](#delete-a-group-level-security-ruleset)
 
+## The general access policy
+
+A flag indicating whether the dataset is accessible by all people having access to the domain or just a few with explicit authorization.
+
+There are two acceptable values for the flag:
+
+* `domain`
+* `restricted`
+
+## Retrieve the general access policy
+
+> Definition
+
+```http
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/security/access_policy
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/security/access_policy \
+    -u username:password
+```
+
+> Example response
+
+```json
+"domain"
+```
+
+Retrieves the general access policy set for the dataset.
+
+## Set the general access policy
+
+> Definition
+
+```http
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/security/access_policy
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/security/access_policy \
+    -u username:password \
+    -X PUT \
+    -d '"restricted"'
+```
+
+> Example response
+
+```json
+"restricted"
+```
+
+Sets the general access policy for the dataset.
+
+### Payload
+
+A single string. <br> Possible values are `domain` and `resticted`.
 
 ## The ruleset object
 
@@ -108,17 +170,9 @@ Attribute | Description
     Setting <code>is_data_visible</code> to <code>false</code> will void the effect of the <code>filter_query</code> value. No data at all will be visible by the target.
 </aside>
 
-## Retrieve the general accessibility policy
-
-GET `datasets/<dataset_uid>/security/is_access_restricted`
-
-## Set the general accessibility policy
-
-PUT `datasets/<dataset_uid>/security/is_access_restricted`
-
 ## Retrieve the default security ruleset
 
-Retrieves the default security ruleset, that is the ruleset that applies when no more specific ruleset is declared for the user.
+Retrieves the default security ruleset, that is the ruleset that applies when no specific ruleset is declared for the user or one of their groups.
 
 > Definition
 
