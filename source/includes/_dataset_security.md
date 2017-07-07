@@ -16,11 +16,11 @@ The default security ruleset has no meaning for restricted datasets.
 
 ### Standard access datasets
 
-All people having access to the domain will be able to see the dataset in the catalog.
+Anyone having access to the domain will be able to see the dataset in the catalog.
 
-If a user has at least a ruleset declared for them (directly, through a group or both), they will be able to see the union of everything each of the rulesets grants access to.
+Users who have at least a ruleset declared for them (whether directly, through a group or both) will be able to see everything their rulesets grant access to.
 
-Otherwise, if no ruleset has been declared for them (neither directly nor through a group), they will be able to see what the default ruleset grants access to.
+Users who do not have any ruleset declared for them (neither directly nor through a group), they will be able to see what the default ruleset grants access to.
 
 ### The dataset security API in a nutshell
 
@@ -134,7 +134,7 @@ The target can be:
 
 * a specific user
 * a specific group
-* anyone who has access to the portal (the default ruleset) and who's not affected by a user/group ruleset
+* anyone who has access to the portal and who isn't affected by either a user-level or a group-level ruleset
 
 > Example object
 
@@ -159,7 +159,7 @@ The target can be:
 Attribute | Description
 --------- | -----------
 `visible_fields` <br> *array of field names (string)* | The target will only have access to the fields from this list. <br> `['*']` means that the target has access to all fields. <br> An empty list means that the target won't see any field (empty dataset schema).
-`is_data_visible` <br> *boolean* | Flag indicating whether the target will have access the records of the dataset or not.
+`is_data_visible` <br> *boolean* | Flag indicating whether the target will have access to the records of the dataset or not.
 `filter_query` <br> *string* | The target will only have access to the records matching this query. An empty query means that all records are accessible.
 `permissions` <br> *array of strings* | List of special permissions granted to the target. <br> Only available for user and group-level rulesets. <br> Possible values are `edit_dataset`, `publish_dataset`, `manage_dataset`
 `api_calls_quota` <br> *[quota object](#the-quota-object)* | Upper limit set on the number of api calls the target can make to this dataset in a given timeframe. <br> Can be set to null for no specific quota.

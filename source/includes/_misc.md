@@ -20,4 +20,4 @@ The quota object defines an upper limit within a given timeframe.
 Attribute | Description
 --------- | -----------
 `limit` <br> *integer* | Upper limit
-`unit` <br> *string* | Timeframe. <br> Possibile values are `hour`, `day`, `month`
+`unit` <br> *string* | Timeframe. <br> Possible values are `hour`, `day`, `month`
