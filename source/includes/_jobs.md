@@ -2,6 +2,12 @@
 
 ## The job object
 
+> Example object
+
+```json
+{}
+```
+
 These objects are returned at each call made to an [asynchronous endpoint](#asynchronous-calls). They contain all the currently available data from the asynchronous function. You may need to poll the API multiple time to get the full result.
 
 ### Attributes
@@ -75,9 +81,7 @@ job_id <br> *string* | Identifier of the job to retrieve
 > Example response
 
 ```json
-{
-
-}
+{}
 ```
 
 ### Returns

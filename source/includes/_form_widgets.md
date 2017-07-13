@@ -6,8 +6,6 @@ Some of these API will contain a `widget` attribute that contains all you need t
 
 ## The form object
 
-### Attributes
-
 > Example object
 
 ```json
@@ -34,6 +32,11 @@ Some of these API will contain a `widget` attribute that contains all you need t
 }
 ```
 
+
+An object describing exactly the type of data the related object can accept and providing the expected representation in a form.
+
+### Attributes
+
 Attribute | Description
 --------- | -----------
 `name` <br> *string* | Identifier for the object
@@ -46,6 +49,8 @@ Attribute | Description
 
 ## The widget object
 
+A description of the expected form representation for the related object.
+
 ### Common attributes
 
 Attribute | Description
@@ -53,9 +58,7 @@ Attribute | Description
 `type` <br> *string* | The widget's type <br> Accepted values are `textinput`, `select`, `datalist`, `multitextinput`, `multiselect`, `multidatalist`, `tags`, `dateinput`, `datetimeinput`, `toggle` and `number`
 `help_text` <br> *string* | Short sentence describing the constraints and uses of this form object
 
-#### The `textinput` widget
-
-The `textinput` widget is to be rendered as a simple text input.
+## The `textinput` widget
 
 > Example object
 
@@ -77,11 +80,13 @@ The `textinput` widget is to be rendered as a simple text input.
 <input type="text" id="license" name="license">
 ```
 
-#### The `select` widget
+The `textinput` widget is to be rendered as a simple text input.
 
-The `select` widget is to be rendered as a simple select element.
+### Attributes
 
-Options of this element must match the `choices` defined in the parent [form object](#the-form-object).
+Common attributes only.
+
+## The `select` widget
 
 > Example object
 
@@ -119,14 +124,15 @@ Options of this element must match the `choices` defined in the parent [form obj
 </select>
 ```
 
-#### The `datalist` widget
+The `select` widget is to be rendered as a simple select element.
 
-The `datalist` widget is to be rendered as a text input with an autocomplete feature. If the `suggest_values` attribute is set, then a simple html datalist is enough.
+Options of this element must match the `choices` defined in the parent [form object](#the-form-object).
 
-Attribute | Description
---------- | -----------
-`suggest_url` <br> *string* | The URL of a distant service providing values based on the partial text in the input (e.g. Algolia)
-`suggest_values` <br> *array of strings* | A list of default values
+### Attributes
+
+Common attributes only.
+
+## The `datalist` widget
 
 > Example object
 
@@ -165,7 +171,16 @@ Attribute | Description
 </select>
 ```
 
-#### The `multitextinput` widget
+The `datalist` widget is to be rendered as a text input with an autocomplete feature. If the `suggest_values` attribute is set, then a simple html datalist is enough.
+
+### Attributes
+
+Attribute | Description
+--------- | -----------
+`suggest_url` <br> *string* | The URL of a distant service providing values based on the partial text in the input (e.g. Algolia)
+`suggest_values` <br> *array of strings* | A list of default values
+
+## The `multitextinput` widget
 
 The `multitextinput` widget is to be rendered as multiple simple text inputs, with the possibility to remove and add more inputs. If the `orderable` option is set, then the inputs must be reorderable one relative to the other.
 
@@ -173,13 +188,13 @@ Attribute | Description
 --------- | -----------
 `orderable` <br> *boolean* | Flag indicating whether the visual component should allow values to be reordered or not
 
-#### The `multiselect` widget
-#### The `multidatalist` widget
-#### The `tags` widget
-#### The `dateinput` widget
-#### The `datetimeinput` widget
-#### The `toggle` widget
-#### The `checkbox` widget
-#### The `number` widget
-#### The `multiradio` widget
-#### The `multicheckbox` widget
+## The `multiselect` widget
+## The `multidatalist` widget
+## The `tags` widget
+## The `dateinput` widget
+## The `datetimeinput` widget
+## The `toggle` widget
+## The `checkbox` widget
+## The `number` widget
+## The `multiradio` widget
+## The `multicheckbox` widget
