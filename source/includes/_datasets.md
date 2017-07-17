@@ -26,57 +26,11 @@ Attribute | Description
 --------- | -----------
 `dataset_id` <br> *string*       | Human readable identifier of the dataset that can be modified when the dataset is not published
 `dataset_uid` <br> *string*      | Unique identifier of the dataset that will never change through the dataset's lifetime
-`metas` <br> *[metadata object](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
-`last_modified` <br> *datetime*  | Date when the dataset's configuration was last edited
-`published` <br> *boolean*       | Flag indicating whether the dataset is published or not
-`default_security` <br> *object* |
-`visibility` <br> *string*       | Defines if the dataset is visible for anonymous visitors <br> Can be `domain` if visibility is the same as the domain's visibility, or `restricted` if access is restricted to allowed users and groups
-`dataset_processing_status` <br> *[dataset processing status object](#dataset-processing-status)* <br> <em class="expandable">expandable</em> | Keyword indicating if the dataset is waiting to be published, currently being published or if it encountered errors during last publishing
-
-## The dataset status object
-
-A dataset is a finite state machine.
-
-* It is in a single state at a time
-* The list of possible states is fully known
-* The list of all transitions is fully known, each with the actions and conditions that can trigger them
-
-Here is the full state machine description.
-
-### Statuses
-
-Status | Descriptions
------- | ------------
-`idle` |
-`queued` |
-`processing_dataset` |
-`processing_resource_records` |
-`processing_all_dataset_data` |
-`processing_realtime` |
-`deleting_dataset` |
-`deleting_resource_records` |
-`deleting_all_dataset_data` |
-`saving_dataset_version` |
-`error` |
-`aborting_processing` |
-`limit_reached` |
-`recovering_realtime_records` |
-`scratching_realtime_recover_data` |
-
-### Attributes
-
-Attribute | Description
---------- | -----------
-`status` <br> *string* | <br> Possible values are `idle`, `queued`, `processing_dataset`, `processing_resource_records`, `processing_all_dataset_data`, `processing_realtime`, `deleting_dataset`, `deleting_resource_records`, `deleting_all_dataset_data`, `saving_dataset_version`, `error`, `aborting_processing`, `limit_reached`, `recovering_realtime_records`, `scratching_realtime_recover_data`
-`timestamp` <br> *datetime* |
-`params` <br> *object* |
-
+`metadata` <br> *Array of [metadata objects](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
+`status` <br> *[dataset status object](#dataset-status)* <br> <em class="expandable">expandable</em> | Current status of the object
+`changes` <br> *Array of [dataset change objects](#dataset-changes)* <br> <em class="expandable">expandable</em> | List of all changes made to the current object
 
 ## Publish a dataset
-
-Publishes a dataset.
-
-This is an asynchronous call since the it may entail processing all records from the sources of the dataset.
 
 > Definition
 
@@ -97,6 +51,10 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/pu
 ```json
 ```
 
+Publishes a dataset.
+
+This is an asynchronous call since the it may entail processing all records from the sources of the dataset.
+
 ### Parameters
 
 No parameters
@@ -108,4 +66,34 @@ Returns a [job object](#the-job-object).
 
 ## Unpublish a dataset
 
-## Abort an ongoing publish
+> Definition
+
+```http
+PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/unpublish
+```
+
+> Example request
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/unpublish \
+    -X PUT \
+    -u username:password
+```
+
+> Example response
+
+```json
+```
+
+Unpublishes a dataset.
+
+This will delete all currently indexed records for the dataset and make the dataset disappear from the explore catalog. Unpublishing a dataset does not delete the dataset, it merely acts on the exposed part of the data.
+
+
+### Parameters
+
+No parameters
+
+### Returns
+
+Returns a [job object](#the-job-object).

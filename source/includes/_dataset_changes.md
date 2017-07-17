@@ -1,4 +1,4 @@
-# Dataset Changes
+# Dataset changes
 
 The changes of a dataset describe subsequent changes of states that affected the different sections of a dataset. Every action taken on any resource through POST, PUT or DELETE creates a change object that can be retrieved and acted upon.
 

@@ -12,7 +12,8 @@ includes:
   - introduction
   - topics
   - datasets
-  - changes
+  - dataset_status
+  - dataset_changes
   - dataset_metadata
   - form_widgets
   - jobs
