@@ -10,6 +10,8 @@ A dataset is a finite state machine.
 
 Here is the full state machine description.
 
+todo: include state machine graph and make the transitions explicit (what triggers the transition)
+
 ## The `idle` dataset status
 
 > Example object
@@ -18,7 +20,11 @@ Here is the full state machine description.
 {}
 ```
 
-todo: description of the meaning of the status and of the conditions that led there
+todo:
+* description of the meaning of the status and of the conditions that led there.
+* If the status references a job, make sure the job is an expandable relationship.
+* Explain each time that the job should be polled for more details.
+* Include a `since` datetime in each object
 
 ### Attributes
 
