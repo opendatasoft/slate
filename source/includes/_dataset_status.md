@@ -250,3 +250,31 @@ Attribute | Description
 --------- | -----------
 todo | todo
 
+## Retrieve the current dataset status
+
+```HTTP
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/status
+```
+
+> Example request
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/status \
+    -u username:password
+```
+
+> Example response
+
+```json
+{}
+```
+
+Retrieves the current dataset status.
+
+### Parameters
+
+No parameters
+
+### Returns
+
+The dataset status object that applies to the given dataset. See [Dataset status](#dataset-status) for the full list of objects and their attributes.
