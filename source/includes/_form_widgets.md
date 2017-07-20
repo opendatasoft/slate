@@ -37,7 +37,7 @@ Some of these API will contain a `widget` attribute that contains all you need t
 Attribute | Description
 --------- | -----------
 `name` <br> *string* | Identifier of the object
-`type` <br> *string* | Nature of the object. <br> Possible values are `text`, `multitext`, `html` and `datetime`
+`type` <br> *string* | Nature of the object. <br> Possible values are `text`, `multitext`, `html`, `date` and `datetime`
 `label` <br> *string* | Plain name of the object depending of the language
 `widget` <br> *[widget object](#the-widget-object)* | Characteristics of the expected rendered UI component for the object
 `choices` <br> *array* | *`text` and `multitext` only* <br> List of all accepted values by the object, any other value will be rejected. <br> May be an array of strings or an array of 2-item arrays, where the first item is the actual accepted value and the second its label.
@@ -47,10 +47,12 @@ Attribute | Description
 List of all widget objects:
 
 * [datalist](#the-datalist-widget)
+* [dateinput](#the-dateinput-widget)
 * [datetimeinput](#the-datetimeinput-widget)
-* [html](#the-html-widget)
 * [multidatalist](#the-multidatalist-widget)
+* [multiselect](#the-multiselect-widget)
 * [multitextinput](#the-multitextinput-widget)
+* [richtextinput](#the-richtextinput-widget)
 * [select](#the-select-widget)
 * [tags](#the-tags-widget)
 * [textinput](#the-textinput-widget)
@@ -98,7 +100,7 @@ Attribute | Description
     <option value="CC BY-NC-SA">
     <option value="CC BY-SA">
     <option value="CC BY-IGO">
-</select>
+</datalist>
 ```
 
 The `datalist` widget is to be rendered as a text input with an autocomplete feature. If the `suggest_values` attributes is set, then a simple html datalist is enough.
@@ -110,6 +112,30 @@ Attribute | Description
 
 <div class="clearfix"></div>
 
+#### The `dateinput` widget
+
+> Example object
+
+```json
+{
+    "name": "created",
+    "type": "date",
+    "label": "Created",
+    "widget": {
+        "type": "dateinput"
+    }
+}
+```
+> Example HTML widget
+
+```html
+<label for="created">Last Modified</label>
+<input id="created" type="date-local">
+```
+
+The `dateinput` widget is to be rendered as a date-local input.
+
+<div class="clearfix"></div>
 
 #### The `datetimeinput` widget
 
@@ -136,45 +162,94 @@ The `datetimeinput` widget is to be rendered as a datetime-local input.
 
 <div class="clearfix"></div>
 
-#### The `html` widget
-
-> Example object
-
-```json
-{
-    todo
-}
-```
-> Example HTML widget
-
-```html
-todo
-```
-
-todo
-
-<div class="clearfix"></div>
-
 #### The `multidatalist` widget
 
 > Example object
 
 ```json
 {
-    todo
+    "name": "theme",
+    "type": "multitext",
+    "label": "Theme",
+    "widget": {
+        "type": "multidatalist",
+        "suggest_values": [
+            "theme1",
+            "theme2"
+        ]
+    }
 }
 ```
 > Example HTML widget
 
 ```html
-todo
+<label for="theme">Theme</label>
+<input id="theme" type="text" placeholder="New theme..." list="theme_list">
+<button>Add theme</button>
+<ul>
+    <li><input type="text" value="theme2" list="theme_list"><button>remove</button></li>
+    <li><input type="text" value="theme3" list="theme_list"><button>remove</button></li>
+</ul>
+<datalist id="theme_list">
+    <option value="theme1">
+    <option value="theme2">
+</datalist>
 ```
 
-The `multidatalist` widget is to be rendered as multiple text inputs with an autocomplete feature, with the possibility to remove and add more inputs. If the `orderable` option is set, then the inputs must be reorderable one relative to the other.
+The `multidatalist` widget is to be rendered as multiple text inputs with an autocomplete feature, with the possibility to remove and add more inputs.
 
-Attribute | Description
---------- | -----------
-`orderable` <br> *boolean* | Flag indicating whether the visual component should allow values to be reordered or not
+<div class="clearfix"></div>
+
+#### The `multiselect` widget
+
+> Example object
+
+```json
+{
+    "name": "theme",
+    "type": "multitext",
+    "label": "Theme",
+    "choices": [
+        "theme1",
+        "theme2",
+        "theme3"
+    ],
+    "widget": {
+        "type": "multiselect",
+    }
+}
+```
+> Example HTML widget
+
+```html
+<label for="theme">Theme</label>
+<select id="theme">
+    <option>theme1</option>
+    <option>theme2</option>
+    <option>theme3</option>
+</select>
+<button>Add theme</button>
+<ul>
+    <li>
+        <select value="theme1">
+            <option>theme1</option>
+            <option>theme2</option>
+            <option>theme3</option>
+        </select>
+        <button>remove</button>
+    </li>
+    <li>
+        <select value="theme2">
+            <option>theme1</option>
+            <option>theme2</option>
+            <option>theme3</option>
+        </select>
+        <button>remove</button>
+    </li>
+</ul>
+```
+
+The `multiselect` widget is to be rendered as multiple selects components, with the possibility to remove, change and add more values.
 
 <div class="clearfix"></div>
 
@@ -184,20 +259,54 @@ Attribute | Description
 
 ```json
 {
-    todo
+    "name": "theme",
+    "type": "multitext",
+    "label": "Theme",
+    "widget": {
+        "type": "multitextinput"
+    }
 }
 ```
 > Example HTML widget
 
 ```html
-todo
+<label for="theme">Theme</label>
+<input id="theme" type="text" placeholder="New theme...">
+<button>Add theme</button>
+<ul>
+    <li><input type="text" value="theme1"><button>remove</button></li>
+    <li><input type="text" value="theme2"><button>remove</button></li>
+    <li><input type="text" value="theme3"><button>remove</button></li>
+</ul>
 ```
 
-The `multitextinput` widget is to be rendered as multiple simple text inputs, with the possibility to remove and add more inputs. If the `orderable` option is set, then the inputs must be reorderable one relative to the other.
+The `multitextinput` widget is to be rendered as multiple simple text inputs, with the possibility to remove and add more inputs.
 
-Attribute | Description
---------- | -----------
-`orderable` <br> *boolean* | Flag indicating whether the visual component should allow values to be reordered or not
+<div class="clearfix"></div>
+
+#### The `richtextinput` widget
+
+> Example object
+
+```json
+{
+    "name": "description",
+    "type": "html",
+    "label": "Description",
+    "widget": {
+        "type": "richtextinput"
+    }
+}
+```
+> Example HTML widget
+
+```html
+<label for="description">Description>
+<!-- redactor is a js library that transforms a textarea into a wysiwyg editor -->
+<textarea id="description" redactor></textarea>
+```
+
+The `richtextinput` message is to be rendered as a rich text editor, preferably a WYSIWYG (What You See Is What You Get) one.
 
 <div class="clearfix"></div>
 
@@ -250,17 +359,30 @@ Options of this element must match the `choices` defined in the parent [form obj
 > Example object
 
 ```json
-{
-    todo
-}
+    "name": "keywords",
+    "type": "multitext",
+    "label": "Keywords",
+    "widget": {
+        "type": "tags"
+    }
 ```
 > Example HTML widget
 
 ```html
-todo
+<label for="keywords">Keywords</label>
+<input type="text" id="keywords" placeholder="Type keyword">
+<button>Add keyword</button>
+<ul>
+    <li>
+        Keyword1 <button>remove</button>
+    </li>
+    <li>
+        Keyword2 <button>remove</button>
+    </li>
+</ul>
 ```
 
-todo
+The `tags` widget is to be rendered as an editable list of tags. If possible, the input area where the user enters their new tag should autocomplete with existing values to enhance consistency.
 
 <div class="clearfix"></div>
 
