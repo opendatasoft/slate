@@ -12,24 +12,19 @@ Some of these API will contain a `widget` attribute that contains all you need t
 
 ```json
 {
-    "name": "license",
     "type": "text",
-    "label": "License",
+    "label": "Language",
+    "help_text": "",
     "choices": [
-        "Licence Ouverte (Etalab)",
-        "Licence Ouverte v2.0 (Etalab)",
-        "Open Database License (ODbL)",
-        "Public Domain",
-        "CC BY",
-        "CC BY-ND",
-        "CC BY-NC-ND",
-        "CC BY-NC",
-        "CC BY-NC-SA",
-        "CC BY-SA",
-        "CC BY-IGO"
+        ["aa", "Afar"],
+        ["ab", "Abkhazian"],
+        ["ae", "Avestan"],
+        ["af", "Afrikaans"],
+        [...],
+        [...]
     ],
     "widget": {
-        "type": "datalist"
+        "type": "select"
     }
 }
 ```
@@ -41,6 +36,7 @@ Attribute | Description
 `label` <br> *string* | Plain name of the object depending of the language
 `widget` <br> *[widget object](#the-widget-object)* | Characteristics of the expected rendered UI component for the object
 `choices` <br> *array* | *`text` and `multitext` only* <br> List of all accepted values by the object, any other value will be rejected. <br> May be an array of strings or an array of 2-item arrays, where the first item is the actual accepted value and the second its label.
+`help_text` <br> *string* | Informational text describing the constraints and uses of the form object
 
 ## The widget object
 
@@ -62,7 +58,6 @@ List of all widget objects:
 Attribute | Description
 --------- | -----------
 `type` <br> *string* | The widget's type <br> Accepted values are `textinput`, `select`, `datalist`, `multitextinput`, `multidatalist`, `tags`, `datetimeinput` and `geographicarea`
-`help_text` <br> *string* | Informational text describing the constraints and uses of the form object
 
 #### The `datalist` widget
 
@@ -70,12 +65,17 @@ Attribute | Description
 
 ```json
 {
-    "name": "license",
     "type": "text",
     "label": "License",
+    "help_text": "",
     "widget": {
         "type": "datalist",
         "suggest_values": [
+            "Licence Ouverte (Etalab)",
+            "Licence Ouverte v2.0 (Etalab)",
+            "Open Government Licence v3.0",
+            "Open Database License (ODbL)",
+            "Public Domain",
             "CC BY",
             "CC BY-ND",
             "CC BY-NC-ND",
@@ -93,6 +93,11 @@ Attribute | Description
 <label for="license">License</label>
 <input type="text" id="license" name="license" list="license_list">
 <datalist id="license_list">
+    <option value="Licence Ouverte (Etalab)">
+    <option value="Licence Ouverte v2.0 (Etalab)">
+    <option value="Open Government Licence v3.0">
+    <option value="Open Database License (ODbL)">
+    <option value="Public Domain">
     <option value="CC BY">
     <option value="CC BY-ND">
     <option value="CC BY-NC-ND">
@@ -118,9 +123,9 @@ Attribute | Description
 
 ```json
 {
-    "name": "created",
     "type": "date",
     "label": "Created",
+    "help_text": "",
     "widget": {
         "type": "dateinput"
     }
@@ -129,7 +134,7 @@ Attribute | Description
 > Example HTML widget
 
 ```html
-<label for="created">Last Modified</label>
+<label for="created">Created</label>
 <input id="created" type="date-local">
 ```
 
@@ -143,9 +148,9 @@ The `dateinput` widget will render as a date-local input.
 
 ```json
 {
-    "name": "last_modified",
     "type": "datetime",
-    "label": "Last Modified",
+    "label": "Modified",
+    "help_text": "",
     "widget": {
         "type": "datetimeinput"
     }
@@ -154,8 +159,8 @@ The `dateinput` widget will render as a date-local input.
 > Example HTML widget
 
 ```html
-<label for="last_modified">Last Modified</label>
-<input id="last_modified" type="datetime-local">
+<label for="modified">Modified</label>
+<input id="modified" type="datetime-local">
 ```
 
 The `datetimeinput` widget will render as a datetime-local input.
@@ -168,14 +173,24 @@ The `datetimeinput` widget will render as a datetime-local input.
 
 ```json
 {
-    "name": "theme",
     "type": "multitext",
     "label": "Theme",
+    "help_text": "",
     "widget": {
         "type": "multidatalist",
         "suggest_values": [
-            "theme1",
-            "theme2"
+            "Health",
+            "Culture, Heritage",
+            "Education, Training, Research, Teaching",
+            "Environment",
+            "Transport, Movements",
+            "Spatial planning, Town planning, Buildings, Equipment, Housing",
+            "Economy, Business, SME, Economic development, Employment",
+            "Administration, Government, Public finances, Citizenship",
+            "Justice, Safety, Police, Crime",
+            "Sports, Leisure",
+            "Accommodation, Hospitality Industry",
+            "Services, Social"
         ]
     }
 }
@@ -187,16 +202,31 @@ The `datetimeinput` widget will render as a datetime-local input.
 <input id="theme" type="text" placeholder="New theme..." list="theme_list">
 <button>Add theme</button>
 <ul>
-    <li><input type="text" value="theme2" list="theme_list"><button>remove</button></li>
-    <li><input type="text" value="theme3" list="theme_list"><button>remove</button></li>
+    <li><input type="text" value="Sports, Leisure" list="theme_list"><button>remove</button></li>
+    <li><input type="text" value="Health" list="theme_list"><button>remove</button></li>
 </ul>
 <datalist id="theme_list">
-    <option value="theme1">
-    <option value="theme2">
+    <option value="Health">
+    <option value="Culture, Heritage">
+    <option value="Education, Training, Research, Teaching">
+    <option value="Environment">
+    <option value="Transport, Movements">
+    <option value="Spatial planning, Town planning, Buildings, Equipment, Housing">
+    <option value="Economy, Business, SME, Economic development, Employment">
+    <option value="Administration, Government, Public finances, Citizenship">
+    <option value="Justice, Safety, Police, Crime">
+    <option value="Sports, Leisure">
+    <option value="Accommodation, Hospitality Industry">
+    <option value="Services, Social">
 </datalist>
 ```
 
 The `multidatalist` widget will render as multiple text inputs with an autocomplete feature, with the possibility to remove and add more inputs.
+
+Attribute | Description
+--------- | -----------
+`suggest_url` <br> *string* | The URL of a distant service providing values based on the partial text in the input (e.g. Algolia)
+`suggest_values` <br> *array of strings* | A list of default values
 
 <div class="clearfix"></div>
 
@@ -205,44 +235,44 @@ The `multidatalist` widget will render as multiple text inputs with an autocompl
 > Example object
 
 ```json
-{
-    "name": "theme",
+ {
     "type": "multitext",
-    "label": "Theme",
+    "label": "Type",
+    "help_text": "",
     "choices": [
-        "theme1",
-        "theme2",
-        "theme3"
+        "Spatial data set",
+        "Spatial data set series",
+        "Spatial data service"
     ],
     "widget": {
-        "type": "multiselect",
+        "type": "multiselect"
     }
 }
 ```
 > Example HTML widget
 
 ```html
-<label for="theme">Theme</label>
-<select id="theme">
-    <option>theme1</option>
-    <option>theme2</option>
-    <option>theme3</option>
+<label for="type">Type</label>
+<select id="type">
+    <option>Spatial data set</option>
+    <option>Spatial data set series</option>
+    <option>Spatial data service</option>
 </select>
 <button>Add theme</button>
 <ul>
     <li>
-        <select value="theme1">
-            <option>theme1</option>
-            <option>theme2</option>
-            <option>theme3</option>
+        <select value="Spatial data set series">
+            <option>Spatial data set</option>
+            <option>Spatial data set series</option>
+            <option>Spatial data service</option>
         </select>
         <button>remove</button>
     </li>
     <li>
-        <select value="theme2">
-            <option>theme1</option>
-            <option>theme2</option>
-            <option>theme3</option>
+        <select value="Spatial data set">
+            <option>Spatial data set</option>
+            <option>Spatial data set series</option>
+            <option>Spatial data service</option>
         </select>
         <button>remove</button>
     </li>
@@ -259,9 +289,9 @@ The `multiselect` widget will render as multiple selects components, with the po
 
 ```json
 {
-    "name": "theme",
     "type": "multitext",
-    "label": "Theme",
+    "label": "Attributions",
+    "help_text": "",
     "widget": {
         "type": "multitextinput"
     }
@@ -270,13 +300,13 @@ The `multiselect` widget will render as multiple selects components, with the po
 > Example HTML widget
 
 ```html
-<label for="theme">Theme</label>
-<input id="theme" type="text" placeholder="New theme...">
-<button>Add theme</button>
+<label for="attributions">Attributions</label>
+<input id="attributions" type="text" placeholder="New attribution...">
+<button>Add attribution</button>
 <ul>
-    <li><input type="text" value="theme1"><button>remove</button></li>
-    <li><input type="text" value="theme2"><button>remove</button></li>
-    <li><input type="text" value="theme3"><button>remove</button></li>
+    <li><input type="text" value="First attribution"><button>remove</button></li>
+    <li><input type="text" value="Second attribution"><button>remove</button></li>
+    <li><input type="text" value="Third attribution"><button>remove</button></li>
 </ul>
 ```
 
@@ -290,9 +320,9 @@ The `multitextinput` widget will render as multiple simple text inputs, with the
 
 ```json
 {
-    "name": "description",
     "type": "html",
     "label": "Description",
+    "help_text": "",
     "widget": {
         "type": "richtextinput"
     }
@@ -301,9 +331,9 @@ The `multitextinput` widget will render as multiple simple text inputs, with the
 > Example HTML widget
 
 ```html
-<label for="description">Description>
+<label for="description">Description</label>
 <!-- redactor is a js library that transforms a textarea into a wysiwyg editor -->
-<textarea id="description" redactor></textarea>
+<textarea id="description" redactor value="<p>Lorem ipsum dolor sit amet</p>"></textarea>
 ```
 
 The `richtextinput` message will render as a rich text editor, preferably a WYSIWYG (What You See Is What You Get) one.
@@ -316,17 +346,16 @@ The `richtextinput` message will render as a rich text editor, preferably a WYSI
 
 ```json
 {
-    "name": "license",
     "type": "text",
-    "label": "License",
+    "label": "Language",
+    "help_text": "",
     "choices": [
-        "CC BY",
-        "CC BY-ND",
-        "CC BY-NC-ND",
-        "CC BY-NC",
-        "CC BY-NC-SA",
-        "CC BY-SA",
-        "CC BY-IGO"
+        ["aa", "Afar"],
+        ["ab", "Abkhazian"],
+        ["ae", "Avestan"],
+        ["af", "Afrikaans"],
+        [...],
+        [...]
     ],
     "widget": {
         "type": "select"
@@ -336,15 +365,13 @@ The `richtextinput` message will render as a rich text editor, preferably a WYSI
 > Example HTML widget
 
 ```html
-<label for="license">License</label>
-<select id="license" name="license">
-    <option value="CC BY">CC BY</option>
-    <option value="CC BY-ND">CC BY-ND</option>
-    <option value="CC BY-NC-ND">CC BY-NC-ND</option>
-    <option value="CC BY-NC">CC BY-NC</option>
-    <option value="CC BY-NC-SA">CC BY-NC-SA</option>
-    <option value="CC BY-SA">CC BY-SA</option>
-    <option value="CC BY-IGO">CC BY-IGO</option>
+<label for="language">Language</label>
+<select id="language">
+    <option value="aa">Afar</option>
+    <option value="ab">Abkhazian</option>
+    <option value="ae">Avestan</option>
+    <option value="af">Afrikaans</option>
+    ...
 </select>
 ```
 
@@ -359,19 +386,23 @@ Options of this element must match the `choices` defined in the parent [form obj
 > Example object
 
 ```json
-    "name": "keywords",
+{
     "type": "multitext",
-    "label": "Keywords",
+    "label": "Keyword",
+    "help_text": "Hit Enter after each keyword",
     "widget": {
-        "type": "tags"
+        "type": "tags",
+        "suggest_url": "/api/management/1.0/metadata_templates/default/keyword/suggest/"
     }
+}
 ```
 > Example HTML widget
 
 ```html
-<label for="keywords">Keywords</label>
-<input type="text" id="keywords" placeholder="Type keyword">
+<label for="keyword">Keyword</label>
+<input type="text" id="keyword" placeholder="Type keyword">
 <button>Add keyword</button>
+<p>Hit enter after each keyword</p>
 <ul>
     <li>
         Keyword1 <button>remove</button>
@@ -384,6 +415,11 @@ Options of this element must match the `choices` defined in the parent [form obj
 
 The `tags` widget will render as an editable list of tags. If possible, the input area where the user enters their new tag should autocomplete with existing values to enhance consistency.
 
+Attribute | Description
+--------- | -----------
+`suggest_url` <br> *string* | The URL of a distant service providing values based on the partial text in the input (e.g. Algolia)
+`suggest_values` <br> *array of strings* | A list of default values
+
 <div class="clearfix"></div>
 
 #### The `textinput` widget
@@ -392,9 +428,9 @@ The `tags` widget will render as an editable list of tags. If possible, the inpu
 
 ```json
 {
-    "name": "license",
     "type": "text",
-    "label": "License",
+    "label": "Title",
+    "help_text": "",
     "widget": {
         "type": "textinput"
     }
@@ -404,8 +440,8 @@ The `tags` widget will render as an editable list of tags. If possible, the inpu
 > Example HTML widget
 
 ```html
-<label for="license">License</label>
-<input type="text" id="license" name="license">
+<label for="title">Title</label>
+<input type="text" id="title">
 ```
 
 The `textinput` widget will render as a simple text input.
