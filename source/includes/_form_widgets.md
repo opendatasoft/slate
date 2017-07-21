@@ -103,7 +103,7 @@ Attribute | Description
 </datalist>
 ```
 
-The `datalist` widget is to be rendered as a text input with an autocomplete feature. If the `suggest_values` attributes is set, then a simple html datalist is enough.
+The `datalist` widget will render as a text input with an autocomplete feature. If the `suggest_values` attributes is set, then a simple html datalist is enough.
 
 Attribute | Description
 --------- | -----------
@@ -133,7 +133,7 @@ Attribute | Description
 <input id="created" type="date-local">
 ```
 
-The `dateinput` widget is to be rendered as a date-local input.
+The `dateinput` widget will render as a date-local input.
 
 <div class="clearfix"></div>
 
@@ -158,7 +158,7 @@ The `dateinput` widget is to be rendered as a date-local input.
 <input id="last_modified" type="datetime-local">
 ```
 
-The `datetimeinput` widget is to be rendered as a datetime-local input.
+The `datetimeinput` widget will render as a datetime-local input.
 
 <div class="clearfix"></div>
 
@@ -196,7 +196,7 @@ The `datetimeinput` widget is to be rendered as a datetime-local input.
 </datalist>
 ```
 
-The `multidatalist` widget is to be rendered as multiple text inputs with an autocomplete feature, with the possibility to remove and add more inputs.
+The `multidatalist` widget will render as multiple text inputs with an autocomplete feature, with the possibility to remove and add more inputs.
 
 <div class="clearfix"></div>
 
@@ -249,7 +249,7 @@ The `multidatalist` widget is to be rendered as multiple text inputs with an aut
 </ul>
 ```
 
-The `multiselect` widget is to be rendered as multiple selects components, with the possibility to remove, change and add more values.
+The `multiselect` widget will render as multiple selects components, with the possibility to remove, change and add more values.
 
 <div class="clearfix"></div>
 
@@ -280,7 +280,7 @@ The `multiselect` widget is to be rendered as multiple selects components, with 
 </ul>
 ```
 
-The `multitextinput` widget is to be rendered as multiple simple text inputs, with the possibility to remove and add more inputs.
+The `multitextinput` widget will render as multiple simple text inputs, with the possibility to remove and add more inputs.
 
 <div class="clearfix"></div>
 
@@ -306,7 +306,7 @@ The `multitextinput` widget is to be rendered as multiple simple text inputs, wi
 <textarea id="description" redactor></textarea>
 ```
 
-The `richtextinput` message is to be rendered as a rich text editor, preferably a WYSIWYG (What You See Is What You Get) one.
+The `richtextinput` message will render as a rich text editor, preferably a WYSIWYG (What You See Is What You Get) one.
 
 <div class="clearfix"></div>
 
@@ -348,7 +348,7 @@ The `richtextinput` message is to be rendered as a rich text editor, preferably 
 </select>
 ```
 
-The `select` widget is to be rendered as a simple select element.
+The `select` widget will render as a simple select element.
 
 Options of this element must match the `choices` defined in the parent [form object](#the-form-object).
 
@@ -382,7 +382,7 @@ Options of this element must match the `choices` defined in the parent [form obj
 </ul>
 ```
 
-The `tags` widget is to be rendered as an editable list of tags. If possible, the input area where the user enters their new tag should autocomplete with existing values to enhance consistency.
+The `tags` widget will render as an editable list of tags. If possible, the input area where the user enters their new tag should autocomplete with existing values to enhance consistency.
 
 <div class="clearfix"></div>
 
@@ -408,6 +408,6 @@ The `tags` widget is to be rendered as an editable list of tags. If possible, th
 <input type="text" id="license" name="license">
 ```
 
-The `textinput` widget is to be rendered as a simple text input.
+The `textinput` widget will render as a simple text input.
 
 <div class="clearfix"></div>
