@@ -96,6 +96,14 @@ Status | Condition
     "published": True,
     "status": "error",
     "since": "2015-04-15T15:13:04+00:00"
+    "message": "Processor pr_XXXXXX is misconfigured for field address: invalid type",
+    "raw_message": "Processor {processor_id} is misconfigured for field {field}: {msg}",
+    "raw_params": {
+        "processor_id": "pr_XXXXXX",
+        "field": "address",
+        "msg": "invalid type"
+    }
+    
 }
 ```
 
@@ -116,11 +124,13 @@ Status | Condition
 --------- | -----------
 `queued` | The order has been received and is waiting to be realised
 
-### Attributes
+### Extra attributes
 
 Attribute | Description
 --------- | -----------
-todo | todo
+raw_message | Template for the error message, parameters are not replaced
+raw_params | Parameters values, to be injected in the raw_message
+message | English message with the replaced parameter
 
 ## The `limit_reached` dataset status
 
