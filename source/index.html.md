@@ -13,6 +13,7 @@ includes:
   - topics
   - datasets
   - dataset_status
+  - dataset_actions
   - dataset_changes
   - dataset_metadata
   - form_widgets
