@@ -92,12 +92,17 @@ Parameter | Description
 
 ```json
 {
+    "file_id": "data.csv",
     "url": "odsfile://data.csv",
-    "file_id": "data.csv"
+    "filename": "data.csv",
+    "properties": {
+        "mimetype": "text/csv"
+    },
+    "created": "2017-06-07T15:16:05.701266+00:00"
 }
 ```
 
-On success, a HTTP 200 is returned with a JSON object providing the url and the file_id of the newly uploaded file.
+On success, a HTTP 200 is returned along with the file object of the uploaded file.
 
 
 ## Download a file
@@ -176,9 +181,14 @@ Parameter | Description
 
 ```json
 {
-    "url": "odsfile://pasted_text.tsv",
-    "file_id": "pasted_text.tsv"
+    "file_id": "pastedtext.tsv",
+    "url": "odsfile://pastedtext.tsv",
+    "filename": "pastedtext.tsv",
+    "properties": {
+        "mimetype": "text/tab-separated-value"
+    },
+    "created": "2017-07-24T10:06:25.668138+00:00"
 }
 ```
 
-On success, a HTTP 200 is returned with a JSON object providing the url and the file_id of the newly created file.
+On success, a HTTP 200 is returned with the file object of the newly created file.
