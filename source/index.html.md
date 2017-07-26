@@ -12,7 +12,9 @@ includes:
   - introduction
   - topics
   - datasets
-  - changes
+  - dataset_status
+  - dataset_actions
+  - dataset_changes
   - dataset_metadata
   - dataset_security
   - form_widgets

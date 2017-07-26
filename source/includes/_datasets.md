@@ -32,9 +32,12 @@ Attribute | Description
 --------- | -----------
 `dataset_id` <br> *string*       | Human readable identifier of the dataset that can be modified when the dataset is not published
 `dataset_uid` <br> *string*      | Unique identifier of the dataset that will never change through the lifetime of the dataset
-`metas` <br> *[metadata object](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
-`last_modified` <br> *datetime*  | Date when the dataset's configuration was last edited
-`published` <br> *boolean*       | Flag indicating whether the dataset is published or not
-`default_security` <br> *object* |
-`visibility` <br> *string*       | Defines if the dataset is visible for anonymous visitors <br> Can be `domain` if visibility is the same as the domain's visibility, or `restricted` if access is restricted to allowed users and groups
-`dataset_processing_status` <br> *[dataset processing status object](#dataset-processing-status)* <br> <em class="expandable">expandable</em> | Keyword indicating if the dataset is waiting to be published, currently being published or if it encountered errors during last publishing
+`metadata` <br> *Array of [metadata objects](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
+`status` <br> *[dataset status object](#dataset-status)* <br> <em class="expandable">expandable</em> | Current status of the object
+`changes` <br> *Array of [dataset change objects](#dataset-changes)* <br> <em class="expandable">expandable</em> | List of all changes made to the current object
+-`metas` <br> *[metadata object](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
+-`last_modified` <br> *datetime*  | Date when the dataset's configuration was last edited
+-`published` <br> *boolean*       | Flag indicating whether the dataset is published or not
+-`default_security` <br> *object* |
+-`visibility` <br> *string*       | Defines if the dataset is visible for anonymous visitors <br> Can be `domain` if visibility is the same as the domain's visibility, or `restricted` if access is restricted to allowed users and groups
+-`dataset_processing_status` <br> *[dataset processing status object](#dataset-processing-status)* <br> <em class="expandable">expandable</em> | Keyword indicating if the dataset is waiting to be published, currently being published or if it encountered errors during last publishing
