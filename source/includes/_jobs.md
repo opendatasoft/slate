@@ -2,18 +2,23 @@
 
 ## The job object
 
+> Example object
+
+```json
+{}
+```
+
+These objects are returned at each call made to an [asynchronous endpoint](#asynchronous-calls). They contain all the currently available data from the asynchronous function. You may need to poll the API multiple time to get the full result.
+
 ### Attributes
 
 Attribute | Description
 --------- | -----------
-`job_id` <br> *string* | Unique identifier for the object
-`domain_id` <br> *string* | Unique identifier of the domain linked to the object
-`dataset_uid` <br> *string* | Unique identifier of the dataset linked to the object
-`user_id` <br> *string* | Unique identifier of the user who created the object
+`job_uid` <br> *string* | Unique identifier for the object
 `function` <br> *string* | Name of the function the job is running
 `params` <br> *object* | Parameters passed to the job's function
 `state` <br> *string* | Current state of the job. <br> Possible values are `started`, `running`, `done`, `error`, `waiting`
-`progresses` <br> *array* | TODO
+`progresses` <br> *array* |
 `result` <br> *object* | The job's function's response, available if `state` is `done`
 
 ## List all jobs
@@ -24,7 +29,7 @@ Attribute | Description
 GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/jobs/
 ```
 
-Returns a list of your jobs.
+Returns a list of the jobs you triggered.
 
 ### Parameters
 
@@ -57,7 +62,7 @@ List of [job objects](#the-job-object).
 GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/jobs/{JOB_ID}/
 ```
 
-Retrieves the job with the given ID.
+Retrieves the job with the given identifier.
 
 
 ### Parameters
@@ -71,14 +76,12 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/jobs/jo_ZEXxzA/ \
 
 Parameter | Description
 --------- | -----------
-job_id <br> *string* | **required** ID of the job to retrieve
+job_id <br> *string* | Identifier of the job to retrieve
 
 > Example response
 
 ```json
-{
-
-}
+{}
 ```
 
 ### Returns

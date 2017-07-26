@@ -1,12 +1,10 @@
 # Form widgets
 
-A few endpoints in the API return definitions along their objects in order to help you build correct requests. These definitions are specifications your objects must conform to in order to be accepted by the API.
+A few endpoints in the API return definitions along with their objects in order to help you build correct requests. These definitions are specifications your objects must conform to in order to be accepted by the API.
 
 Some of these API will contain a `widget` attribute that contains all you need to generate an HTML input that will match the object's structure.
 
 ## The form object
-
-### Attributes
 
 > Example object
 
@@ -28,6 +26,11 @@ Some of these API will contain a `widget` attribute that contains all you need t
     }
 }
 ```
+
+
+An object describing exactly the type of data the related object can accept and providing the expected representation in a form.
+
+### Attributes
 
 Attribute | Description
 --------- | -----------
@@ -223,10 +226,11 @@ The `datetimeinput` widget will render as a datetime-local input.
 
 The `multidatalist` widget will render as multiple text inputs with an autocomplete feature, with the possibility to remove and add more inputs.
 
-Attribute | Description
---------- | -----------
-`suggest_url` <br> *string* | The URL of a distant service providing values based on the partial text in the input (e.g. Algolia)
-`suggest_values` <br> *array of strings* | A list of default values
+### Attributes
+
+Common attributes only.
+
+## The `datalist` widget
 
 <div class="clearfix"></div>
 
