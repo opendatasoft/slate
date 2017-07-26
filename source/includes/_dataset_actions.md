@@ -1,6 +1,10 @@
 # Dataset actions
 
-A state of a dataset can be changed by triggering actions. An action can make the dataset available through the search API or remove it from the search API.
+The state of a dataset can be changed by triggering actions. An action can make the dataset available through the search API or remove it from the search API. Available actions are:
+- publish a dataset
+- unpublish a dataset
+- abort a processing
+- save a new version
 
 
 ## Publish a dataset
@@ -27,9 +31,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/pu
 }
 ```
 
-Publishes a dataset.
-
-This is an asynchronous call since the it may entail processing all records from the sources of the dataset.
+Make the dataset modifications available through the search API. It may entail the processing of all the records.
 
 ### Parameters
 
@@ -64,9 +66,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/un
 }
 ```
 
-Unpublishes a dataset.
-
-This will delete all currently indexed records for the dataset and make the dataset disappear from the explore catalog. Unpublishing a dataset does not delete the dataset, it merely acts on the exposed part of the data.
+Remove the dataset from the serach API. Unpublishing a dataset does not delete the dataset.
 
 
 ### Parameters
@@ -102,9 +102,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/ab
 }
 ```
 
-Abort a dataset processing
-
-It will stopped the current processing job and let the processed records available in the search API.
+Stop the current processing job and keep the processed records available in the search API.
 
 
 ### Parameters
@@ -139,9 +137,8 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/sa
 }
 ```
 
-Save a dataset version
 
-It will create a version from the current data of the dataset.
+Create a new version from the current data of the dataset.
 
 ### Parameters
 

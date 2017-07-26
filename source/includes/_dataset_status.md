@@ -2,11 +2,11 @@
 
 ## The dataset status object
 
-A dataset status describe the current state of a dataset, if it's published or not and the running operation. It is a finite state machine, with the following properties:
+The dataset status describes the current state of a dataset, stating if it's published or not and the running operation. It is a finite state machine, with the following properties:
 
-* It is in a single state at a time
-* The list of possible states is fully known
-* The list of all transitions is fully known, each with the actions and conditions that can trigger them
+* a single state at a time
+* the list of possible states, fully known
+* the list of all transitions, fully known, each with the actions and conditions that can trigger them
 
 Here is the full state machine description. 
 
@@ -18,7 +18,7 @@ Attribute | Description
 --------- | -----------
 `published` <br> *boolean*       | True if the dataset is available in the search API.
 `status` <br> *string*      | One of the dataset status values
-`since` <br> *datetime* | Timestamp writed the dataset entered in the current status
+`since` <br> *datetime* | Timestamp when the dataset entered in the current status
 `user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action
 
 ## Retrieve the current dataset status
@@ -66,7 +66,7 @@ The dataset status object that applies to the given dataset. See [Dataset status
 }
 ```
 
-The *idle* status means that the dataset does not performed a specific action. It can be published or not but no job is running. A newly created dataset is in that status.
+The *idle* status means that the dataset is not currently involved in an action. It can be published or not but no job is running. A newly created dataset is in that status.
 
 ### Attributes
 
@@ -124,7 +124,7 @@ Status | Condition
 --------- | -----------
 `processing` | Processing ended with an error
 `deleting` | Deleting ended with an error
-`saving_version` | Version save failed
+`saving_version` | Version saving failed
 
 ### Transitions leaving the status
 
@@ -144,7 +144,7 @@ Status | Condition
 }
 ```
 
-The *limit_reached* status means that the dataset stop adding records because it reached the maximum of authorized records in the license.
+The *limit_reached* status means that the dataset stop processing records because it reached the maximum of authorized records in the license.
 
 ### Attributes
 
@@ -192,7 +192,7 @@ No specific attribute
 }
 ```
 
-The *processing* status means that dataset's metadata or data (with the extraction, transformation ...) are made available to the search API.
+The *processing* status means that dataset's metadata or data (with the extraction, transformation ...) are being made available to the search API.
 
 ### Transitions leading to the status
 
@@ -222,7 +222,7 @@ Status | Condition
 }
 ```
 
-The *deleting* status means that the dataset's metadata and data are made unavailable from the search API.
+The *deleting* status means that the dataset's metadata and data are being removed from the search API.
 
 ### Attributes
 
@@ -287,7 +287,7 @@ Status | Condition
 }
 ```
 
-The *aborting_processing* status means that the order to stop the processing has been received and the processing will stopped shortly
+The *aborting_processing* status means that the order to stop the processing has been received and the processing will stopp shortly
 
 ### Attributes
 
