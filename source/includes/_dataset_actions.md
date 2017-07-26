@@ -66,7 +66,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/un
 }
 ```
 
-Remove the dataset from the serach API. Unpublishing a dataset does not delete the dataset.
+Remove the dataset from the search API. Unpublishing a dataset does not delete the dataset.
 
 
 ### Parameters

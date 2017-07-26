@@ -16,7 +16,7 @@ Here is the full state machine description.
 
 Attribute | Description
 --------- | -----------
-`published` <br> *boolean*       | True if the dataset is available in the search API.
+`published` <br> *boolean*       | True if the dataset is available in the search API
 `status` <br> *string*      | One of the dataset status values
 `since` <br> *datetime* | Timestamp when the dataset entered in the current status
 `user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action
@@ -96,7 +96,7 @@ Transition destination status | Transition condition
 {
     "published": True,
     "status": "error",
-    "since": "2015-04-15T15:13:04+00:00"
+    "since": "2015-04-15T15:13:04+00:00",
     "message": "Processor pr_XXXXXX is misconfigured for field address: invalid type",
     "raw_message": "Processor {processor_id} is misconfigured for field {field}: {msg}",
     "raw_params": {
@@ -144,7 +144,7 @@ Status | Condition
 }
 ```
 
-The *limit_reached* status means that the dataset stop processing records because it reached the maximum of authorized records in the license.
+The *limit_reached* status means that the dataset stopped processing records because it reached the maximum of authorized records in the license.
 
 ### Attributes
 
@@ -174,7 +174,7 @@ Status | Condition
 }
 ```
 
-The *queue* status means that the action has been received and is waiting to be performed.
+The *queued* status means that the action has been received and is waiting to be performed.
 
 ### Attributes
 
@@ -287,7 +287,7 @@ Status | Condition
 }
 ```
 
-The *aborting_processing* status means that the order to stop the processing has been received and the processing will stopp shortly
+The *aborting_processing* status means that the order to stop the processing has been received and the processing will stop shortly
 
 ### Attributes
 
