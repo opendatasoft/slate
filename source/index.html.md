@@ -16,8 +16,10 @@ includes:
   - dataset_actions
   - dataset_changes
   - dataset_metadata
+  - dataset_security
   - form_widgets
   - jobs
+  - misc
 
 search: true
 ---

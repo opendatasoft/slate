@@ -338,6 +338,10 @@ html, body {
   position: relative;
   z-index: 30;
 
+  .clearfix {
+    clear: both;
+  }
+
   &:after {
     content: '';
     display: block;

@@ -4,7 +4,7 @@ The changes of a dataset describe subsequent changes of states that affected the
 
 ## The change object
 
-> Example change object
+> Example object
 
 ```json
 {
@@ -53,22 +53,13 @@ Attribute | Description
 
 ## List all changes
 
-This endpoint lists all changes made to a dataset.
-
 > Definition
 
 ```HTTP
 GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/changes/
 ```
 
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-dataset_uid <br> *string* | identifier of the dataset whose changes are to be listed
-
-Returns a list of changes for this datasets.
+> Example request
 
 ```shell
 curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/changed_dataset/changes/ \
@@ -79,7 +70,6 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/changed_data
 
 ```json
 [
-    {...},
     {
         "change_uid": 126,
         "dataset": {
@@ -104,23 +94,30 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/changed_data
             "security"
         ]
     },
+    {...},
     {...}
 ]
 ```
 
-## Restore a change
+This endpoint lists all changes made to a dataset.
 
-This endpoint is used to restore a dataset to the state it was before the selected change happened. Restoring a change will not erase the change history, but rather create a new change encapsulating the restoration.
+### Parameters
+
+Parameter | Description
+--------- | -----------
+dataset_uid <br> *string* | Identifier of the dataset whose changes are to be listed
+
+### Returns
+
+Returns a list of changes for this datasets.
+
+## Restore a change
 
 > Definition
 
 ```HTTP
 PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/restore_change/
 ```
-
-Restore a dataset to the state it was in before the change (undoing the change).
-
-### Parameters
 
 > Example request
 
@@ -129,16 +126,21 @@ curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/restore_change/
     -u username:password -d '{ "change_uid": 126 }'
 ```
 
-Parameter | Description
---------- | -----------
-`dataset_uid` <br> *string* | Identifier of the dataset to restore to a previous change
-`change_uid` <br> *string* | Identifier of the change to restore. This parameter must be sent in the json format, inside a json object
-
-### Response
 > Example response
 
 ```http
 HTTP/2 200
 ```
+
+Restores a dataset to the state it was before the selected change happened. Restoring a change will not erase the change history, but rather create a new change encapsulating the restoration.
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+`dataset_uid` <br> *string* | Identifier of the dataset to restore to a previous change
+`change_uid` <br> *string* | Identifier of the change to restore. This parameter must be sent in the json format, inside a json object
+
+### Returns
 
 On success, a HTTP 200 is returned.

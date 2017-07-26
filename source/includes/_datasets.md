@@ -15,9 +15,15 @@ Through the management API, it is possible to:
 
 ## The dataset object
 
+> Example object
+
+```json
+{}
+```
+
 Datasets are identified by 2 kinds of identifiers:
 
-- the `dataset_uid` that is automatically set, and will never change through the dataset's lifetime
+- the `dataset_uid` that is automatically set, and will never change through the lifetime of the dataset.
 - the `dataset_id`, that can be chosen during dataset creation or changed on an unpublished dataset
 
 ### Attributes
@@ -25,7 +31,7 @@ Datasets are identified by 2 kinds of identifiers:
 Attribute | Description
 --------- | -----------
 `dataset_id` <br> *string*       | Human readable identifier of the dataset that can be modified when the dataset is not published
-`dataset_uid` <br> *string*      | Unique identifier of the dataset that will never change through the dataset's lifetime
+`dataset_uid` <br> *string*      | Unique identifier of the dataset that will never change through the lifetime of the dataset
 `metadata` <br> *Array of [metadata objects](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
 `status` <br> *[dataset status object](#dataset-status)* <br> <em class="expandable">expandable</em> | Current status of the object
 `changes` <br> *Array of [dataset change objects](#dataset-changes)* <br> <em class="expandable">expandable</em> | List of all changes made to the current object
