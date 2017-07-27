@@ -141,4 +141,4 @@ Parameter | Description
 HTTP/2 200
 ```
 
-On success, a HTTP 200 is returned.
+On success, an HTTP 200 is returned.

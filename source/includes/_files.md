@@ -9,7 +9,7 @@ On the OpenDataSoft platform, files can be used as data source to create new dat
 ```json
 {
     "file_id": "cheese_data.csv",
-    "uri": "odsfile://cheese_data.csv",
+    "url": "odsfile://cheese_data.csv",
     "filename": "Cheese Data.csv",
     "properties": {
         "mimetype": "text/csv"
@@ -31,7 +31,7 @@ The file object contains:
 Attribute | Description
 --------- | -----------
 `file_id` <br> *string* | Unique identifier for the file
-`url` <br> *string* | Generated URL for use withing the platform
+`url` <br> *string* | Generated URL for use within the platform
 `filename` <br> *string* | Human readable name of the file
 `properties` <br> *object* | Set of file properties, such as its mimetype
 `created` <br> *string* | Time at which the change was made
@@ -53,7 +53,7 @@ GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
     {...},
     {
         "file_id": "cheese_data.csv",
-        "uri": "odsfile://cheese_data.csv",
+        "url": "odsfile://cheese_data.csv",
         "filename": "Cheese Data.csv",
         "properties": {
             "mimetype": "text/csv"
@@ -66,15 +66,13 @@ GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
 
 ## Upload a file
 
-This endpoint is for sending a new file to the platform.
+This endpoint is for uploading a new file to the platform.
 
 > Definition
 
 ```HTTP
 POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
 ```
-
-Uploads a file to the platform.
 
 > Example request
 
@@ -102,20 +100,18 @@ Parameter | Description
 }
 ```
 
-On success, a HTTP 200 is returned along with the file object of the uploaded file.
+On success, an HTTP 200 is returned along with the file object of the uploaded file.
 
 
 ## Download a file
 
-This endpoint is for downloading a file from the platform.
+This endpoint is for downloading a file with the provided file_id from the platform.
 
 > Definition
 
 ```HTTP
 GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/
 ```
-
-Downloads the file with the provided file_id from the platform.
 
 ### Parameters
 
@@ -146,7 +142,7 @@ Citroën,red
 Peugeot,white
 ```
 
-On success, a HTTP 200 is returned with the file as an attachment.
+On success, an HTTP 200 is returned with the file as an attachment.
 
 
 ## Create a new file from text
@@ -191,4 +187,4 @@ Parameter | Description
 }
 ```
 
-On success, a HTTP 200 is returned with the file object of the newly created file.
+On success, an HTTP 200 is returned with the file object of the newly created file.
