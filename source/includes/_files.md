@@ -64,6 +64,37 @@ GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
 ]
 ```
 
+## List one file
+
+This endpoints lists the file with provided file_id.
+
+> Definition
+
+```HTTP
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/
+```
+
+> Example request
+
+```shell
+curl 'https://yourdomain.opendatasoft.com/api/management/v2/files/cheese_data.csv'
+```
+
+> Example response
+
+```json
+{
+    "file_id": "cheese_data.csv",
+    "url": "odsfile://cheese_data.csv",
+    "filename": "Cheese Data.csv",
+    "properties": {
+        "mimetype": "text/csv"
+    },
+    "created": "2017-06-07T15:16:05.701266+00:00"
+}
+```
+
+
 ## Upload a file
 
 This endpoint is for uploading a new file to the platform.
@@ -74,15 +105,38 @@ This endpoint is for uploading a new file to the platform.
 POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
 ```
 
-> Example request
+This endpoint can receive a file sent in multipart, or file content sent through the content POST parameter, along with an optional mimetype and filename.
+
+### Multipart file upload
+
+> Example multipart request
 
 ```shell
-curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files/' -F file=@data.csv
+curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files/' \
+    -F file=@data.csv
+```
+
+
+Parameter | Description
+--------- | -----------
+`file` <br> *file* | Multipart file to upload
+
+### POST content upload
+
+> Example multipart request
+
+```shell
+curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files/' \
+    -d 'content=language,phrase\nEnglish,Hello World\Esperanto,Saluton mondo\n' \
+    -d 'mimetype=text/csv' \
+    -d 'filename=data.csv'
 ```
 
 Parameter | Description
 --------- | -----------
-`file` <br> *file* | The file to upload
+`content` <br> *string* | Content of the file to create
+`mimetype` <br> *string* | **optional** Mimetype of the file. Defaults to `text/tab-separated-value`
+`filename` <br> *string* | **optional** Name of the file. Defaults to `file`
 
 
 ### Response
@@ -110,7 +164,7 @@ This endpoint is for downloading a file with the provided file_id from the platf
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/download/
 ```
 
 ### Parameters
@@ -118,7 +172,7 @@ GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/
 > Example request
 
 ```shell
-curl 'https://yourdomain.opendatasoft.com/api/management/v2/files/data.csv'
+curl 'https://yourdomain.opendatasoft.com/api/management/v2/files/data.csv/download/'
 ```
 
 
@@ -143,48 +197,3 @@ Peugeot,white
 ```
 
 On success, an HTTP 200 is returned with the file as an attachment.
-
-
-## Create a new file from text
-
-Sometimes, it can be helpful to create a new data source from text rather than an actual file, for instance when the data comes from the output of a script. The PastedText API endpoint is for uploading and creating a file from textual input.
-
-
-> Definition
-
-```HTTP
-POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/pasted_text/
-```
-
-Create a new file from textual data passed in the request body.
-
-
-### Parameters
-
-> Example request
-
-```shell
-curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/files/pasted_text/ \
-    -u username:password -d 'language,phrase\nEnglish,Hello World\Esperanto,Saluton mondo\n'
-```
-
-Parameter | Description
---------- | -----------
-`body` <br> *string* | The text to create a new file from, passed in the request body
-
-### Response
-> Example response
-
-```json
-{
-    "file_id": "pastedtext.tsv",
-    "url": "odsfile://pastedtext.tsv",
-    "filename": "pastedtext.tsv",
-    "properties": {
-        "mimetype": "text/tab-separated-value"
-    },
-    "created": "2017-07-24T10:06:25.668138+00:00"
-}
-```
-
-On success, an HTTP 200 is returned with the file object of the newly created file.
