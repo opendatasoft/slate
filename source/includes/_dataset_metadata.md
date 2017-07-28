@@ -15,7 +15,11 @@ This object stores both the definition and the value of a given metadata.
 ```json
 {
     "name": "title",
-    "template": "default",
+    "template": {
+        "name": "default",
+        "title": "Default metadata",
+        "type:": "basic"
+    },
     "definition": {},
     "value": "My agenda",
     "remote_value": "agendav2",
@@ -26,13 +30,43 @@ This object stores both the definition and the value of a given metadata.
 Attribute | Description
 --------- | -----------
 `name` <br> *string* | Identifier for the object (inherited from the [definition](#the-metadata-definition-object)'s name)
-`template` <br> *string* | Identifier for the group of metadata
+`template` <br> *[metadate template object](#the-metadata-template-object)* | Group of the current object
 `definition` <br> *[form object](#the-form-object)* <br> <em class="expandable">expandable</em> | The definition of the metadata type and widget
 `value` | The object's value (may not be the indexed value, see below)
 `remote_value` | The remote object's metadata value (see below)
 `override_remote_value` <br> *boolean* | Flag indicating whether the indexed value is `value` or `remote_value`
 
 In the case of federated and harvested datasets, metadata values are automatically collected from the remote source, showing up in the object as `remote_value`. You can however override this value with your own, specifying it in `value` and setting the `override_remote_value` flag to `True`. This flag determines which value will show up in the explore API output.
+
+## The metadata template object
+
+> Example object
+
+```json
+{
+    "name": "default",
+    "title": "Default metadata",
+    "type:": "basic"
+}
+```
+
+This object describes a category of metadata, a group. It has a type property, which describes the purpose of the object, with the following meaning.
+
+### Types
+
+Type | Description
+---- | -----------
+`basic` | Standard metadata values, their purpose is to describe the dataset to the end user.
+`interop` | Sets of metadata values following an explicit norm for interoperability purposes.<br> Examples of such norms: DCAT, INSPIRE.
+`admin` | Metadata values only meant for data publisher. These values will never show up in the explore APIs and are only visible in this management API by people having the permission to edit the dataset.
+
+### Attributes
+
+Attribute | Description
+--------- | -----------
+`name` <br> *string* | Identifier for the object
+`title` <br> *string* | Plain text label of the object
+`type` <br> *string* | Purpose of the object. <br> Possible values are `basic`, `interop` and `admin`
 
 ## List all metadata
 
@@ -65,7 +99,11 @@ The full list of [metadata objects](#the-metadata-object).
 [
     {
         "name": "title",
-        "template": "default",
+        "template": {
+            "name": "default",
+            "title": "Default metadata",
+            "type:": "basic"
+        },
         "definition": {},
         "value": "My agenda",
         "remote_value": "agendav2",
@@ -107,7 +145,11 @@ A [metadata object](#the-metadata-object).
 ```json
 {
     "name": "title",
-    "template": "default",
+    "template": {
+        "name": "default",
+        "title": "Default metadata",
+        "type:": "basic"
+    },
     "definition": {},
     "value": "My agenda",
     "remote_value": "agendav2",
@@ -137,7 +179,11 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/me
 ```json
 {
     "name": "title",
-    "template": "default",
+    "template": {
+        "name": "default",
+        "title": "Default metadata",
+        "type:": "basic"
+    },
     "definition": {},
     "value": "The best agenda",
     "remote_value": "agendav2",
@@ -190,7 +236,11 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/me
 ```json
 {
     "name": "title",
-    "template": "default",
+    "template": {
+        "name": "default",
+        "title": "Default metadata",
+        "type:": "basic"
+    },
     "definition": {},
     "value": null,
     "remote_value": "agendav2",
