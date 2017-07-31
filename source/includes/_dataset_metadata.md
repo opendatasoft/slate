@@ -17,7 +17,7 @@ This object stores both the definition and the value of a given metadata.
     "name": "title",
     "template": {
         "name": "default",
-        "title": "Default metadata",
+        "label": "Default metadata",
         "type:": "basic"
     },
     "definition": {},
@@ -45,7 +45,7 @@ In the case of federated and harvested datasets, metadata values are automatical
 ```json
 {
     "name": "default",
-    "title": "Default metadata",
+    "label": "Default metadata",
     "type:": "basic"
 }
 ```
@@ -65,7 +65,7 @@ Type | Description
 Attribute | Description
 --------- | -----------
 `name` <br> *string* | Identifier for the object
-`title` <br> *string* | Plain text label of the object
+`label` <br> *string* | Plain text label of the object
 `type` <br> *string* | Purpose of the object. <br> Possible values are `basic`, `interop` and `admin`
 
 ## List all metadata
@@ -101,7 +101,7 @@ The full list of [metadata objects](#the-metadata-object).
         "name": "title",
         "template": {
             "name": "default",
-            "title": "Default metadata",
+            "label": "Default metadata",
             "type:": "basic"
         },
         "definition": {},
@@ -147,7 +147,7 @@ A [metadata object](#the-metadata-object).
     "name": "title",
     "template": {
         "name": "default",
-        "title": "Default metadata",
+        "label": "Default metadata",
         "type:": "basic"
     },
     "definition": {},
@@ -181,7 +181,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/me
     "name": "title",
     "template": {
         "name": "default",
-        "title": "Default metadata",
+        "label": "Default metadata",
         "type:": "basic"
     },
     "definition": {},
@@ -238,7 +238,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/me
     "name": "title",
     "template": {
         "name": "default",
-        "title": "Default metadata",
+        "label": "Default metadata",
         "type:": "basic"
     },
     "definition": {},
