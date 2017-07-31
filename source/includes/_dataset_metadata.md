@@ -18,7 +18,7 @@ This object stores both the definition and the value of a given metadata.
     "template": {
         "name": "default",
         "label": "Default metadata",
-        "type:": "basic"
+        "purpose": "general"
     },
     "definition": {},
     "value": "My agenda",
@@ -46,17 +46,17 @@ In the case of federated and harvested datasets, metadata values are automatical
 {
     "name": "default",
     "label": "Default metadata",
-    "type:": "basic"
+    "purpose": "general"
 }
 ```
 
-This object describes a category of metadata, a group. It has a type property, which describes the purpose of the object, with the following meaning.
+This object describes a category of metadata, a group. It has a purpose property with the following meaning.
 
-### Types
+### Purposes
 
 Type | Description
 ---- | -----------
-`basic` | Standard metadata values, their purpose is to describe the dataset to the end user.
+`general` | Standard metadata values, their purpose is to describe the dataset to the end user.
 `interop` | Sets of metadata values following an explicit norm for interoperability purposes.<br> Examples of such norms: DCAT, INSPIRE.
 `admin` | Metadata values only meant for data publisher. These values will never show up in the explore APIs and are only visible in this management API by people having the permission to edit the dataset.
 
@@ -66,7 +66,7 @@ Attribute | Description
 --------- | -----------
 `name` <br> *string* | Identifier for the object
 `label` <br> *string* | Plain text label of the object
-`type` <br> *string* | Purpose of the object. <br> Possible values are `basic`, `interop` and `admin`
+`purpose` <br> *string* | Purpose of the object. <br> Possible values are `general`, `interop` and `admin`
 
 ## List all metadata
 
@@ -102,7 +102,7 @@ The full list of [metadata objects](#the-metadata-object).
         "template": {
             "name": "default",
             "label": "Default metadata",
-            "type:": "basic"
+            "purpose": "general"
         },
         "definition": {},
         "value": "My agenda",
@@ -148,7 +148,7 @@ A [metadata object](#the-metadata-object).
     "template": {
         "name": "default",
         "label": "Default metadata",
-        "type:": "basic"
+        "purpose": "general"
     },
     "definition": {},
     "value": "My agenda",
@@ -182,7 +182,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/me
     "template": {
         "name": "default",
         "label": "Default metadata",
-        "type:": "basic"
+        "purpose": "general"
     },
     "definition": {},
     "value": "The best agenda",
@@ -239,7 +239,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/me
     "template": {
         "name": "default",
         "label": "Default metadata",
-        "type:": "basic"
+        "purpose": "general"
     },
     "definition": {},
     "value": null,
