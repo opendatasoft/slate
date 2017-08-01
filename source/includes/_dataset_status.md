@@ -16,8 +16,8 @@ Here is the full state machine description.
 
 Attribute | Description
 --------- | -----------
-`published` <br> *boolean*       | True if the dataset is available in the search API
-`status` <br> *string*      | One of the dataset status values
+`published` <br> *boolean* | True if the dataset is available in the search API
+`status` <br> *string* | One of the dataset status values
 `since` <br> *datetime* | Timestamp when the dataset entered in the current status
 `user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action
 
@@ -38,7 +38,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/st
 
 ```json
 {
-    "published": True,
+    "published": False,
     "status": "processing",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -56,13 +56,49 @@ The dataset status object that applies to the given dataset. See [Dataset status
 
 ## The `idle` dataset status
 
+> Example request
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/status?expand=records_errors \
+    -u username:password
+```
+
 > Example object
 
 ```json
 {
     "published": True,
     "status": "idle",
-    "since": "2015-04-15T15:13:04+00:00"
+    "since": "2015-04-15T15:13:04+00:00",
+    "records_errors": [
+        {
+            "record_id" : "442cdf84ec84de2474dfba9422b045c064c36f05",
+            "processor_uid": "pr_XXXXXX",
+            "field_uid": "column_1",
+            "message": "Cannot convert \"a\" to \"int\"",
+            "raw_message": "Cannot convert \"{value}\" to \"{type}\"",
+            "raw_params": {
+                "value": "a",
+                "type": "int"
+            }
+        }
+    ]
+}
+```
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/status \
+    -u username:password
+```
+
+> Example object
+
+```json
+{
+    "published": True,
+    "status": "idle",
+    "since": "2015-04-15T15:13:04+00:00",
+    "records_errors": 45
 }
 ```
 
@@ -70,7 +106,9 @@ The *idle* status means that the dataset is not currently involved in an action.
 
 ### Attributes
 
-No specific attribute
+Attribute | Description
+--------- | -----------
+records_errors <br> *[records errrors object](#records_errors)* <br> <em class="expandable">expandable</em> | Errors which occurred during the processing. Can be from a processor, or a type conversion. This attribute is present only if the dataset is published.
 
 ### Transitions leading to the status
 
