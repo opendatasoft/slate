@@ -31,7 +31,7 @@ The file object contains:
 Attribute | Description
 --------- | -----------
 `file_id` <br> *string* | Unique identifier for the file
-`url` <br> *string* | Generated URL for use within the platform
+`url` <br> *string* | Generated internal URL, using the `odsfile` scheme
 `filename` <br> *string* | Human readable name of the file
 `properties` <br> *object* | Set of file properties, such as its mimetype
 `created` <br> *string* | Time at which the file was created
