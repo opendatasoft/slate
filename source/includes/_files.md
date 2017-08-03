@@ -172,7 +172,7 @@ This endpoint is for downloading a file with the provided file_id from the platf
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/download/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/download_file/{FILE_ID}
 ```
 
 ### Parameters
@@ -180,7 +180,7 @@ GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/downl
 > Example request
 
 ```shell
-curl 'https://yourdomain.opendatasoft.com/api/management/v2/files/data.csv/download/'
+curl 'https://yourdomain.opendatasoft.com/api/management/v2/files/download_file/data.csv'
 ```
 
 
