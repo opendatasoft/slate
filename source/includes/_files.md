@@ -1,6 +1,6 @@
 # Files
 
-On the OpenDataSoft platform, files can be used as data source to create new datasets.
+On the OpenDataSoft platform, files can be used as data source to create new datasets, and as dataset attachments, to add extra informations to datasets.
 
 ## The file object
 
@@ -34,11 +34,11 @@ Attribute | Description
 `url` <br> *string* | Generated URL for use within the platform
 `filename` <br> *string* | Human readable name of the file
 `properties` <br> *object* | Set of file properties, such as its mimetype
-`created` <br> *string* | Time at which the change was made
+`created` <br> *string* | Time at which the file was created
 
 ## List all files
 
-This endpoint lists all files available to the user who performs the request.
+This endpoint lists all files available to the user who performs the request. A file is available to the requesting user if either the user uploaded the file themselves, or if the user has sufficient permissions to edit a dataset where the file is used, or if the user is a domain administrator who has sufficient permissions to edit all datasets of the domain.
 
 > Definition
 
@@ -66,7 +66,7 @@ GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
 
 ## List one file
 
-This endpoints lists the file with provided file_id.
+This endpoints is for retrieving the file object with provided file_id.
 
 > Definition
 
@@ -105,9 +105,20 @@ This endpoint is for uploading a new file to the platform.
 POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
 ```
 
-This endpoint can receive a file sent in multipart, or file content sent through the content POST parameter, along with an optional mimetype and filename.
+This endpoint can receive a file sent in multipart, or file content sent through the content POST parameter, along with a mimetype and an optional filename.
 
 ### Multipart file upload
+
+The multipart file upload is an easy way to send a file with a HTML form. To do so, an example upload form is shown. Note that the name of the parameter is `file`.
+
+> Example HTML file upload form
+
+```html
+<form action="https://yourdomain.opendatasoft.com/api/management/v2/files/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit">
+</form>
+```
 
 > Example multipart request
 
@@ -116,26 +127,23 @@ curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files/' \
     -F file=@data.csv
 ```
 
-
 Parameter | Description
 --------- | -----------
-`file` <br> *file* | Multipart file to upload
+`file` <br> **POST parameter** <br> *file* | Multipart file to upload. This is a POST parameter
 
 ### POST content upload
 
-> Example multipart request
+> Example POST content request
 
 ```shell
 curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files/' \
-    -d 'content=language,phrase\nEnglish,Hello World\Esperanto,Saluton mondo\n' \
-    -d 'mimetype=text/csv' \
-    -d 'filename=data.csv'
+    -d '{"content": "language,phrase\nEnglish,Hello World\Esperanto,Saluton mondo\n", "mimetype": "text/csv", "filename": "data.csv"}
 ```
 
 Parameter | Description
 --------- | -----------
 `content` <br> *string* | Content of the file to create
-`mimetype` <br> *string* | **optional** Mimetype of the file. Defaults to `text/tab-separated-value`
+`mimetype` <br> *string* | Mimetype of the file
 `filename` <br> *string* | **optional** Name of the file. Defaults to `file`
 
 
