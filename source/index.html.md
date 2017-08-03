@@ -13,10 +13,14 @@ includes:
   - topics
   - files
   - datasets
-  - changes
+  - dataset_status
+  - dataset_actions
+  - dataset_changes
   - dataset_metadata
+  - dataset_security
   - form_widgets
   - jobs
+  - misc
 
 search: true
 ---
