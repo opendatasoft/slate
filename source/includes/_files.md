@@ -66,7 +66,7 @@ GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
 
 ## List one file
 
-This endpoints is for retrieving the file object with provided file_id.
+This endpoint is for retrieving the file object with provided file_id.
 
 > Definition
 
