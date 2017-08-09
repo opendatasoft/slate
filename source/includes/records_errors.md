@@ -2,9 +2,9 @@
 
 ## The record error object
 
-The record error describes errors which occured during the processing. An error comes from:
+The record error describes errors which occurred during the processing. An error comes from:
 
-* a processor: when a value is valid or an operation failed
+* a processor: when a value is invalid or an operation failed
 * a type conversion: when a value cannot be converted. For example the string "s" converted to an integer.
 
 
@@ -12,9 +12,9 @@ The record error describes errors which occured during the processing. An error 
 
 Attribute | Description
 --------- | -----------
-`record_id` <br> *string* | Id of the record after processing
-`processor_uid` <br> *string* | Uid of the processor who generates the error
-`field_uid` <br> *string* | Uid of the field involved in the error
+`record_id` <br> *string* | Identifier of the record after processing
+`processor_uid` <br> *string* | Unique identifier of the processor which generates the error
+`field_uid` <br> *string* | Unique identifier of the field involved in the error
 `raw_message` <br> *string* | Message with parameters template
 `raw_params` <br> *[params object](#params-object)* | Json object with parameters templates values
 `message` <br> *string* | Message with replaced parameters
@@ -56,7 +56,7 @@ No parameters
 
 ### Returns
 
-The list of records errors object that applies to the given dataset. See [records errrors object](#records_errors) for specific attributes and the list of objects.
+The list of record error objects that apply to the given dataset. See [record error object](#records_errors) for specific attributes and the list of objects.
 
 ## Params object
 

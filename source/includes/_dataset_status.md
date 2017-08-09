@@ -16,7 +16,7 @@ Here is the full state machine description.
 
 Attribute | Description
 --------- | -----------
-`published` <br> *boolean* | True if the dataset is available in the search API
+`published` <br> *boolean* | true if the dataset is available in the search API
 `status` <br> *string* | One of the dataset status values
 `since` <br> *datetime* | Timestamp when the dataset entered in the current status
 `user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action
@@ -38,7 +38,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/st
 
 ```json
 {
-    "published": False,
+    "published": false,
     "status": "processing",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -67,7 +67,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/st
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "idle",
     "since": "2015-04-15T15:13:04+00:00",
     "records_errors": [
@@ -95,7 +95,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/st
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "idle",
     "since": "2015-04-15T15:13:04+00:00",
     "records_errors": 45
@@ -132,7 +132,7 @@ Transition destination status | Transition condition
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "error",
     "since": "2015-04-15T15:13:04+00:00",
     "message": "Processor pr_XXXXXX is misconfigured for field address: invalid type",
@@ -176,7 +176,7 @@ Status | Condition
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "limit_reached",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -206,7 +206,7 @@ Status | Condition
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "queued",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -224,7 +224,7 @@ No specific attribute
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "processsing",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -254,7 +254,7 @@ Status | Condition
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "deleting",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -287,7 +287,7 @@ Status | Condition
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "saving_version",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -319,7 +319,7 @@ Status | Condition
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "aborting_processing",
     "since": "2015-04-15T15:13:04+00:00"
 }
