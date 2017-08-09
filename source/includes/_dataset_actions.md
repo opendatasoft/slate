@@ -4,7 +4,6 @@ The state of a dataset can be changed by triggering actions. An action can make 
 - publish a dataset
 - unpublish a dataset
 - abort a processing
-- save a new version
 
 
 ## Publish a dataset
@@ -104,41 +103,6 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/ab
 
 Stop the current processing job and keep the processed records available in the search API.
 
-
-### Parameters
-
-No parameters
-
-### Returns
-
-Returns a [job object](#the-job-object).
-
-## Save a dataset version
-
-> Definition
-
-```http
-PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/save_version
-```
-
-> Example request
-
-```HTTP
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/save_version \
-    -X PUT \
-    -u username:password
-```
-
-> Example response
-
-```json
-{
-    "job_id": "e0f8a9cf495a0ee617b0828da35f349bbb62ad43"
-}
-```
-
-
-Create a new version from the current data of the dataset.
 
 ### Parameters
 

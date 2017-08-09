@@ -116,7 +116,6 @@ Transition origin status | Transition condition
 --------- | -----------
 `processing` | Processing ended successfully
 `deleting` | Deleting ended successfully
-`saving_version` | Version successfully saved
 `aborting_processing` | Processing aborted
 
 ### Transitions leaving the status
@@ -162,7 +161,6 @@ Status | Condition
 --------- | -----------
 `processing` | Processing ended with an error
 `deleting` | Deleting ended with an error
-`saving_version` | Version saving failed
 
 ### Transitions leaving the status
 
@@ -280,38 +278,6 @@ Status | Condition
 `idle` | The processing ended successfully
 `error` | The processing ended with an error
 `limit_reached` | The processing stopped because it reached the maximum number of records allowed in the license
-
-## The `saving_version` dataset status
-
-> Example object
-
-```json
-{
-    "published": true,
-    "status": "saving_version",
-    "since": "2015-04-15T15:13:04+00:00"
-}
-```
-
-The *saving_version* status means that a new version of the dataset is being saved.
-
-### Attributes
-
-No specific attribute
-
-### Transitions leading to the status
-
-Status | Condition
---------- | -----------
-`queued` | A worker is available
-
-### Transitions leaving the status
-
-Status | Condition
---------- | -----------
-`idle` | The processing ended successfully
-`error` | The processing ended with an error
-
 
 ## The `aborting_processing` dataset status
 
