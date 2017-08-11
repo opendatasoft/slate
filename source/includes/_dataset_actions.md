@@ -95,10 +95,8 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/ab
 
 > Example response
 
-```json
-{
-    "job_id": "e0f8a9cf495a0ee617b0828da35f349bbb62ad43"
-}
+```http
+HTTP/2 200
 ```
 
 Stop the current processing job and keep the processed records available in the search API.
@@ -110,4 +108,4 @@ No parameters
 
 ### Returns
 
-Returns a [job object](#the-job-object).
+On success, a HTTP 200 is returned.
