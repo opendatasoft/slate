@@ -56,7 +56,7 @@ Attribute | Description
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/changes/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/changes/
 ```
 
 > Example request
@@ -116,7 +116,7 @@ Returns a list of changes for this datasets.
 > Definition
 
 ```HTTP
-PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/restore_change/
+PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/restore_change/
 ```
 
 > Example request
