@@ -18,6 +18,9 @@ includes:
   - dataset_changes
   - dataset_metadata
   - dataset_security
+  - dataset_schema
+  - field_types
+  - field_options
   - form_widgets
   - jobs
   - misc
