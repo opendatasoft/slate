@@ -98,6 +98,7 @@ curl 'https://yourdomain.opendatasoft.com/api/management/v2/files/cheese_data.cs
 ## Upload a file
 
 This endpoint is for uploading a new file to the platform.
+There are two ways to send files to the platform: either by sending a full file using the HTTP multipart mechanism, or by sending the file content and other metadata such as its type and file name. The use case dictates which method works best. For instance, in order to create files out of batch processes it might be easier to use the content method, but to upload an existing file from a local hard drive, the multipart method might work better. Both methods have the same result: they create a file on the domain.
 
 > Definition
 
