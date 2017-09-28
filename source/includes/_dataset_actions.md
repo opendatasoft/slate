@@ -5,6 +5,7 @@ The state of a dataset can be changed by triggering actions. An action can make 
 - unpublish a dataset
 - abort a processing
 - save a new version
+- delete a dataset
 
 
 ## Publish a dataset
@@ -147,3 +148,29 @@ No parameters
 ### Returns
 
 Returns a [job object](#the-job-object).
+
+## Delete a dataset
+
+> Definition
+
+```http
+DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}
+```
+
+> Example request
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX \
+    -X DELETE \
+    -u username:password
+```
+
+Delete the dataset.
+
+### Parameters
+
+No parameters
+
+### Returns
+
+Returns nothing
