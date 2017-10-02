@@ -108,7 +108,7 @@ The *idle* status means that the dataset is not currently involved in an action.
 
 Attribute | Description
 --------- | -----------
-records_errors <br> *[records errrors object](#records_errors)* <br> <em class="expandable">expandable</em> | Errors which occurred during the processing. Can be from a processor, or a type conversion. This attribute is present only if the dataset is published.
+records_errors <br> *[records errors object](#records_errors)* <br> <em class="expandable">expandable</em> | Errors which occurred during the processing. Can be from a processor, or a type conversion. This attribute is present only if the dataset is published.
 
 ### Transitions leading to the status
 
