@@ -12,7 +12,7 @@ The attachment object contains information about the file
 
 ```json
 {            
-    "attachment_uid": "at_safkew" 
+    "attachment_uid": "at_safkew",
     "file": {
         "file_id": "attached_file"
     }
@@ -45,12 +45,12 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/at
 
 ```json
 [{
-    "attachment_uid": "at_safkew" 
+    "attachment_uid": "at_safkew",
     "file": {
         "file_id": "attached_file.pdf",
     }
 },{
-    "attachment_uid": "at_tiewkq" 
+    "attachment_uid": "at_tiewkq",
     "file": {
         "file_id": "attached_text.txt",
     }
@@ -118,7 +118,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/at
 
 ```json
 {
-    "attachment_uid": "at_safkew" 
+    "attachment_uid": "at_safkew",
     "file": {
         "file_id": "attached_file.pdf",
 }
@@ -158,4 +158,3 @@ No parameters
 ### Returns
 
 On success, a HTTP 200 is returned
-
