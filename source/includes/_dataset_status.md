@@ -16,8 +16,8 @@ Here is the full state machine description.
 
 Attribute | Description
 --------- | -----------
-`published` <br> *boolean*       | True if the dataset is available in the search API
-`status` <br> *string*      | One of the dataset status values
+`published` <br> *boolean* | true if the dataset is available in the search API
+`name` <br> *string* | One of the dataset status values
 `since` <br> *datetime* | Timestamp when the dataset entered in the current status
 `user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action
 
@@ -38,7 +38,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/st
 
 ```json
 {
-    "published": True,
+    "published": false,
     "status": "processing",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -56,13 +56,49 @@ The dataset status object that applies to the given dataset. See [Dataset status
 
 ## The `idle` dataset status
 
+> Example request
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/status?expand=records_errors \
+    -u username:password
+```
+
 > Example object
 
 ```json
 {
-    "published": True,
+    "published": true,
     "status": "idle",
-    "since": "2015-04-15T15:13:04+00:00"
+    "since": "2015-04-15T15:13:04+00:00",
+    "records_errors": [
+        {
+            "record_id" : "442cdf84ec84de2474dfba9422b045c064c36f05",
+            "processor_uid": "pr_XXXXXX",
+            "field_uid": "column_1",
+            "message": "Cannot convert \"a\" to \"int\"",
+            "raw_message": "Cannot convert \"{value}\" to \"{type}\"",
+            "raw_params": {
+                "value": "a",
+                "type": "int"
+            }
+        }
+    ]
+}
+```
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/status \
+    -u username:password
+```
+
+> Example object
+
+```json
+{
+    "published": true,
+    "name": "idle",
+    "since": "2015-04-15T15:13:04+00:00",
+    "records_errors": 45
 }
 ```
 
@@ -70,7 +106,9 @@ The *idle* status means that the dataset is not currently involved in an action.
 
 ### Attributes
 
-No specific attribute
+Attribute | Description
+--------- | -----------
+records_errors <br> *[records errors object](#records_errors)* <br> <em class="expandable">expandable</em> | Errors which occurred during the processing. Can be from a processor, or a type conversion. This attribute is present only if the dataset is published.
 
 ### Transitions leading to the status
 
@@ -78,7 +116,6 @@ Transition origin status | Transition condition
 --------- | -----------
 `processing` | Processing ended successfully
 `deleting` | Deleting ended successfully
-`saving_version` | Version successfully saved
 `aborting_processing` | Processing aborted
 
 ### Transitions leaving the status
@@ -94,8 +131,8 @@ Transition destination status | Transition condition
 
 ```json
 {
-    "published": True,
-    "status": "error",
+    "published": true,
+    "name": "error",
     "since": "2015-04-15T15:13:04+00:00",
     "message": "Processor pr_XXXXXX is misconfigured for field address: invalid type",
     "raw_message": "Processor {processor_id} is misconfigured for field {field}: {msg}",
@@ -124,7 +161,6 @@ Status | Condition
 --------- | -----------
 `processing` | Processing ended with an error
 `deleting` | Deleting ended with an error
-`saving_version` | Version saving failed
 
 ### Transitions leaving the status
 
@@ -138,8 +174,8 @@ Status | Condition
 
 ```json
 {
-    "published": True,
-    "status": "limit_reached",
+    "published": true,
+    "name": "limit_reached",
     "since": "2015-04-15T15:13:04+00:00"
 }
 ```
@@ -168,8 +204,8 @@ Status | Condition
 
 ```json
 {
-    "published": True,
-    "status": "queued",
+    "published": true,
+    "name": "queued",
     "since": "2015-04-15T15:13:04+00:00"
 }
 ```
@@ -186,8 +222,8 @@ No specific attribute
 
 ```json
 {
-    "published": True,
-    "status": "processsing",
+    "published": true,
+    "name": "processsing",
     "since": "2015-04-15T15:13:04+00:00"
 }
 ```
@@ -216,8 +252,8 @@ Status | Condition
 
 ```json
 {
-    "published": True,
-    "status": "deleting",
+    "published": true,
+    "name": "deleting",
     "since": "2015-04-15T15:13:04+00:00"
 }
 ```
@@ -243,46 +279,14 @@ Status | Condition
 `error` | The processing ended with an error
 `limit_reached` | The processing stopped because it reached the maximum number of records allowed in the license
 
-## The `saving_version` dataset status
-
-> Example object
-
-```json
-{
-    "published": True,
-    "status": "saving_version",
-    "since": "2015-04-15T15:13:04+00:00"
-}
-```
-
-The *saving_version* status means that a new version of the dataset is being saved.
-
-### Attributes
-
-No specific attribute
-
-### Transitions leading to the status
-
-Status | Condition
---------- | -----------
-`queued` | A worker is available
-
-### Transitions leaving the status
-
-Status | Condition
---------- | -----------
-`idle` | The processing ended successfully
-`error` | The processing ended with an error
-
-
 ## The `aborting_processing` dataset status
 
 > Example object
 
 ```json
 {
-    "published": True,
-    "status": "aborting_processing",
+    "published": true,
+    "name": "aborting_processing",
     "since": "2015-04-15T15:13:04+00:00"
 }
 ```
