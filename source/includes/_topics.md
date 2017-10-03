@@ -112,7 +112,7 @@ curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/secu
 > Example expand request
 
 ```shell
-curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/security/users&expand=user
+curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/security/users?expand=user
 ```
 
 > Example response
