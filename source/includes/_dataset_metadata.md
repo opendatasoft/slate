@@ -201,14 +201,14 @@ A json object passed in the request's body.
 
 Parameter | Description
 --------- | -----------
-`value` | The new metadata value. <br> Must conform to the metadata definition's type. Can be `null`.
+`value` | The new metadata value. <br> Must conform to the metadata definition's type. Cannot be `null`.
 
 #### For federated and harvested datasets
 
 Parameter | Description
 --------- | -----------
-`value` | The new metadata value. <br> Must conform to the metadata definition's type. Can be `null`.
-`override_remote_value` <br> *boolean* | Flag indicating whether the indexed value is `value` or `remote_value
+`value` | The new metadata value. <br> Must conform to the metadata definition's type. Cannot be `null`.
+`override_remote_value` <br> *boolean* | Flag indicating whether the indexed value is `value` or `remote_value`. If `false` the value of `value` is always deleted.
 
 ### Returns
 
