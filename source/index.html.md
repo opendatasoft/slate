@@ -15,6 +15,7 @@ includes:
   - datasets
   - dataset_status
   - dataset_actions
+  - records_errors
   - dataset_changes
   - dataset_metadata
   - dataset_security
