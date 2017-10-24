@@ -83,7 +83,7 @@ Parameter | Description
 
 ### Returns
 
-The [attachment objects](#the-attachment-object) corrsponding to the file which was posted.
+The [attachment objects](#the-attachment-object) corresponding to the file that was attached to the dataset.
 
 ## Retrieve information about one attachment
 
