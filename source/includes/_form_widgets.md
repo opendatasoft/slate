@@ -230,10 +230,6 @@ The `multidatalist` widget will render as multiple text inputs with an autocompl
 
 Common attributes only.
 
-## The `datalist` widget
-
-<div class="clearfix"></div>
-
 #### The `multiselect` widget
 
 > Example object
