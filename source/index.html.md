@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - introduction
   - topics
+  - files
   - datasets
   - dataset_status
   - dataset_actions
