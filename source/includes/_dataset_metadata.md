@@ -208,7 +208,7 @@ Parameter | Description
 Parameter | Description
 --------- | -----------
 `value` | The new metadata value. <br> Must conform to the metadata definition's type. Can be `null`.
-`override_remote_value` <br> *boolean* | Flag indicating whether the indexed value is `value` or `remote_value
+`override_remote_value` <br> *boolean* | Flag indicating whether the indexed value is `value` or `remote_value`. If `false` the value of `value` is always deleted.
 
 ### Returns
 
