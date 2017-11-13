@@ -1,6 +1,6 @@
 # Dataset attachments
 
-Dataset attachments are files that are exposed along with a dataset. These files help making sense of the data.
+Dataset attachments are files that are exposed along with a dataset. These files help make sense of the data.
 
 ## The attachment object
 
@@ -12,14 +12,14 @@ The attachment object contains information about the file.
 
 ```json
 {            
-    "attachment_id": "file_csv",
+    "attachment_uid": "file_csv",
     "url": "odsfile://file.csv"
 }
 ```
 
 Attribute | Description
 --------- | -----------
-`attachment_id` <br> *string* | A string that defines an attachment
+`attachment_uid` <br> *string* | A string that defines an attachment
 `url` <br> *URL of file* | URL of the backing file
 
 ## List attachments
@@ -43,10 +43,10 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/at
 
 ```json
 [{
-    "attachment_id": "file_csv",
+    "attachment_uid": "file_csv",
     "url": "odsfile://file.csv"
 },{
-    "attachment_id": "file2_csv",
+    "attachment_uid": "file2_csv",
     "url": "odsfile://file2.csv"
 }]
 ```
@@ -61,7 +61,7 @@ A list of [attachment objects](#the-attachment-object).
 
 ## Create an attachment
 
-This endpoint is for uploading a new attachment to a dataset.
+This endpoint is for attaching a file to a dataset.
 
 > Definition
 
@@ -83,16 +83,16 @@ Parameter | Description
 
 ### Returns
 
-The [attachment objects](#the-attachment-object) corresponding to the file that was attached to the dataset.
+The [attachment objects](#the-attachment-object) for the newly created attachment.
 
 ## Retrieve information about one attachment
 
-This endpoint is for retrieving information about the attachment, which identifier has been provided in the request.
+This endpoint is for retrieving information about an attachment with its UID.
 
 > Definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/attachments/{ATTACHMENT_ID}/
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/attachments/{ATTACHMENT_UID}/
 ```
 
 > Example request
@@ -106,7 +106,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/at
 
 ```json
 {
-    "attachment_id": "file_csv",
+    "attachment_uid": "file_csv",
     "url": "odsfile://file.csv"
 }
 ```
@@ -115,7 +115,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/at
 
 Parameter | Description
 --------- | -----------
-`attachment_id` | Identifier of the attachment to retrieve
+`attachment_uid` | Identifier of the attachment to retrieve
 
 ### Returns
 
@@ -128,7 +128,7 @@ This endpoint is for deleting a dataset attachment.
 > Definition
 
 ```HTTP
-DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/attachments/{ATTACHMENT_ID}/
+DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/attachments/{ATTACHMENT_UID}/
 ```
 
 > Example request
@@ -154,7 +154,7 @@ This endpoint is for downloading a file attached to a dataset.
 > Definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/download_attachments/{ATTACHMENT_ID}/
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/download_attachments/{ATTACHMENT_UID}/
 ```
 
 > Example request
