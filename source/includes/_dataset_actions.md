@@ -1,9 +1,10 @@
 # Dataset actions
 
 The state of a dataset can be changed by triggering actions. An action can make the dataset available through the search API or remove it from the search API. Available actions are:
+
 - publish a dataset
 - unpublish a dataset
-- abort a processing
+- abort the processing of a dataset
 - delete a dataset
 
 
