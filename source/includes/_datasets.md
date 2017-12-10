@@ -18,7 +18,24 @@ Through the management API, it is possible to:
 > Example object
 
 ```json
-{}
+{
+    "dataset_id": "my-dataset",
+    "dataset_uid": "da_xlnu9n",
+    "metas": {
+        "default": {
+            "modified": "2017-08-27T20:17:30+00:00",
+            "language": "en",
+            "title": "My Dataset"
+        },
+        "publishing": {
+            "published": false
+        }
+    },
+    "last_modified": "2017-09-12T09:55:43.952561+00:00",
+    "status": {
+        "name": "idle"
+    }
+}
 ```
 
 Datasets are identified by 2 kinds of identifiers:
@@ -32,10 +49,68 @@ Attribute | Description
 --------- | -----------
 `dataset_id` <br> *string*       | Human readable identifier of the dataset that can be modified when the dataset is not published
 `dataset_uid` <br> *string*      | Unique identifier of the dataset that will never change through the lifetime of the dataset
-`metadata` <br> *Array of [metadata objects](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
 `status` <br> *[dataset status object](#dataset-status)* <br> <em class="expandable">expandable</em> | Current status of the object
 `changes` <br> *Array of [dataset change objects](#dataset-changes)* <br> <em class="expandable">expandable</em> | List of all changes made to the current object
 `metas` <br> *[metadata object](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
 `last_modified` <br> *datetime*  | Date when the dataset's configuration was last edited
 `visibility` <br> *string*       | Defines if the dataset is visible for anonymous visitors <br> Can be `domain` if visibility is the same as the domain's visibility, or `restricted` if access is restricted to allowed users and groups
 `status` <br> *[dataset status object](#dataset-status)* <br> <em class="expandable">expandable</em> | Keyword indicating if the dataset is waiting to be published, currently being published or if it encountered errors during last publishing
+
+## List datasets
+
+> Definition
+
+```HTTP
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/ \
+    -u username:password
+```
+
+> Example response
+
+```json
+[
+    {
+        "dataset_id": "my-dataset",
+        "dataset_uid": "da_xlnu9n",
+        "metas": {
+            "default": {
+                "modified": "2017-08-27T20:17:30+00:00",
+                "language": "en",
+                "title": "My Dataset"
+            },
+            "publishing": {
+                "published": false
+            }
+        },
+        "last_modified": "2017-09-12T09:55:43.952561+00:00",
+        "status": {
+            "name": "idle"
+        }
+    },
+    {...},
+    {...}
+]
+```
+
+This endpoint lists all the datasets that can be edited by this user.
+
+### Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+`where` <br> *string* | None | Filter expression used to restrict returned datasets ([ODSQL documentation](https://docs.opendatasoft.com/api/explore/v2.html#where-clause))
+`start` <br> *string* | 0 | Index of the first item to return
+`rows` <br> *string* | 10 | Number of items to return. Max value: 100
+`sort` <br> *string* | None | Field on which to sort the results list
+`include_app_metas` <br> *string* | false | Explicitely request application metadata for each datasets
+`timezone` <br> *string* | UTC | Timezone applied on datetime fields in query and response
+
+### Returns
+
+Returns a list of dataset objects.
