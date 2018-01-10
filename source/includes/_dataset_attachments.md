@@ -154,13 +154,13 @@ This endpoint is for downloading a file attached to a dataset.
 > Definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/download_attachments/{ATTACHMENT_UID}/
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/download_attachment/{ATTACHMENT_UID}/
 ```
 
 > Example request
 
 ```HTTP
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/download_attachments/file_csv/
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/download_attachment/file_csv/
     -u username:password
 ```
 
