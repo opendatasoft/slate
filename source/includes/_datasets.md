@@ -41,7 +41,7 @@ Through the management API, it is possible to:
 Datasets are identified by 2 kinds of identifiers:
 
 - the `dataset_uid` that is automatically set, and will never change through the lifetime of the dataset.
-- the `dataset_id`, that can be chosen during dataset creation or changed on an unpublished dataset
+- the `dataset_id`, that can be chosen during dataset creation or changed on an unpublished dataset. It will be used in the exploration API and UI to access the dataset with a meaningful URL.
 
 ### Attributes
 
@@ -54,7 +54,6 @@ Attribute | Description
 `metas` <br> *[metadata object](#dataset-metadata)* | Dictionary of attributes about the dataset like a title, a description, keywords, that make it easily searchable through the portal's catalog
 `last_modified` <br> *datetime*  | Date when the dataset's configuration was last edited
 `visibility` <br> *string*       | Defines if the dataset is visible for anonymous visitors <br> Can be `domain` if visibility is the same as the domain's visibility, or `restricted` if access is restricted to allowed users and groups
-`status` <br> *[dataset status object](#dataset-status)* <br> <em class="expandable">expandable</em> | Keyword indicating if the dataset is waiting to be published, currently being published or if it encountered errors during last publishing
 
 ## List datasets
 
@@ -105,7 +104,7 @@ This endpoint lists all the datasets that can be edited by this user.
 Parameter | Default | Description
 --------- | ------- | -----------
 `where` <br> *string* | None | Filter expression used to restrict returned datasets ([ODSQL documentation](https://docs.opendatasoft.com/api/explore/v2.html#where-clause))
-`start` <br> *string* | 0 | Index of the first item to return
+`page` <br> *string* | 1 | Number of the page you want to retrieve. Pages numbers vary when changing the number of rows to retrieve.
 `rows` <br> *string* | 10 | Number of items to return. Max value: 100
 `sort` <br> *string* | None | Field on which to sort the results list
 `include_app_metas` <br> *string* | false | Explicitely request application metadata for each datasets
@@ -114,3 +113,43 @@ Parameter | Default | Description
 ### Returns
 
 Returns a list of dataset objects.
+
+
+## Retrieve information about one dataset
+
+This endpoint is for retrieving the dataset object with provided dataset_uid.
+
+> Definition
+
+```HTTP
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}
+```
+
+> Example request
+
+```shell
+curl 'https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_7jgvnj'
+```
+
+> Example response
+
+```json
+{
+    "dataset_id": "my-dataset",
+    "dataset_uid": "da_7jgvnj",
+    "metas": {
+        "default": {
+            "modified": "2017-08-27T20:17:30+00:00",
+            "language": "en",
+            "title": "My Dataset",
+        }
+    },
+    "last_modified": "2017-09-12T09:55:43.952561+00:00",
+    "status": {
+        "name": "idle"
+    },
+    "changes": [],
+    "visibility": "restricted",
+
+}
+```

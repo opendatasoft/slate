@@ -2,6 +2,25 @@
 
 ## The dataset status object
 
+> Example object
+
+```json
+{
+  "name": "idle",
+  "previous": "processing",
+  "next": null,
+  "since": "2018-01-21T11:16:08.017412+00:00",
+  "published": true,
+  "records_errors": [],
+  "dataset": {
+    "dataset_uid": "da_7jgvnj",
+  }
+}
+```
+
+<aside class="notice">
+This API needs to be refactored into something clearer.
+</aside>
 The dataset status describes the current state of a dataset, stating if it's published or not and the running operation. It is a finite state machine, with the following properties:
 
 * a single state at a time
@@ -19,7 +38,7 @@ Attribute | Description
 `published` <br> *boolean* | true if the dataset is available in the search API
 `name` <br> *string* | One of the dataset status values
 `since` <br> *datetime* | Timestamp when the dataset entered in the current status
-`user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action
+`user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action (currently not available in the API)
 
 ## Retrieve the current dataset status
 
