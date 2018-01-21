@@ -18,6 +18,7 @@ includes:
   - records_errors
   - dataset_changes
   - dataset_metadata
+  - dataset_attachments
   - dataset_security
   - form_widgets
   - jobs
