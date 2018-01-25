@@ -114,3 +114,101 @@ Parameter | Default | Description
 ### Returns
 
 Returns a list of dataset objects.
+
+## Create a dataset
+
+> Definition
+
+```HTTP
+POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/
+```
+
+> Example request for an empty dataset
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/ \
+    -X POST \
+    -u username:password
+    -d '{}'
+```
+
+> Example response for an empty dataset
+
+```json
+{
+    "dataset_id": "da_eb353e",
+    "dataset_uid": "da_eb353e",
+    "metas": {
+        "default": {
+            "modified": "2018-01-25T13:12:17+00:00"
+        }
+    },
+    "last_modified": "2018-01-25T13:12:17+00:00",
+    "status": {
+        "name": "idle"
+    }
+}
+```
+
+> Example request providing a title
+
+```shell
+curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/ \
+    -X POST \
+    -u username:password
+    -d '{"metas": {"default": {"title": "My dataset title"}}}'
+```
+
+> Example response with the provided title
+
+```json
+{
+    "dataset_id": "my-dataset-title",
+    "dataset_uid": "da_7qtcc3",
+    "metas": {
+        "default": {
+            "modified": "2018-01-25T14:52:30+00:00",
+            "title": "My dataset title"
+        }
+    },
+    "last_modified": "2018-01-25T14:52:30+00:00",
+    "status": {
+        "name": "idle"
+    }
+}
+```
+
+> Example request in strict mode
+
+```shell
+curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/?strict=true \
+    -X POST \
+    -u username:password
+    -d '{}'
+```
+
+> Example response in strict mode
+
+```json
+{
+    "status_code": 400,
+    "message": "Dataset identifier (dataset_id) is mandatory",
+    "raw_params": {},
+    "raw_message": "Dataset identifier (dataset_id) is mandatory",
+    "error_key": "ODSException"
+}
+```
+
+Creates a new dataset.
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+`strict` <br> *boolean* | **Optional** Flag indicating whether to reject malformed requests (missing or already taken `dataset_id`). Defaults to `false`.
+
+### Body
+
+Parameter | Description
+--------- | -----------
+`dataset_id` <br> *string* | **optional unless in strict mode** Human readable identifier that will be used to retrieve the dataset in the explore API. <br> If not specified, will be auto-generated (from the `title` metadata if available).
