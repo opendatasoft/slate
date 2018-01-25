@@ -212,3 +212,4 @@ Parameter | Description
 Parameter | Description
 --------- | -----------
 `dataset_id` <br> *string* | **optional unless in strict mode** Human readable identifier that will be used to retrieve the dataset in the explore API. <br> If not specified, will be auto-generated (from the `title` metadata if available).
+`metas` <br> *object* | **optional** Object providing a title to the new dataset.
