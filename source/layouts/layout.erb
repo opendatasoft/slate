@@ -37,23 +37,91 @@ under the License.
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
-    <a href="#" id="nav-button">
+    
+    <!----------------------------
+        ODS DOCUMENTATION HEADER
+    -------------------------- -->
+    <div class="ods__documentation-header">
+    
+      <div class="ods__documentation-header-logo">
+        <button type="button" id="nav-button"> Menu </button>
+        <img src="../images/ODS_logo api blanc.svg" alt="ods-documentation-logo">
+        <button type="button" id="help-hub-button"> Help Hub </button>
+      </div>
+
+      <div class="ods__documentation-header-nav">
+        <div class="ods__documentation-header-nav-item">
+          <a href="">Plateform</a>
+        </div>
+        <div class="ods__documentation-header-nav-item">
+          <a href="">Discovery</a>
+        </div>
+        <div class="ods__documentation-header-nav-item">
+          <a href="">FAQ</a>
+        </div>
+        <div class="ods__documentation-header-nav-item">
+          <a href="">Widget</a>
+        </div>
+        <div class="ods__documentation-header-nav-item">
+          <a href="">Tutorial</a>
+        </div>
+        <div class="ods__documentation-header-nav-item ods__documentation-header-nav-item-active">
+          <a href="">API</a>
+        </div>
+      </div>
+    
+    </div>
+    
+    <!--<a href="#" id="nav-button">
       <span>
         NAV
         <%= image_tag('navbar.png') %>
       </span>
-    </a>
+    </a>-->
+
+    <!---------------------------------------------
+        ODS DOCUMENTATION HELP HUB SIDEBAR MOBILE
+    ------------------------------------------- -->
+    <div class="ods__documentation-help-hub-sidebar">
+      <div class="ods__documentation-help-hub-sidebar-item">
+          <a href="">Plateform</a>
+        </div>
+        <div class="ods__documentation-help-hub-sidebar-item">
+          <a href="">Discovery</a>
+        </div>
+        <div class="ods__documentation-help-hub-sidebar-item">
+          <a href="">FAQ</a>
+        </div>
+        <div class="ods__documentation-help-hub-sidebar-item">
+          <a href="">Widget</a>
+        </div>
+        <div class="ods__documentation-help-hub-sidebar-item">
+          <a href="">Tutorial</a>
+        </div>
+        <div class="ods__documentation-help-hub-sidebar-item ods__documentation-header-nav-item-active">
+          <a href="">API</a>
+        </div>
+    </div>
+    
+    <!----------------------------
+            SIDEBAR LEFT
+    -------------------------- -->
     <div class="tocify-wrapper">
+      
+      <!----------------------------
+          SIDEBAR LEFT - HEADER
+      -------------------------- -->
       <div class="toc-header">
-        <%= image_tag "ods-logo.png" %>
-        <p>OpenDataSoft API Documentation</p>
+        <!--<%= image_tag "ods-logo.png" %>
+        <p>OpenDataSoft API Documentation</p>-->
         <% if current_page.data.search %>
           <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search">
+            <input type="text" class="search" id="input-search" placeholder="Search docs">
           </div>
           <ul class="search-results"></ul>
         <% end %>
       </div>
+      
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -65,8 +133,13 @@ under the License.
           <% end %>
         </div>
       <% end %>
+
+      <!----------------------------
+            SIDEBAR LEFT - NAV
+      -------------------------- -->
       <div id="toc">
       </div>
+
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>
@@ -74,15 +147,27 @@ under the License.
           <% end %>
         </ul>
       <% end %>
+
     </div>
+
+    <!----------------------------
+            CONTENT RIGHT
+    -------------------------- -->
     <div class="page-wrapper">
-      <div class="dark-box"></div>
+      
+      <!----------------------------
+          CONTENT RIGHT - DOC
+      -------------------------- -->
       <div class="content">
         <%= yield %>
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>
         <% end %>
       </div>
+
+      <!----------------------------
+          CONTENT RIGHT - SHELL
+      -------------------------- -->
       <div class="dark-box">
         <% if language_tabs.any? %>
           <div class="lang-selector">
@@ -96,6 +181,7 @@ under the License.
           </div>
         <% end %>
       </div>
+
     </div>
   </body>
 </html>

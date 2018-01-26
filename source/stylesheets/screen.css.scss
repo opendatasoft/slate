@@ -36,6 +36,175 @@ html, body {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// ODS DOCUMENTATION HEADER
+////////////////////////////////////////////////////////////////////////////////
+
+.ods__documentation-header {
+  height: 100px;
+  width: 100%;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background-color: $blue-light;
+}
+
+.ods__documentation-header-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 99px;
+  width: 100%;
+  button {
+    border: none;
+    margin: auto 0;
+    background-color: white;
+    color: $blue-light;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    &.open {
+      background-color: $blue-hover;
+      color: white;
+    }
+    &.ods__documentation-help-hub-btn-active {
+      background-color: $blue-hover;
+      color: white;
+    }
+  }
+  button:focus {
+    outline: none;
+  }
+  img {
+    height: 60px;
+    margin: auto 0;
+  }
+}
+
+.ods__documentation-header-nav {
+  // display: flex;
+  display: none;
+  margin-left: 60px;
+}
+
+.ods__documentation-header-nav-item {
+  margin: auto 30px;
+}
+
+.ods__documentation-header-nav-item:first-child {
+  margin-left: 0px;
+}
+
+.ods__documentation-header-nav-item:last-child {
+  margin-right: 0px;
+}
+
+.ods__documentation-header-nav-item > a {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.ods__documentation-header-nav-item > a:hover {
+  border-bottom: 2px solid white;
+}
+
+.ods__documentation-header-nav-item-active > a {
+  border-bottom: 2px solid white;
+}
+
+.ods__documentation-help-hub-sidebar {
+  position: fixed;
+  top: 100px;
+  right: -250px;
+  height: 100%;
+  width: 250px;
+  padding-top: 40px;
+  background-color: $blue-light;
+  border-top: 1px solid transparentize($grey-dark, 0.6);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+}
+
+.ods__documentation-help-hub-sidebar-item {
+  text-align: center;
+  margin: 30px 0;
+  a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px;
+  }
+}
+
+.ods__documentation-help-hub-sidebar-active {
+  right: 0;
+}
+
+// .ods__documentation-header {
+//   height: 100px;
+//   width: 100%;
+//   position: fixed; 
+//   top: 0;
+//   left: 0;
+//   z-index: 50;
+//   background-color: $blue-light;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-start;
+//   border: 1px solid red;
+// }
+
+// .ods__documentation-header-logo {
+//   // border: 1px solid red;
+//   height: 99px;
+//   img {
+//     height: 100px;
+//   }
+// }
+
+// .ods__documentation-header-nav {
+//   display: flex;
+//   margin-left: 60px;
+// }
+
+// .ods__documentation-header-nav-item {
+//   margin: auto 30px;
+// }
+
+// .ods__documentation-header-nav-item:first-child {
+//   margin-left: 0px;
+// }
+
+// .ods__documentation-header-nav-item:last-child {
+//   margin-right: 0px;
+// }
+
+// .ods__documentation-header-nav-item > a {
+//   color: white;
+//   font-size: 18px;
+//   font-weight: 500;
+//   text-decoration: none;
+//   padding: 5px;
+//   border-bottom: 2px solid transparent;
+// }
+
+// .ods__documentation-header-nav-item > a:hover {
+//   border-bottom: 2px solid white;
+// }
+
+.ods__documentation-header-nav-item-active > a {
+  border-bottom: 2px solid white;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -57,18 +226,18 @@ html, body {
 
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
-
+  top: 100px;
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
   z-index: 30;
-  top: 0;
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background-color: $nav-bg;
+  background-color: white;
   font-size: 13px;
   font-weight: bold;
+  border-right: 1px solid transparentize($grey-dark, 0.6);
 
   // language selector for mobile devices
   .lang-selector {
@@ -97,31 +266,31 @@ html, body {
   .search {
     position: relative;
     margin: 0 -15px;
+    padding-bottom: 7px;
 
     input {
-      background: $nav-bg;
-      border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
+      background: white;
+      border: 1px solid transparentize($grey-dark, 0.6);
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
-      margin: $nav-v-padding $nav-padding;
+      margin: 5px $nav-padding $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
-      color: $nav-text;
-      border-radius: 0; /* ios has a default border radius */
+      color: $grey-dark;
+      border-radius: 15px;
     }
 
     &:before {
       position: absolute;
       top: 17px;
       left: $nav-padding;
-      color: $nav-text;
+      color: $grey-dark;
       @extend %icon-search;
     }
   }
 
   img+.tocify, .lang-selector+.tocify {
-    margin-top: $logo-margin;
+    margin-top: 0;
   }
 
   .search-results {
@@ -138,15 +307,16 @@ html, body {
       margin-bottom: 1em;
     }
 
-    @include embossed-bg;
+    // @include embossed-bg;
 
     li {
       margin: 1em $nav-padding;
       line-height: 1;
+      color: $grey-dark;
     }
 
     a {
-      color: $nav-text;
+      color: $grey-dark;
       text-decoration: none;
 
       &:hover {
@@ -175,7 +345,7 @@ html, body {
   }
 
   li {
-    color: $nav-text;
+    color: $grey-dark;
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 230ms;
@@ -183,24 +353,31 @@ html, body {
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    box-shadow: 0px 1px 0px $nav-active-shadow;
-    background-color: $nav-active-bg;
-    color: $nav-active-text;
-  }
+    // box-shadow: 0px 1px 0px $nav-active-shadow;
+    background-color: $blue-light;
+    color: white!important;
+    & > a {
+      color: white!important;
+      font-weight: bold;
+    }
+  } 
 
   // Subheaders are the submenus that slide open
   // in the table of contents.
   .tocify-subheader {
     display: none; // tocify will override this when needed
-    background-color: $nav-subitem-bg;
+    background-color: $blue-ultra-light;
     font-weight: 500;
-    .tocify-item>a {
-      padding-left: $nav-padding + $nav-indent;
+    border-top: 1px solid transparentize($grey-dark, 0.9);
+    .tocify-item > a {
+      padding: 0 15px;
       font-size: 12px;
+      color: $grey-dark;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparentize($grey-dark, 0.9);
     }
-
     // for embossed look:
-    @include embossed-bg;
+    // @include embossed-bg;
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
@@ -212,7 +389,7 @@ html, body {
     border-top: 1px dashed $nav-footer-border-color;
 
     li,a {
-      color: $nav-text;
+      color: $grey-dark;
       text-decoration: none;
     }
 
@@ -229,39 +406,6 @@ html, body {
 
 }
 
-// button to show navigation on mobile devices
-#nav-button {
-  span {
-    display: block;
-    $side-pad: $main-padding / 2 - 8px;
-    padding: $side-pad $side-pad $side-pad;
-    background-color: rgba($main-bg, 0.7);
-    transform-origin: 0 0;
-    transform: rotate(-90deg) translate(-100%, 0);
-    border-radius: 0 0 0 5px;
-  }
-  padding: 0 1.5em 5em 0; // increase touch size area
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-  opacity: 0.7;
-  line-height: 16px;
-  img {
-    height: 16px;
-    vertical-align: bottom;
-  }
-
-  transition: left 0.3s ease-in-out;
-
-  &:hover { opacity: 1; }
-  &.open {left: $nav-width}
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // PAGE LAYOUT AND CODE SAMPLE BACKGROUND
@@ -273,7 +417,7 @@ html, body {
   z-index: 10;
   background-color: $main-bg;
   min-height: 100%;
-
+  top: 100px;
   padding-bottom: 1px; // prevent margin overflow
 
   // The dark box is what gives the code samples their dark background.
@@ -379,7 +523,7 @@ html, body {
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    background-color: white;
   }
 
   h1:first-child, div:first-child + h1 {

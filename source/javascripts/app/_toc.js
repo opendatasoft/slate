@@ -10,6 +10,11 @@
     $("#nav-button").removeClass('open');
   };
 
+  var closeHelpHub = function() {
+    $("#help-hub-button").removeClass('ods__documentation-help-hub-btn-active');
+    $(".ods__documentation-help-hub-sidebar").removeClass('ods__documentation-help-hub-sidebar-active');
+  }
+
   var makeToc = function() {
     global.toc = $("#toc").tocify({
       selectors: 'h1, h2',
@@ -19,22 +24,42 @@
       showEffectSpeed: 0,
       hideEffectSpeed: 180,
       ignoreSelector: '.toc-ignore',
-      highlightOffset: 60,
-      scrollTo: -1,
+      highlightOffset: 120,
+      scrollTo: 99,
       scrollHistory: true,
       hashGenerator: function (text, element) {
         return element.prop('id');
       }
     }).data('toc-tocify');
 
+    // sidebar menu
     $("#nav-button").click(function() {
-      $(".tocify-wrapper").toggleClass('open');
-      $("#nav-button").toggleClass('open');
+      if ($("#help-hub-button").has(".ods__documentation-help-hub-btn-active")) {
+        closeHelpHub();
+        $(".tocify-wrapper").toggleClass('open');
+        $("#nav-button").toggleClass('open');
+      } else {
+        $(".tocify-wrapper").toggleClass('open');
+        $("#nav-button").toggleClass('open');
+      }
       return false;
     });
 
-    $(".page-wrapper").click(closeToc);
-    $(".tocify-item").click(closeToc);
+    // sidebar help hub
+    $("#help-hub-button").click(function () {
+      if ($("#nav-button").has(".open")) {
+        closeToc();
+        $("#help-hub-button").toggleClass('ods__documentation-help-hub-btn-active');
+        $(".ods__documentation-help-hub-sidebar").toggleClass('ods__documentation-help-hub-sidebar-active');
+      } else {
+        $("#help-hub-button").toggleClass('ods__documentation-help-hub-btn-active');
+        $(".ods__documentation-help-hub-sidebar").toggleClass('ods__documentation-help-hub-sidebar-active');
+      }
+      return false;
+    });
+
+    $(".page-wrapper").click(function() { closeToc(), closeHelpHub() });
+    $(".tocify-item").click(function() { closeToc(), closeHelpHub() });
   };
 
   // Hack to make already open sections to start opened,
