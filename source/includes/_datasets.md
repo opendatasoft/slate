@@ -205,7 +205,7 @@ Creates a new dataset.
 
 Parameter | Description
 --------- | -----------
-`strict` <br> *boolean* | **Optional** Flag indicating whether to reject malformed requests (missing or already taken `dataset_id`). Defaults to `false`.
+`strict` <br> *boolean* | **Optional** Flag preventing the application from generating a `dataset_id` if missing or altering it if already taken. Defaults to `false`.
 
 ### Body
 
