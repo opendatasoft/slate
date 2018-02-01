@@ -14,6 +14,15 @@ License for the specific language governing permissions and limitations
 under the License.
 %>
 <% language_tabs = current_page.data.language_tabs || [] %>
+<% page_content = yield %>
+<%
+  if current_page.data.includes
+    current_page.data.includes.each do |include|
+      page_content += partial("includes/#{include}")
+    end
+  end
+%>
+
 <!doctype html>
 <html>
   <head>
@@ -71,13 +80,6 @@ under the License.
       </div>
     
     </div>
-    
-    <!--<a href="#" id="nav-button">
-      <span>
-        NAV
-        <%= image_tag('navbar.png') %>
-      </span>
-    </a>-->
 
     <!---------------------------------------------
         ODS DOCUMENTATION HELP HUB SIDEBAR MOBILE
@@ -102,42 +104,33 @@ under the License.
           <a href="">API</a>
         </div>
     </div>
-    
-    <!----------------------------
-            SIDEBAR LEFT
-    -------------------------- -->
-    <div class="tocify-wrapper">
-      
-      <!----------------------------
-          SIDEBAR LEFT - HEADER
-      -------------------------- -->
+
+    <div class="toc-wrapper">
+
       <div class="toc-header">
-        <!--<%= image_tag "ods-logo.png" %>
-        <p>OpenDataSoft API Documentation</p>-->
         <% if current_page.data.search %>
           <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search docs">
+            <input type="text" class="search" id="input-search" placeholder="Search">
           </div>
           <ul class="search-results"></ul>
         <% end %>
       </div>
-      
-      <% if language_tabs.any? %>
-        <div class="lang-selector">
-          <% language_tabs.each do |lang| %>
-            <% if lang.is_a? Hash %>
-              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-            <% else %>
-              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
 
-      <!----------------------------
-            SIDEBAR LEFT - NAV
-      -------------------------- -->
-      <div id="toc">
+      <div id="toc" class="toc-list-h1">
+        <% toc_data(page_content).each do |h1| %>
+          <li>
+            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content].to_s.parameterize %>"><%= h1[:content] %></a>
+            <% if h1[:children].length > 0 %>
+              <ul class="toc-list-h2">
+                <% h1[:children].each do |h2| %>
+                  <li>
+                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:content].to_s.parameterize %>"><%= h2[:content] %></a>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </li>
+        <% end %>
       </div>
 
       <% if current_page.data.toc_footers %>
@@ -150,24 +143,12 @@ under the License.
 
     </div>
 
-    <!----------------------------
-            CONTENT RIGHT
-    -------------------------- -->
     <div class="page-wrapper">
       
-      <!----------------------------
-          CONTENT RIGHT - DOC
-      -------------------------- -->
       <div class="content">
-        <%= yield %>
-        <% current_page.data.includes && current_page.data.includes.each do |include| %>
-          <%= partial "includes/#{include}" %>
-        <% end %>
+        <%= page_content %>
       </div>
 
-      <!----------------------------
-          CONTENT RIGHT - SHELL
-      -------------------------- -->
       <div class="dark-box">
         <% if language_tabs.any? %>
           <div class="lang-selector">
@@ -181,7 +162,7 @@ under the License.
           </div>
         <% end %>
       </div>
-
+      
     </div>
   </body>
 </html>
