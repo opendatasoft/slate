@@ -48,10 +48,8 @@
     };
 
     var refreshToc = function() {
-      // $(window).scrollTop(99);
-      // // console.log($(window).scrollTop());
       var currentTop = $(document).scrollTop() + scrollOffset;
-      
+  
       if (currentTop + windowHeight >= pageHeight) {
         // at bottom of page, so just select last header by making currentTop very large
         // this fixes the problem where the last header won't ever show as active if its content
@@ -124,6 +122,14 @@
 
       $(".page-wrapper").click(closeToc);
       $(".toc-link").click(closeToc);
+
+      // scroll content below ods_header 
+      $('a[href*="#"]').on('click', function(event) {
+        event.preventDefault();
+        let hash = $(this).attr('href');
+        let target = $(hash).offset().top;
+        $('html, body').animate({ scrollTop : target - 99 }, 0);
+      });
 
       // reload immediately after scrolling on toc click
       $toc.find(tocLinkSelector).click(function() {
