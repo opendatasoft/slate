@@ -62,7 +62,9 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/pub
 > Example response
 
 ```json
-{}
+{
+  "job_id": "86a5eaf857201d3e11e67427b205121e7d19d77d"
+}
 ```
 
 While most API calls are synchronous, a few are not due to the impredictable nature of their execution time.
