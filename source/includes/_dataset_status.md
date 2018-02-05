@@ -18,9 +18,6 @@
 }
 ```
 
-<aside class="notice">
-This API needs to be refactored into something clearer.
-</aside>
 The dataset status describes the current state of a dataset, stating if it's published or not and the running operation. It is a finite state machine, with the following properties:
 
 * a single state at a time
@@ -38,7 +35,6 @@ Attribute | Description
 `published` <br> *boolean* | true if the dataset is available in the search API
 `name` <br> *string* | One of the dataset status values
 `since` <br> *datetime* | Timestamp when the dataset entered in the current status
-`user` <br> *user* <br> <em class="expandable">expandable</em> | User who started the action (currently not available in the API)
 
 ## Retrieve the current dataset status
 
@@ -88,6 +84,8 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/st
 {
     "published": true,
     "status": "idle",
+    "previous": "processing",
+    "next": null,
     "since": "2015-04-15T15:13:04+00:00",
     "records_errors": [
         {
@@ -116,6 +114,8 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/st
 {
     "published": true,
     "name": "idle",
+    "previous": "processing",
+    "next": null,
     "since": "2015-04-15T15:13:04+00:00",
     "records_errors": 45
 }
@@ -152,6 +152,8 @@ Transition destination status | Transition condition
 {
     "published": true,
     "name": "error",
+    "previous": "processing",
+    "next": null,
     "since": "2015-04-15T15:13:04+00:00",
     "message": "Processor pr_XXXXXX is misconfigured for field address: invalid type",
     "raw_message": "Processor {processor_id} is misconfigured for field {field}: {msg}",
@@ -194,6 +196,8 @@ Status | Condition
 ```json
 {
     "published": true,
+    "previous": "processing",
+    "next": null,
     "name": "limit_reached",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -224,6 +228,8 @@ Status | Condition
 ```json
 {
     "published": true,
+    "previous": "idle",
+    "next": "processing",
     "name": "queued",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -242,6 +248,8 @@ No specific attribute
 ```json
 {
     "published": true,
+    "previous": "queued",
+    "next": "idle",
     "name": "processsing",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -272,6 +280,8 @@ Status | Condition
 ```json
 {
     "published": true,
+    "previous": "queued",
+    "next": "idle",
     "name": "deleting",
     "since": "2015-04-15T15:13:04+00:00"
 }
@@ -305,6 +315,8 @@ Status | Condition
 ```json
 {
     "published": true,
+    "previous": "processing",
+    "next": "idle",
     "name": "aborting_processing",
     "since": "2015-04-15T15:13:04+00:00"
 }
