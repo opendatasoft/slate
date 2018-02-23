@@ -72,7 +72,13 @@ POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_U
 > Example request
 
 ```HTTP
-curl -i -X POST -H "Content-Type: multipart/form-data" -F "file=@test.csv" -u user:password https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments/
+curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments/
+    -u username:password \
+    -d {
+        "file" {
+            "file_id": "attached_spreadsheet.xlsx"
+        }
+    }
 ```
 
 ### Parameters
