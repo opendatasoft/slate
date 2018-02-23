@@ -75,7 +75,7 @@ POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_U
 curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments/
     -u username:password \
     -d {
-        "file" {
+        "file": {
             "file_id": "attached_spreadsheet.xlsx"
         }
     }
