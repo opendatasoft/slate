@@ -77,7 +77,7 @@
         $toc.find(".active").removeClass("active");
         $toc.find(".active-parent").removeClass("active-parent");
         $best.addClass("active");
-        $best.parents(tocListSelector).addClass("active").siblings(tocLinkSelector).addClass('active-parent');
+        $best.parents(tocListSelector).addClass("active");
         $best.siblings(tocListSelector).addClass("active");
         $toc.find(tocListSelector).filter(":not(.active)").slideUp(150);
         $toc.find(tocListSelector).filter(".active").slideDown(150);
