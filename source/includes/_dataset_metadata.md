@@ -162,7 +162,7 @@ A [metadata object](#the-metadata-object).
 > Definition
 
 ```HTTP
-PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/{TEMPLATE_NAME}/{METADATA_NAME}/
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/metadata/{TEMPLATE_NAME}/{METADATA_NAME}/
 ```
 
 > Example request
