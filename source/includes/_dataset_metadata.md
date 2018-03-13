@@ -75,7 +75,7 @@ Returns a list of metadata for the dataset with the given UID.
 > Definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/metadata/
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_ID}/metadata
 ```
 
 ### Parameters
@@ -85,7 +85,7 @@ No parameters.
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata \
     -u username:password
 ```
 
@@ -121,7 +121,7 @@ Retrieves the metadata with the given name within the given template.
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/metadata/{TEMPLATE_NAME}/{METADATA_NAME}/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/metadata/{TEMPLATE_NAME}/{METADATA_NAME}
 ```
 
 ### Parameters
@@ -131,7 +131,7 @@ No parameters.
 > Example request
 
 ```HTTP
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/default/title/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/default/title \
     -u username:password
 ```
 
@@ -162,13 +162,13 @@ A [metadata object](#the-metadata-object).
 > Definition
 
 ```HTTP
-PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/metadata/{TEMPLATE_NAME}/{METADATA_NAME}/
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/metadata/{TEMPLATE_NAME}/{METADATA_NAME}
 ```
 
 > Example request
 
 ```HTTP
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/default/title/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/default/title \
     -u username:password \
     -X PUT \
     -d '{"value": "The best agenda", "override_remote_value": true}'
@@ -220,13 +220,13 @@ The updated [metadata object](#the-metadata-object).
 > Definition
 
 ```HTTP
-DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/{TEMPLATE_NAME}/{METADATA_NAME}/
+DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/{TEMPLATE_NAME}/{METADATA_NAME}
 ```
 
 > Example request
 
 ```HTTP
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/default/title/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/default/title \
     -u username:password \
     -X DELETE
 ```

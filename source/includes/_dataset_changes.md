@@ -56,13 +56,13 @@ Attribute | Description
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/changes/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/changes
 ```
 
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/changed_dataset/changes/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/changed_dataset/changes \
     -u username:password
 ```
 
@@ -116,13 +116,13 @@ Returns a list of changes for this datasets.
 > Definition
 
 ```HTTP
-PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/restore_change/
+PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/restore_change
 ```
 
 > Example request
 
 ```shell
-curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/restore_change/ \
+curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/restore_change \
     -u username:password -d '{ "change_uid": 126 }'
 ```
 

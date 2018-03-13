@@ -392,7 +392,7 @@ Options of this element must match the `choices` defined in the parent [form obj
     "help_text": "Hit Enter after each keyword",
     "widget": {
         "type": "tags",
-        "suggest_url": "/api/management/1.0/metadata_templates/default/keyword/suggest/"
+        "suggest_url": "/api/management/1.0/metadata_templates/default/keyword/suggest"
     }
 }
 ```
