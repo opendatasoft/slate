@@ -61,13 +61,13 @@ Attribute | Description
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/datasets
 ```
 
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets \
     -u username:password
 ```
 

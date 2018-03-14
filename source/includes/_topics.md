@@ -5,7 +5,7 @@
 > Example authenticated request
 
 ```shell
-curl https://mydomain.opendatasoft.com/management/api/v2/datasets/
+curl https://mydomain.opendatasoft.com/management/api/v2/datasets
   -u username:password
 ```
 

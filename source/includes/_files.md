@@ -43,7 +43,7 @@ This endpoint lists all files available to the user who performs the request. A 
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files
 ```
 
 > Example response
@@ -71,7 +71,7 @@ This endpoint is for retrieving the file object with provided file_id.
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/{FILE_ID}
 ```
 
 > Example request
@@ -103,7 +103,7 @@ There are two ways to send files to the platform: either by sending a full file 
 > Definition
 
 ```HTTP
-POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files/
+POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/files
 ```
 
 This endpoint can receive a file sent in multipart, or file content sent through the content POST parameter, along with a mimetype and an optional filename.
@@ -115,7 +115,7 @@ The multipart file upload is an easy way to send a file with a HTML form. To do 
 > Example HTML file upload form
 
 ```html
-<form action="https://yourdomain.opendatasoft.com/api/management/v2/files/" method="post" enctype="multipart/form-data">
+<form action="https://yourdomain.opendatasoft.com/api/management/v2/files" method="post" enctype="multipart/form-data">
     <input type="file" name="file">
     <input type="submit">
 </form>
@@ -124,7 +124,7 @@ The multipart file upload is an easy way to send a file with a HTML form. To do 
 > Example multipart request
 
 ```shell
-curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files/' \
+curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files' \
     -F file=@data.csv
 ```
 
@@ -137,7 +137,7 @@ Parameter | Description
 > Example POST content request
 
 ```shell
-curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files/' \
+curl -XPOST 'https://yourdomain.opendatasoft.com/api/management/v2/files' \
     -H 'Content-Type: application/json' \
     -d '{"content": "language,phrase\nEnglish,Hello World\nEsperanto,Saluton mondo\n", "mimetype": "text/csv", "filename": "data.csv"}'
 ```

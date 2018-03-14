@@ -26,7 +26,7 @@ Attribute | Description
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/jobs/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/jobs
 ```
 
 Returns a list of the jobs you triggered.
@@ -38,7 +38,7 @@ No parameters.
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/jobs/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/jobs \
     -u username:password
 ```
 
@@ -59,7 +59,7 @@ List of [job objects](#the-job-object).
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/jobs/{JOB_ID}/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/jobs/{JOB_ID}
 ```
 
 Retrieves the job with the given identifier.
@@ -70,7 +70,7 @@ Retrieves the job with the given identifier.
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/jobs/jo_ZEXxzA/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/jobs/jo_ZEXxzA \
     -u username:password
 ```
 
