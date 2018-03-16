@@ -82,7 +82,8 @@
         $toc.find(tocListSelector).filter(":not(.active)").slideUp(150);
         $toc.find(tocListSelector).filter(".active").slideDown(150);
         // TODO remove classnames
-        document.title = $best.data("title") + " – " + originalTitle;
+        if($best.data("title") == undefined) document.title = originalTitle;
+        else document.title = $best.data("title") + " – " + originalTitle;
       }
 
     };
@@ -93,7 +94,7 @@
 
       // sidebar menu
       $("#nav-button").click(function () {
-        if ($("#help-hub-button").has(".ods__documentation-help-hub-btn-active")) {
+        if ($("#helphub-button").has(".ods-helphub__btn--active")) {
           closeHelpHub();
           $(".toc-wrapper").toggleClass('open');
           $("#nav-button").toggleClass('open');
@@ -105,14 +106,14 @@
       });
 
       // sidebar help hub
-      $("#help-hub-button").click(function () {
+      $("#helphub-button").click(function () {
         if ($("#nav-button").has(".open")) {
           closeToc();
-          $("#help-hub-button").toggleClass('ods__documentation-help-hub-btn-active');
-          $(".ods__documentation-help-hub-sidebar").toggleClass('ods__documentation-help-hub-sidebar-active');
+          $("#helphub-button").toggleClass('ods-helphub__btn--active');
+          $(".ods-helphub").toggleClass('ods-helphub--active');
         } else {
-          $("#help-hub-button").toggleClass('ods__documentation-help-hub-btn-active');
-          $(".ods__documentation-help-hub-sidebar").toggleClass('ods__documentation-help-hub-sidebar-active');
+          $("#helphub-button").toggleClass('ods-helphub-btn-active');
+          $(".ods-helphub").toggleClass('ods-helphub--active');
         }
         return false;
       });
