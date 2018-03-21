@@ -82,33 +82,70 @@ action is over, the poll's response will contain the action's response.
 
 ## Expanding objects
 
+> Example non-expand request
+
+```shell
+curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/security/users
+```
+
+> Example response
+
+```json
+[
+  {
+    "is_data_visible": true,
+    "visible_fields": [],
+    "filter_query": "",
+    "api_calls_quota": null,
+    "permissions": [
+      "explore_restricted_dataset",
+      "edit_dataset",
+      "publish_dataset"
+    ],
+    "user": {
+      "username": "myuser"
+    }
+  },
+  {...},
+  {...}
+]
+```
+
 > Example expand request
 
 ```shell
+curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/security/users?expand=user
 ```
 
 > Example response
 
 ```json
-{}
+[
+  {
+    "is_data_visible": true,
+    "visible_fields": [],
+    "filter_query": "",
+    "api_calls_quota": null,
+    "permissions": [
+      "explore_restricted_dataset",
+      "edit_dataset",
+      "publish_dataset"
+    ],
+    "user": {
+      "username": "myuser",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "myuser@example.com",
+      "is_active": true,
+      "is_ods": false
+    }
+  },
+  {...},
+  {...}
+]
 ```
 
-> Example nested expand request
-
-```shell
-```
-
-> Example response
-
-```json
-{}
-```
-
-Many objects contain the identifier of a related object in their response properties. For example, a dataset will have associated metadata values. Those objects can be expanded inline with the expand request parameter. Objects that can be expanded are noted in this documentation. This parameter is available on all API requests, and applies to the response of that request only.
-
-You can nest expand requests with the dot property. For example, requesting metadata.definition on a charge will expand the each metadata value into a full metadata object, and will then expand the definition property on that metadata value into a full metadata Definition object.
-
-You can expand multiple objects at once by identifying multiple items in the expand array.
+Many objects contain the identifier of a related object in their response properties. For example, a dataset security user ruleset will have an associated user. This object can be expanded inline with the expand request parameter. Objects that can be expanded are noted in this documentation. This parameter is available on all API requests, and applies to the response of that request only.
 
 ## Datetime objects
 
