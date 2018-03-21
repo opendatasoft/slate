@@ -20,12 +20,12 @@
 
   var closeToc = function() {
     $(".toc-wrapper").removeClass('open');
-    $("#nav-button").removeClass('open');
+    $("#nav-button").removeClass('ods-header__menu-toggle--active');
   };
 
   var closeHelpHub = function () {
-    $("#help-hub-button").removeClass('ods__documentation-help-hub-btn-active');
-    $(".ods__documentation-help-hub-sidebar").removeClass('ods__documentation-help-hub-sidebar-active');
+    $("#helphub-button").removeClass('ods-header__menu-toggle--active');
+    $(".ods-header__nav").removeClass('ods-header__nav--active');
   }
 
   function loadToc($toc, tocLinkSelector, tocListSelector, scrollOffset) {
@@ -94,26 +94,26 @@
 
       // sidebar menu
       $("#nav-button").click(function () {
-        if ($("#helphub-button").has(".ods-helphub__btn--active")) {
+        if ($("#helphub-button").has(".ods-header__menu-toggle--active")) {
           closeHelpHub();
           $(".toc-wrapper").toggleClass('open');
-          $("#nav-button").toggleClass('open');
+          $("#nav-button").toggleClass('ods-header__menu-toggle--active');
         } else {
           $(".toc-wrapper").toggleClass('open');
-          $("#nav-button").toggleClass('open');
+          $("#nav-button").toggleClass('ods-header__menu-toggle--active');
         }
         return false;
       });
 
       // sidebar help hub
       $("#helphub-button").click(function () {
-        if ($("#nav-button").has(".open")) {
+        if ($("#nav-button").has(".ods-header__menu-toggle--active")) {
           closeToc();
-          $("#helphub-button").toggleClass('ods-helphub__btn--active');
-          $(".ods-helphub").toggleClass('ods-helphub--active');
+          $("#helphub-button").toggleClass('ods-header__menu-toggle--active');
+          $(".ods-header__nav").toggleClass('ods-header__nav--active');
         } else {
-          $("#helphub-button").toggleClass('ods-helphub-btn-active');
-          $(".ods-helphub").toggleClass('ods-helphub--active');
+          $("#helphub-button").toggleClass('ods-header__menu-toggle--active');
+          $(".ods-header__nav").toggleClass('ods-header__nav--active');
         }
         return false;
       });
