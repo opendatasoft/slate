@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
 a copy of the License at
 
-  http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
@@ -61,8 +61,13 @@ $phone-width: $tablet-width !default; // min width before reverting to mobile si
 // FONTS
 ////////////////////
 %default-font {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    @media (max-width: $tablet-width - 1) {
+        font-size: 16px;
+    }
+    @media (min-width: $tablet-width - 1) {
+        font-size: 14px;
+    }
 }
 
 %header-font {
@@ -81,7 +86,6 @@ $phone-width: $tablet-width !default; // min width before reverting to mobile si
 $nav-footer-border-color: #666 !default;
 $search-box-border-color: #666 !default;
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,16 +99,9 @@ $search-box-border-color: #666 !default;
 // ODS CUSTOM THEME
 ////////////////////////////////////////////////////////////////////////////////
 // Colors
-$body-background: #F3F3F3;
-$grey-very-light: #F8F8F8;
 $grey-light: #DAE2EA;
-$grey-medium: #A0ACB9;
 $grey-dark: #7B7B7B;
 $blue-ultra-light: #CFE6EC;
 $blue-light: #126E92;
-$blue-medium: #004F88;
 $blue-hover: #166482;
 $deep-blue: #003C63;
-$green: #5DD285;
-$orange: #FF9700;
-$warning-red: #c60000;
