@@ -65,7 +65,7 @@ $phone-width: $tablet-width !default; // min width before reverting to mobile si
     @media (max-width: $tablet-width - 1) {
         font-size: 16px;
     }
-    @media (min-width: $tablet-width - 1) {
+    @media (min-width: $tablet-width) {
         font-size: 14px;
     }
 }
