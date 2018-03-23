@@ -5,8 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://docs.opendatasoft.com/en/'>OpenDataSoft Documentation</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://docs.opendatasoft.com/en'>OpenDataSoft documentation</a>
 
 includes:
   - introduction

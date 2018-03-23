@@ -46,24 +46,80 @@ under the License.
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <%= image_tag('navbar.png') %>
-      </span>
-    </a>
+    
+    <div class="ods-header">
+    
+      <div class="ods-header__brand">
+        <button type="button"
+                class="ods-header__menu-toggle"
+                id="nav-button">
+                Menu
+        </button>
+        
+        <a href="/">
+          <img class="ods-header__logo"
+                src="../images/ODS_logo api blanc.svg"
+                alt="OpenDataSoft API documentation">
+        </a>
+
+        <button type="button"
+                class="ods-header__menu-toggle"
+                id="helphub-button">
+                Help Hub
+        </button>
+      </div>
+
+      <div class="ods-header__nav">
+        <div class="ods-header__nav-item">
+          <a class="ods-header__nav-item-link"
+              href="https://docs.opendatasoft.com/en/">
+              Platform
+          </a>
+        </div>
+        <div class="ods-header__nav-item">
+          <a class="ods-header__nav-item-link"
+              href="https://discovery.opendatasoft.com/pages/home/">
+              Discovery
+          </a>
+        </div>
+        <div class="ods-header__nav-item">
+          <a class="ods-header__nav-item-link"
+              href="https://docs.opendatasoft.com/en/faq.html">
+              FAQ
+          </a>
+        </div>
+        <div class="ods-header__nav-item">
+          <a class="ods-header__nav-item-link"
+              href="https://opendatasoft.github.io/ods-widgets/docs/#/api">
+              Widgets
+          </a>
+        </div>
+        <div class="ods-header__nav-item">
+          <a class="ods-header__nav-item-link"
+              href="https://opendatasoft.github.io/ods-widgets/docs/#/tutorial">
+              Widgets Tutorial
+          </a>
+        </div>
+        <div class="ods-header__nav-item">
+          <a class="ods-header__nav-item-link ods-header__nav-item-link--active"
+              href="https://docs.opendatasoft.com/en/using_api/index.html">
+              API
+          </a>
+        </div>
+      </div>
+    
+    </div>
 
     <div class="toc-wrapper">
-        
-      <%= image_tag "ods-logo.png", class: 'logo' %>
-      <p class="logo_title">OpenDataSoft API Documentation</p>
 
-      <% if current_page.data.search %>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <% end %>
+      <div class="toc-header">
+        <% if current_page.data.search %>
+          <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Search">
+          </div>
+          <ul class="search-results"></ul>
+        <% end %>
+      </div>
 
       <div id="toc" class="toc-list-h1">
         <% toc_data(page_content).each do |h1| %>
@@ -94,8 +150,6 @@ under the License.
 
     <div class="page-wrapper">
       
-      <div class="dark-box"></div>
-      
       <div class="content">
         <%= page_content %>
       </div>
@@ -113,7 +167,6 @@ under the License.
           </div>
         <% end %>
       </div>
-
     </div>
   </body>
 </html>
