@@ -69,8 +69,8 @@ Attribute | Description
 `created_at` <br> *datetime*  | Date when the ruleset was created
 `updated_at` <br> *datetime*  | Date when the ruleset was last edited
 `page` <br> *[page object](#the-page-object)* <br> <em class="expandable">expandable</em> | The page targeted by this ruleset
-`user` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user targeted by this ruleset. <br> Only available for user-level rulesets.
-`group` <br> *[group object](#the-group-object)* <br> <em class="expandable">expandable</em> | The group targeted by this ruleset. <br> Only available for group-level rulesets.
+`user` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user targeted by this ruleset. <br> Only available for user-level rulesets
+`group` <br> *[group object](#the-group-object)* <br> <em class="expandable">expandable</em> | The group targeted by this ruleset. <br> Only available for group-level rulesets
 
 ## Retrieve all user level page security rulesets
 
@@ -215,7 +215,7 @@ Parameter | Description
 
 ### Returns
 
-Returns the user level [page security ruleset object](#the-page-security-ruleset-object).
+Returns the created user level [page security ruleset object](#the-page-security-ruleset-object).
 
 ## Update a user level page security ruleset
 
@@ -267,7 +267,7 @@ Parameter | Description
 
 ### Returns
 
-Returns the user level [page security ruleset object](#the-page-security-ruleset-object).
+Returns the updated user level [page security ruleset object](#the-page-security-ruleset-object).
 
 ## Delete a user level page security ruleset
 
@@ -393,7 +393,7 @@ Parameter | Description
 
 ### Returns
 
-Returns the group level [page security ruleset object](#the-page-security-ruleset-object).
+Returns the created group level [page security ruleset object](#the-page-security-ruleset-object).
 
 ## Update a group level page security ruleset
 
@@ -445,7 +445,7 @@ Parameter | Description
 
 ### Returns
 
-Returns the group level [page security ruleset object](#the-page-security-ruleset-object).
+Returns the updated group level [page security ruleset object](#the-page-security-ruleset-object).
 
 ## Delete a group level page security ruleset
 

@@ -3,7 +3,7 @@
 Pages can be used to write editorial content directly on the platform, build advanced dashboards and organize 
 data portals.
 
-Through the management API, it is possible to list, create, edit and delete pages as well as to configure pages'
+Through the management API, it is possible to list, create, edit and delete pages as well as to configure pages
 visiblity on the portal. 
 
 
@@ -58,23 +58,23 @@ Attribute | Description
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal
 `created_at` <br> *datetime*  | Date when the page was created
 `last_modified` <br> *datetime*  | Date when the page was last edited
-`last_modified_user` <br> *object* <br> <em class="expandable">expandable</em> | The user who last modified the page
-`author` <br> *object* <br> <em class="expandable">expandable</em> | The user who created the page
+`last_modified_user` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user who last modified the page
+`author` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user who created the page
 `pushed_by_parent` <br> *boolean* | Inform if the page has been distributed by a parent domain.
 `has_subdomain_copies` <br> *boolean* | Inform if the page been distributed to any subdomain.
 
-## List pages
+## Retrieve all pages
 
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages
 ```
 
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/pages/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/pages \
     -u username:password
 ```
 
@@ -132,25 +132,25 @@ Parameter | Default | Description
 --------- | ------- | -----------
 `search` <br> *string* | None | Performs a full text search on the `title`, `slug`, `description` and `tags` attributes to filter the pages
 `rows` <br> *string* | 10 | Number of items to return per page. Max value: 100
-`page` <br> *string* | 1 | The list's page to return
+`page` <br> *string* | 1 | The list page to return
 `sort` <br> *string* | None | Field on which to sort the results list
 
 ### Returns
 
-Returns a paginated list of pages objects.
+Returns a paginated list of [page objects](#the-page-object).
 
 ## Retrieve a page
 
 > Definition
 
 ```HTTP
-GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}/
+GET https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}
 ```
 
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page \
     -u username:password
 ```
 
@@ -191,28 +191,28 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/ \
 }
 ```
 
-This endpoint is for retrieving the page object with provided `slug`
+This endpoint is for retrieving the page object with provided `slug`.
 
 ### Parameters
 
-No parameters
+No parameters.
 
 ### Returns
 
-Returns the page object.
+Returns [the page object](#the-page-object).
 
 ## Create a page
 
 > Definition
 
 ```HTTP
-POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/
+POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages
 ```
 
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/pages/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/pages \
     -X POST \
     -u username:password \
     -d '{"slug": "my-page", "title": {"fr": "Titre de la page", "en": "Page title"}, "description": "The page description", "layout": "single-main.html", "content": {"main": {"text": {"fr": "Contenu de la page", "en": "Page content"}}}, "tags": ["tag1", "tag2"], "restricted": true}'
@@ -259,7 +259,7 @@ This endpoint is for creating a new page.
 
 ### Parameters
 
-No parameters
+No parameters.
 
 ### Body
 
@@ -275,7 +275,7 @@ Parameter | Description
 
 ### Returns
 
-Returns the created page object.
+Returns the created [page object](#the-page-object).
 
 ## Update a page
 
@@ -288,7 +288,7 @@ PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page \
     -X PUT \
     -u username:password \
     -d '{"title": {"fr": "Nouveau titre de la page", "en": "New page title"}, "description": "The page description", "layout": "single-main.html", "content": {"main": {"text": {"fr": "Contenu de la page", "en": "Page content"}}}, "tags": ["tag1", "tag2"], "restricted": true}'
@@ -331,11 +331,11 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/ \
 }
 ```
 
-This endpoint is for updating an existing page object with provided `slug`
+This endpoint is for updating an existing page object with provided `slug`.
 
 ### Parameters
 
-No parameters
+No parameters.
 
 ### Body
 
@@ -348,37 +348,41 @@ Parameter | Description
 `tags` <br> *array of strings*  | List of string used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal. This parameter is only available if you have the permission to manage the pages' security
 
+### Returns
+
+Returns the updated [page object](#the-page-object).
+
 ## Delete a page
 
 > Definition
 
 ```HTTP
-DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}/
+DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}
 ```
 
 > Example request
 
 ```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/ \
+curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page \
     -X DELETE \
     -u username:password
 ```
 
-This endpoint is for deleting an existing page object with provided `slug`
+This endpoint is for deleting an existing page object with provided `slug`.
 
 ### Parameters
 
-No parameters
+No parameters.
 
 ### Returns
-A HTTP response with no content and status code 204
+A HTTP response with no content and status code 204.
 
 ## Delete multiple pages
 
 > Definition
 
 ```HTTP
-DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/
+DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages
 ```
 
 > Example request
@@ -431,11 +435,11 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages/ \
 ]
 ```
 
-This endpoint is for deleting multiple pages
+This endpoint is for deleting multiple pages.
 
 ### Parameters
 
-No parameters
+No parameters.
 
 ### Body
 This endpoint accepts a list of objects containing the following parameters:
@@ -446,4 +450,4 @@ Parameter | Description
 
 ### Returns
 
-The list of deleted page objects
+The list of deleted [page objects](#the-page-object).
