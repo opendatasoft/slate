@@ -21,6 +21,7 @@ includes:
   - dataset_attachments
   - dataset_security
   - pages
+  - page_security
   - form_widgets
   - jobs
   - misc

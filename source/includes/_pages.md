@@ -56,8 +56,8 @@ Attribute | Description
 `content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout 
 `tags` <br> *array of strings*  | List of string used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal
-`created_at` <br> *datetime*  | Date when the page's was created
-`last_modified` <br> *datetime*  | Date when the page's was last edited
+`created_at` <br> *datetime*  | Date when the page was created
+`last_modified` <br> *datetime*  | Date when the page was last edited
 `last_modified_user` <br> *object* <br> <em class="expandable">expandable</em> | The user who last modified the page
 `author` <br> *object* <br> <em class="expandable">expandable</em> | The user who created the page
 `pushed_by_parent` <br> *boolean* | Inform if the page has been distributed by a parent domain.
@@ -137,7 +137,7 @@ Parameter | Default | Description
 
 ### Returns
 
-Returns a list of pages objects.
+Returns a paginated list of pages objects.
 
 ## Retrieve a page
 
@@ -353,14 +353,14 @@ Parameter | Description
 > Definition
 
 ```HTTP
-DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}
+DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}/
 ```
 
 > Example request
 
 ```shell
 curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/ \
-    -X PUT \
+    -X DELETE \
     -u username:password
 ```
 
