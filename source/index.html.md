@@ -20,6 +20,7 @@ includes:
   - dataset_metadata
   - dataset_attachments
   - dataset_security
+  - pages
   - form_widgets
   - jobs
   - misc
