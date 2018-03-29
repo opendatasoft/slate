@@ -11,7 +11,7 @@ If the page is set as restricted, then the page will only appear in the portal f
 
 Rulesets can also give users permission to edit the page and manage its security.
 
-### The page security API in a nutshell
+## The page security API in a nutshell
 
 #### User level page security ruleset
 
