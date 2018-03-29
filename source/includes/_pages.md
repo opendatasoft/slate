@@ -49,7 +49,7 @@ visiblity on the portal.
 
 Attribute | Description
 --------- | -----------
-`slug` <br> *string* | Human readable identifier used to generate the page's URL
+`slug` <br> *string* | Human readable identifier used to generate the page URL
 `title` <br> *object* | Internationalized page title
 `description` <br> *string* | Page description
 `layout` | The HTML layout to use for this page. Possible values are `single-main.html`, `main-left-col-right.html`, `homepage-searchbox.html`, `single-main-contact.html`, `dataset-catalog-overview.html`, `dataset-of-datasets.html`, `reuses.html`, `custom.html`
@@ -60,8 +60,8 @@ Attribute | Description
 `last_modified` <br> *datetime*  | Date when the page was last edited
 `last_modified_user` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user who last modified the page
 `author` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user who created the page
-`pushed_by_parent` <br> *boolean* | Inform if the page has been distributed by a parent domain.
-`has_subdomain_copies` <br> *boolean* | Inform if the page been distributed to any subdomain.
+`pushed_by_parent` <br> *boolean* | Inform if the page has been distributed by a parent domain
+`has_subdomain_copies` <br> *boolean* | Inform if the page been distributed to any subdomain
 
 ## Retrieve all pages
 
@@ -132,8 +132,8 @@ Parameter | Default | Description
 --------- | ------- | -----------
 `search` <br> *string* | None | Performs a full text search on the `title`, `slug`, `description` and `tags` attributes to filter the pages
 `rows` <br> *string* | 10 | Number of items to return per page. Max value: 100
-`page` <br> *string* | 1 | The list page to return
-`sort` <br> *string* | None | Field on which to sort the results list
+`page` <br> *string* | 1 | The page to return
+`sort` <br> *string* | None | Field on which to sort the returned objects
 
 ### Returns
 

@@ -4,10 +4,11 @@ The page security is the set of rules that defines who (which users / groups) ca
 
 It is defined through 2 variables:
 
-* a page restriction through the `restricted` attribute in [the page object](#the-page-object), which define if a page is visible to every user who can explore the portal
+* a page restriction through the `restricted` attribute in [the page object](#the-page-object), which defines if a page is visible to every user who can explore the portal
 * specific rulesets for users and groups
 
 If the page is set as restricted, then the page will only appear in the portal for users who have a ruleset declared for them, either directly or through a group. Other users won't have any access to the page.
+
 Rulesets can also give users permission to edit the page and manage its security.
 
 ### The page security API in a nutshell
