@@ -66,7 +66,7 @@ Rulesets can also give users permission to edit the page and manage its security
 
 Attribute | Description
 --------- | -----------
-`permissions` <br> *array of strings* | List of special permissions granted to the target. Possible values are `edit_page` and `manage_page`
+`permissions` <br> *array of strings* | List of special permissions granted to the target. Possible values are `edit_page`
 `created_at` <br> *datetime*  | Date when the ruleset was created
 `updated_at` <br> *datetime*  | Date when the ruleset was last edited
 `page` <br> *[page object](#the-page-object)* <br> <em class="expandable">expandable</em> | The page targeted by this ruleset
@@ -211,7 +211,7 @@ No parameters
 
 Parameter | Description
 --------- | -----------
-`permissions` <br> *array of strings* | List of special permissions granted to the user. Possible values are `edit_page` and `manage_page`
+`permissions` <br> *array of strings* | List of special permissions granted to the user. Possible values are `edit_page`
 `user` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user targeted by this ruleset
 
 ### Returns
@@ -232,14 +232,14 @@ PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}/sec
 curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/security/users/john.doe \
     -X PUT \
     -u username:password \
-    -d '{"permissions": ["manage_page"]}'
+    -d '{"permissions": ["edit_page"]}'
 ```
 
 > Example response
 
 ```json
 {
-    "permissions": ["manage_page"],
+    "permissions": ["edit_page"],
     "created_at": "2018-03-28T13:17:13.302632+00:00",
     "updated_at": "2018-03-28T13:17:13.302632+00:00",
     "user": {
@@ -264,7 +264,7 @@ No parameters
 
 Parameter | Description
 --------- | -----------
-`permissions` <br> *array of strings* | List of special permissions granted to the user. Possible values are `edit_page` and `manage_page`
+`permissions` <br> *array of strings* | List of special permissions granted to the user. Possible values are `edit_page`
 
 ### Returns
 
@@ -389,7 +389,7 @@ No parameters.
 
 Parameter | Description
 --------- | -----------
-`permissions` <br> *array of strings* | List of special permissions granted to the group. Possible values are `edit_page` and `manage_page`
+`permissions` <br> *array of strings* | List of special permissions granted to the group. Possible values are `edit_page`
 `group` <br> *[group object](#the-group-object)* <br> <em class="expandable">expandable</em> | The group targeted by this ruleset
 
 ### Returns
@@ -410,14 +410,14 @@ PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}/sec
 curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page/security/groups/your.group \
     -X PUT \
     -u username:password \
-    -d '{"permissions": ["manage_page"]}'
+    -d '{"permissions": ["edit_page"]}'
 ```
 
 > Example response
 
 ```json
 {
-    "permissions": ["manage_page"],
+    "permissions": ["edit_page"],
     "created_at": "2018-03-28T13:17:13.302632+00:00",
     "updated_at": "2018-03-28T13:17:13.302632+00:00",
     "group": {
@@ -442,7 +442,7 @@ No parameters.
 
 Parameter | Description
 --------- | -----------
-`permissions` <br> *array of strings* | List of special permissions granted to the group. Possible values are `edit_page` and `manage_page`
+`permissions` <br> *array of strings* | List of special permissions granted to the group. Possible values are `edit_page`
 
 ### Returns
 
