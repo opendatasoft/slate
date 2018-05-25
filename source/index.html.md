@@ -17,11 +17,11 @@ includes:
   - dataset_actions
   - records_errors
   - dataset_changes
+  - dataset_resources
   - dataset_metadata
   - dataset_attachments
   - dataset_security
   - form_widgets
-  - jobs
   - misc
 
 search: true
