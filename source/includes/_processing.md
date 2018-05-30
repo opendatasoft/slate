@@ -1,10 +1,10 @@
 # Processing
 
-The OpenDataSoft platform allows you to apply one or more processors to a dataset. These processors are units of data transformation and other processing. REach processor represents a configurable operation that will be applied to all rows of a dataset. Example of what you can do with a processor include replacing text with a regex, geocoding an address into a geographical coordinates, creating a new column that contains the result of a substraction between two existing columns and much more.
+The OpenDataSoft platform allows you to apply one or more processors to a dataset. These processors are units of data transformation and other processing. Each processor represents a configurable operation that will be applied to all rows of a dataset. Examples of what you can do with a processor include replacing text with a regex, geocoding an address into geographical coordinates, creating a new column that contains the result of a substraction between two existing columns and much more.
 
 ## The processor object
 
-The processor object is composed of a unique ID for the processor, the processor name and the processor configuration. The configuration is a json object whose keys are dependant of the processor itself.
+The processor object is composed of a unique ID for the processor, the processor name and the processor configuration. The configuration is a JSON object whose keys are dependant of the processor itself.
 
 ### Attributes
 
@@ -77,7 +77,7 @@ The list of all available processor names.
 
 ## List dataset processors
 
-This endpoints is meant to return the list of configured processors for a dataset.
+This endpoint is meant to return the list of configured processors for a dataset.
 
 > Definition
 
@@ -123,7 +123,7 @@ The list of [processor objects](#the-processor-object).
 
 ## Append a new processor to a dataset
 
-This endpoint of for creating a new processor for the dataset. The processor will be appended to the end of the processing stack.
+This endpoint is for creating a new processor for the dataset. The processor will be appended to the end of the processing stack.
 
 > Definition
 
@@ -159,7 +159,7 @@ The endpoint takes a processor object (without its processor_uid, which will be 
 Parameter | Description
 --------- | -----------
 `name` <br> *string* | name of the processor
-`args` <br> *object* | processor-dependant parameters
+`args` <br> *object* | processor-dependent parameters
 
 
 ### Returns
@@ -239,7 +239,7 @@ Expanation
 Parameter | Description
 --------- | -----------
 `name` <br> *string* | name of the processor
-`args` <br> *object* | processor-dependant parameters
+`args` <br> *object* | processor-dependent parameters
 
 ### Returns
 The newly updated [processor object](#the-processor-object).
@@ -304,7 +304,7 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATA
 }
 ```
 
-The endpoint takes the name of a processor, and tries to find the list of values that would satisfy the parameters where possible as if the processor was appended at the end of the processing stack. The parameters are returned in a object structure, with their specifications expanded. Some parameters cannot be guessed.
+The endpoint takes the name of a processor, and tries to find the list of values that would satisfy the parameters where possible as if the processor was appended to the end of the processing stack. The parameters are returned in a object structure, with their specifications expanded. Some parameters cannot be guessed.
 
 ### Parameters
 
@@ -313,4 +313,4 @@ Parameter | Description
 `name` <br> *string* | name of the processor
 
 ### Returns
-The enpoint returns an object whose keys are the names of the processor parameters, and whose values are objects containing the guessed values. These values have their name as keys and specifications as value.
+The endpoint returns an object whose keys are the names of the processor parameters, and whose values are objects containing the guessed values. These values have their name as keys and specifications as value.
