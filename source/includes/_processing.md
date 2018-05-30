@@ -173,7 +173,7 @@ This endpoint is meant to retrieve a processor object in a dataset processing st
 > Definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/processors/{PROCESSOR_UID}/
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/processors/{PROCESSOR_UID}
 ```
 
 > Example request
@@ -207,7 +207,7 @@ Explanation of the thing
 > Definition
 
 ```
-PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/processors/{PROCESSOR_UID}/
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/processors/{PROCESSOR_UID}
 ```
 
 > Example request
@@ -251,7 +251,7 @@ This endpoint is meant to delete a processor from the processing stack of a data
 > Definition
 
 ```HTTP
-DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/processors/{PROCESSOR_UID}/
+DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/processors/{PROCESSOR_UID}
 ```
 
 > Example request
@@ -275,13 +275,13 @@ This endpoint is meant to expose this feature, by taking a processor name and re
 > Definition
 
 ```HTTP
-POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/guess_processor_params/
+POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/guess_processor_params
 ```
 
 > Example request
 
 ```HTTP
-curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/guess_processor_params/
+curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/guess_processor_params
     -u username:password \
     -d '{"name": "expand_json_array"}'
 }
