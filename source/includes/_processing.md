@@ -263,7 +263,7 @@ curl -XDELETE https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_
 
 ### Returns
 
-On successful deletion, the endpoint returns a HTTP 200.
+On successful deletion, the endpoint returns a HTTP 204 without any content.
 
 
 ## Retrieve possible processor parameters from processor name
