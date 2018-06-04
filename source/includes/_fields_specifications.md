@@ -19,7 +19,7 @@ Configuration name | Description
 
 > change the field named "original_field_id" to "new_field_id", and sets its label to "desired_label"
 
-```
+```json
 {
     "name": "rename",
     "args": {
@@ -36,7 +36,7 @@ Fields have a unique ID, as well as a human-friendly label, both of which are ed
 
 > change the type of the field named "field_id" to a geo shape
 
-```
+```json
 {
     "name": "type",
     "args": {
@@ -64,7 +64,7 @@ Type name | Description
 
 > mark the `unique_field` as the unique ID for the records
 
-```
+```json
 {
     "name": "annotate",
     "args": {
@@ -76,7 +76,7 @@ Type name | Description
 
 > mark the `category_field` as a facet
 
-```
+```json
 {
     "name": "annotate",
     "args": {
@@ -88,7 +88,7 @@ Type name | Description
 
 > make the `facetted_field` facet be sorted by descending count
 
-```
+```json
 {
     "name": "annotate",
     "args": {
@@ -101,7 +101,7 @@ Type name | Description
 
 > make the `datetime_field` have an hourly precision when used in timeseries
 
-```
+```json
 {
     "name": "annotate",
     "args": {
@@ -114,7 +114,7 @@ Type name | Description
 
 > mark the `nondescript_number` field as representing square kilometers
 
-```
+```json
 {
     "name": "annotate",
     "args": {
@@ -127,7 +127,7 @@ Type name | Description
 
 > force the `decimal_field` precision to 5 digits after the decimal point
 
-```
+```json
 {
     "name": "annotate",
     "args": {
@@ -140,7 +140,7 @@ Type name | Description
 
 > mark the `multivalued_field` as multivalued, with a comma as the values separator
 
-```
+```json
 {
     "name": "annotate",
     "args": {
@@ -171,7 +171,7 @@ Annotation name | Field type | Description
 
 > give the `complicated_field` an elegant description
 
-```
+```json
 {
     "name": "description",
     "args": {
@@ -187,7 +187,7 @@ Description are a mean to qualify and give some extra details about the content 
 
 > reorder the 3 fields `first_field`, `second_field` and `third_field` to be in the reverse order
 
-```
+```json
 {
     "name": "order",
     "args": [
@@ -204,7 +204,7 @@ Fields are processed and displayed in a definite order, this configuration optio
 
 > discard the `useless_field`
 
-```
+```json
 {
     "name": "delete",
     "args": {
