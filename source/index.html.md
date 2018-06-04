@@ -21,6 +21,7 @@ includes:
   - dataset_attachments
   - dataset_security
   - processing
+  - fields_specifications
   - form_widgets
   - jobs
   - misc
