@@ -1,10 +1,10 @@
-# Fields specifications
+# Fields specification
 
-Dataset field configuration can be specified using a variety of options. These options include their type, their label, whether they are a filter or not, whether they should be discarded, or even how fields are order. These configuration options are accessed using [processor-like objects](#the-processor-object).
+Dataset fields can be configured using a variety of options. These options include their type, their label, whether they are a filter or not, whether they should be discarded, or even how fields are order. These configuration options, collectively refered to as fields specification, are accessed using [processor-like objects](#the-processor-object).
 
-## Available configuration
+## Available configuration items
 
-Here is a list of the different possible configuration options. Example usage for each one can be found in their dedicated section
+Here is a comprehensive list of the available configuration items. Example usage for each one can be found in their dedicated section.
 
 Configuration name | Description
 ------------------ | -----------
@@ -30,7 +30,7 @@ Configuration name | Description
 }
 ```
 
-Fields have a unique ID, as well as a human-friendly label, both of which are editable using this configuration option.
+Fields have a unique ID, as well as a human-friendly label, both of which are editable using this configuration item.
 
 ## Type
 
@@ -151,7 +151,7 @@ Type name | Description
 }
 ```
 
-Annotation are a mean to configure special behavior for the fields. Some annotations are only available for certain field types. Setting the facet annotation unlocks other annotations for the fields.
+Annotation are a mean to configure special behavior for the fields. Some annotations are only available for certain field types. Setting the facet annotation on a field unlocks other annotations for the field.
 
 Annotation name | Field type | Description
 --------------- | ---------- | ----------
@@ -198,7 +198,7 @@ Description are a mean to qualify and give some extra details about the content 
 }
 ```
 
-Fields are processed and displayed in a definite order, this configuration options can be used to change that order.
+Fields are processed and displayed in a definite order, this configuration item can be used to change that order.
 
 ## Delete
 
@@ -213,13 +213,13 @@ Fields are processed and displayed in a definite order, this configuration optio
 }
 ```
 
-Some fields present in the data source are not useful or redundant. This configuration option allows to discard these.
+Some fields present in the data source are not useful or redundant. This configuration item allows to discard these.
 
 ## Units
 
 Units are a way to describe the numeric values contained in a field. If a unit is set for a field, values are augmented with their symbol in the table view. See the [annotation](#annotate) chapter to learn how to set a unit for a field.
 
-Below is a list of units supported by the platform.
+Below is a comprehensive list of units supported by the platform.
 
 Unit name | Description
 --------- | -----------
@@ -297,9 +297,9 @@ Unit name | Description
 `%` | Percent
 `°` | Degree
 
-## List dataset fields configuration
+## Display a dataset fields specification stack
 
-This endpoint is meant to return the list of fields configuration for a dataset. Since field configurations are exposed as [processor objects](#the-processor-object), their unique identifiers are `processor_uid`s.
+This endpoint is meant to return the list of fields configuration items for a dataset. Since field configurations are exposed as [processor objects](#the-processor-object), their unique identifiers are `processor_uid`s.
 
 > Definition
 
@@ -343,9 +343,10 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/datasets/da_abcdef
 The payload lists the fields specification stack of the dataset. Please note that it reads in the order in which the configuration is applied.
 
 ### Returns
-The list of fields specifications, exposed as [processor objects](#the-processor-object).
 
-## Add a field specification to a dataset
+The list of fields configuration items, exposed as [processor objects](#the-processor-object).
+
+## Add a field configuration item to a dataset
 
 This endpoint is for adding a field configuration item for the dataset.
 
@@ -376,7 +377,7 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATA
 }
 ```
 
-The endpoint takes a processor-like object (without its `processor_uid`, which will be automatically generated), creates a new field configuration item with the provided arguments and appends it at the end of the field configuration chain.
+The endpoint takes a processor object (without its `processor_uid`, which will be automatically generated), creates a new field configuration item with the provided arguments and appends it at the end of the fields specification chain.
 
 ### Parameters
 
