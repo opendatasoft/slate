@@ -232,8 +232,6 @@ curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abc
 }
 ```
 
-Expanation
-
 ### Parameters
 
 Parameter | Description
