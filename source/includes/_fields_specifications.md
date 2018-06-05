@@ -296,3 +296,194 @@ Unit name | Description
 `kg/m3` | Kilogram per cubic meter
 `%` | Percent
 `°` | Degree
+
+## List dataset fields configuration
+
+This endpoint is meant to return the list of fields configuration for a dataset. Since field configurations are exposed as [processor objects](#the-processor-object), their unique identifiers are `processor_uid`s.
+
+> Definition
+
+```HTTP
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/fields_specifications/
+```
+
+> Example request
+
+```HTTP
+curl -XGET https://yourdomain.opendatasoft.com/api/management/datasets/da_abcdef/fields_specifications/
+    -u username:password
+```
+
+> Example response
+
+```json
+[{
+    "name": "type",
+    "args": {
+        "field": "badly_named_field",
+        "type": "double"
+    }
+}, {
+    "name": "rename",
+    "args": {
+        "from_name": "badly_named_field",
+        "to_name": "right_name",
+        "label": "Super easy to understand label"
+    }
+}, {
+    "name": "annotate",
+    "args": {
+        "field": "right_name",
+        "annotation": "decimals",
+        "args": [5]
+    }
+}]
+```
+
+The payload lists the fields specification stack of the dataset. Please note that it reads in the order in which the configuration is applied.
+
+### Returns
+The list of fields specifications, exposed as [processor objects](#the-processor-object).
+
+## Add a field specification to a dataset
+
+This endpoint is for adding a field configuration item for the dataset.
+
+> Definition
+
+```HTTP
+POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/da_abcdef/fields_specifications/
+```
+
+> Example request
+
+```HTTP
+curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/fields_specifications/
+    -u username:password \
+    -d '{"name": "annotate", "args": {"field": "right_name", "annotation": "facet"}'
+```
+
+> Example response
+
+```json
+{
+    "processor_uid": "pr_abcdfe",
+    "name": "annotate",
+    "args": {
+        "field": "right_name",
+        "annotation": "facet"
+    }
+}
+```
+
+The endpoint takes a processor-like object (without its `processor_uid`, which will be automatically generated), creates a new field configuration item with the provided arguments and appends it at the end of the field configuration chain.
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+`name` <br> *string* | name of the field configuration item
+`args` <br> *object* | parameters
+
+### Returns
+
+The newly created field configuration item, exposed as a [processor object](#the-processor-object).
+
+## Retrieve a field configuration item
+
+This endpoint is meant to retrieve a field configuration item from a dataset, using its processor_uid.
+
+> Definition
+
+```HTTP
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/fields_specifications/{PROCESSOR_UID}
+```
+
+> Example request
+
+```HTTP
+curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abcdef/fields_specifications/pr_abcdfe
+    -u username:password
+```
+
+> Example response
+
+```json
+{
+    "processor_uid": "pr_abcdfe",
+    "name": "annotate",
+    "args": {
+        "field": "right_name",
+        "annotation": "facet"
+    }
+}
+```
+
+### Returns
+
+The requested field configuration item, exposed as a [processor object](#the-processor-object).
+
+## Update a field configuration item
+
+This endpoint is meant to update a field configuration item in place within the fields specification stack.
+
+> Definition
+
+```
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/fields_specifications/{PROCESSOR_UID}
+```
+
+> Example request
+
+```HTTP
+curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abcdef/fields_specifications/pr_abcdfe
+    -u username:password \
+    -d '{"name": "annotate", "args": {"field": "other_field", "annotation": "facet"}'
+}
+
+```
+
+> Example response
+
+```json
+{
+    "processor_uid": "pr_abcdfe",
+    "name": "annotate",
+    "args": {
+        "field": "other_field",
+        "annotation": "facet"
+    }
+}
+```
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+`name` <br> *string* | name of the field configuration item
+`args` <br> *object* | parameters
+
+### Returns
+
+The newly updated field configuration item, exposed as a [processor object](#the-processor-object).
+
+## Delete a field configuration item
+
+This endpoint is meant to delete a field configuration item from the fields specification stack of a dataset
+
+> Definition
+
+```HTTP
+DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/fields_specifications/{PROCESSOR_UID}
+```
+
+> Example request
+
+```HTTP
+curl -XDELETE https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abcdef/fields_specifications/pr_abcdfe
+    -u username:password
+```
+
+### Returns
+
+On successful deletion, the endpoint returns a HTTP 204 without any content.
