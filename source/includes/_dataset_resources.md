@@ -2,7 +2,7 @@
 
 ## The resource object
 
-The resource object describe a resource on the OpenDataSoft platform. It is composed of a URL, a title, a type, a parameter object and a credentials object. The URL is where data will be pulled to populate the dataset. Resources urls can (and often do!) point to [files](#files) uploaded to the platform using the `odsfile://` url scheme.
+The resource object describes a resource on the OpenDataSoft platform. It is composed of a URL, a title, a type, a parameter object and a credentials object. The URL is where data will be pulled to populate the dataset. Resources urls can (and often do!) point to [files](#files) uploaded to the platform using the `odsfile://` url scheme.
 
 ### Attributes
 
@@ -38,13 +38,13 @@ This endpoint is meant to list all resources that are linked to a dataset.
 > Definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/resources/
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resources/
 ```
 
 > Example request
 
 ```HTTP
-curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/resources/
+curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/
     -u username:password
 ```
 
@@ -75,13 +75,13 @@ This endpoint is for creating a new resource for the dataset
 > Definition
 
 ```HTTP
-POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/resource/
+POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resources/
 ```
 
 > Example request
 
 ```HTTP
-curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/resource/
+curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/
     -u username:password \
     -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}, "credentials": {} }'
 ```
@@ -102,7 +102,7 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/resource/
 }
 ```
 
-A new resource is created using the resource object sent in the body, and echos back the object, with its newly generated resource_uid on success.
+A new resource is created using the resource object sent in the body, and echoes back the object, with its newly generated resource_uid on success.
 
 ### Parameters
 
@@ -119,13 +119,13 @@ This endpoint is for retrieving one resource object using its resource uid
 > Definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/resource/{RESOURCE_UID}
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resources/{RESOURCE_UID}
 ```
 
 > Example request
 
 ```HTTP
-curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/resource/{RESOURCE_UID}
+curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/{RESOURCE_UID}
     -u username:password
 ```
 
@@ -158,13 +158,13 @@ This endpoint is meant to delete a resource specified by its uid.
 > Definition
 
 ```HTTP
-DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/resource/{RESOURCE_UID}
+DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resources/{RESOURCE_UID}
 ```
 
 > Example request
 
 ```HTTP
-curl -XDELETE https://yourdomain.opendatasoft.com/api/management/v2/{RESOURCE_UID}
+curl -XDELETE https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/{RESOURCE_UID}
     -u username:password
 ```
 
@@ -177,13 +177,13 @@ This API endpoint is meant to update a resource specified with its uid.
 > Definition
 
 ```HTTP
-PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/resource/{RESOURCE_UID}
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resources/{RESOURCE_UID}
 ```
 
 > Example request
 
 ```HTTP
-curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/resource/{RESOURCE_UID}
+curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/{RESOURCE_UID}
     -u username:password \
     -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}, "credentials": {} }'
 
@@ -222,19 +222,19 @@ In order to test a resource configuration, it can be useful to preview the data.
 > Payload-based call definition
 
 ```HTTP
-POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/resource_preview
+POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resource_preview
 ```
 
 > UID-based call definition
 
 ```HTTP
-GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/resources/{RESOURCE_UID}/preview
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/{RESOURCE_UID}/preview
 ```
 
 > Example payload-based request
 
 ```HTTP
-curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/resource_preview
+curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resource_preview
     -u username:password \
     -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}, "credentials": {} }'
 ```
@@ -242,7 +242,7 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/resource_previ
 > Example UID-based request
 
 ```HTTP
-curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/re_abcdef/preview
+curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/re_abcdef/preview
     -u username:password
 ```
 
