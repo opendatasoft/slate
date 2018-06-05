@@ -1,6 +1,6 @@
 # Fields specification
 
-Dataset fields can be configured using a variety of options. These options include their type, their label, whether they are a filter or not, whether they should be discarded, or even how fields are order. These configuration options, collectively refered to as fields specification, are accessed using [processor-like objects](#the-processor-object).
+Dataset fields can be configured using a variety of options. These options include their type, their label, whether they are a filter or not, whether they should be discarded, or even how fields are ordered. These configuration options, collectively refered to as fields specification, are accessed using [processor-like objects](#the-processor-object).
 
 ## Available configuration items
 
@@ -17,7 +17,7 @@ Configuration name | Description
 
 ## Rename
 
-> change the field named "original_field_id" to "new_field_id", and sets its label to "desired_label"
+> change the field named "original_field_id" to "new_field_id", and set its label to "desired_label"
 
 ```json
 {
@@ -30,7 +30,7 @@ Configuration name | Description
 }
 ```
 
-Fields have a unique ID, as well as a human-friendly label, both of which are editable using this configuration item.
+Fields are identified by a technical name, and have a human-friendly label; both are editable using this configuration item.
 
 ## Type
 
@@ -46,13 +46,13 @@ Fields have a unique ID, as well as a human-friendly label, both of which are ed
 }
 ```
 
-Types are the most basic way of qualifying fields. Different types unlock different kinds of visualizations and agregations. Below is the list of types sypported by the platform.
+Types are the most basic way of qualifying fields. Different types unlock different kinds of visualizations and agregations. Below is the list of types supported by the platform.
 
 Type name | Description
 --------- | -----------
 `text` | textual data
-`int` | integers
-`double` | floating point numbers
+`int` | integer
+`double` | floating point number
 `geo_point_2d` | 2D geographical point
 `geo_shape` | geographical shape
 `date` | date
@@ -157,11 +157,11 @@ Annotation name | Field type | Description
 --------------- | ---------- | ----------
 `id`|all field types | Whether this field should constitute one of the keys of the records unique IDs. If no field has this annotation, all fields contribute to the creation of the records unique ID.
 `facet` | `date`, `datetime`, `int`, `decimal`, `text` | Whether the field can serve as a filter
-`facetsort` | all fields type, facet only | How to sort the facets. Possible arguments are `count` and `-count` for all field types, `alphanum` and `-alphanum` for `date`, `datetime` and `text`, `num` and `-num` for `decimal` and `int`
+`facetsort` | all field types, facet only | How to sort the facets. Possible arguments are `count` and `-count` for all field types, `alphanum` and `-alphanum` for `date`, `datetime` and `text`, `num` and `-num` for `decimal` and `int`
 `disjunctive` | `decimal`, `int` and `text`, facet only | Whether multiple values can be selected for the facet
 `timeseries_precision` | `date` and `datetime` | precision of the field when used in a timeseries query. Possible arguments are `year`, `month` and `day` for `date`, `hour` and `minute` for `datetime` 
 `timerangeFilter` | `date` and `datetime`, facet only | Whether to active the timerange filter 
-`unit` | `int` and `decimal` | The unit of the field possible argument values are given [in the dedicated chapter](#units)
+`unit` | `int` and `decimal` | The unit of the field. Supported units are listed [in the dedicated chapter](#units)
 `decimals` | `decimal only` | The argument is the number of digits to appear after the decimal point
 `sortable` | `text` | whether the field should be sortable in table view
 `multivalued` | `text` | whether the field contains multiple values serparated by a character. The separator must be given as the argument
@@ -291,7 +291,7 @@ Unit name | Description
 `ppm` | Part per million
 `µg/L` | Microgram per liter
 `mg/L` | Milligram per liter
-`μg/m3` | "Microgram per cubic meter
+`μg/m3` | Microgram per cubic meter
 `g/L` | Gram per liter
 `kg/m3` | Kilogram per cubic meter
 `%` | Percent
@@ -299,7 +299,7 @@ Unit name | Description
 
 ## Display a dataset fields specification stack
 
-This endpoint is meant to return the list of fields configuration items for a dataset. Since field configurations are exposed as [processor objects](#the-processor-object), their unique identifiers are `processor_uid`s.
+This endpoint is meant to return the list of field configuration items for a dataset. Since field configurations are exposed as [processor objects](#the-processor-object), their unique identifiers are `processor_uid`s.
 
 > Definition
 
@@ -344,7 +344,7 @@ The payload lists the fields specification stack of the dataset. Please note tha
 
 ### Returns
 
-The list of fields configuration items, exposed as [processor objects](#the-processor-object).
+The list of field configuration items, exposed as [processor objects](#the-processor-object).
 
 ## Add a field configuration item to a dataset
 

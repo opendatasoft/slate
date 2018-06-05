@@ -1,6 +1,6 @@
 # Processing
 
-The OpenDataSoft platform allows you to apply one or more processors to a dataset. These processors are units of data transformation and other processing. Each processor represents a configurable operation that will be applied to all rows of a dataset. Examples of what you can do with a processor include replacing text with a regex, geocoding an address into geographical coordinates, creating a new column that contains the result of a substraction between two existing columns and much more.
+The OpenDataSoft platform allows you to apply one or more processors to a dataset. These processors are units of data transformation and other processing. Each processor represents a configurable operation that will be applied to all rows of a dataset. Examples of what you can do with a processor include replacing text with a regex, geocoding an address into geographical coordinates, creating a new column that contains the result of a substraction between two existing columns and much more. A general-purpose presentation of processors and their capabilities is available on the [data processing documentation](https://docs.opendatasoft.com/en/sourcing_and_processing_data/processing_data.html).
 
 ## The processor object
 
@@ -202,7 +202,6 @@ The requested [processor object](#the-processor-object).
 ## Update a processor
 
 This endpoint is meant to update a processor in place within the processing stack of a dataset.
-Explanation of the thing
 
 > Definition
 
@@ -227,7 +226,7 @@ curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abc
     "args": {
         "field": "text_field",
         "regexp": ".*",
-        "new": "Hello World"
+        "new": "Bonjour Monde"
     }
 }
 ```
@@ -266,7 +265,7 @@ On successful deletion, the endpoint returns a HTTP 204 without any content.
 
 ## Retrieve possible processor parameters from processor name
 
-For some processors and some processors parameters, the OpenDataSoft platform has a way of determining a set of possible values. It can for instance figure out the list of fields the processor could operate on.
+For some processors and some processors parameters, the OpenDataSoft platform has a way to suggest values for the processor parameters. It can for instance figure out the list of fields the processor could operate on.
 
 This endpoint is meant to expose this feature, by taking a processor name and returning the set of possible values for each parameter.
 
@@ -302,7 +301,7 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATA
 }
 ```
 
-The endpoint takes the name of a processor, and tries to find the list of values that would satisfy the parameters where possible as if the processor was appended to the end of the processing stack. The parameters are returned in a object structure, with their specifications expanded. Some parameters cannot be guessed.
+The endpoint takes the name of a processor and suggest relevant configuration values as if a processor of that type was appended to the processing stack. The parameters are returned in an object structure, that is as key values pair. The values in these pairs are any extra relevant information, such as the dataset field specification. Please note that some parameters cannot be guessed and will simply be returned empty.
 
 ### Parameters
 
