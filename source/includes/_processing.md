@@ -4,7 +4,7 @@ The OpenDataSoft platform allows you to apply one or more processors to a datase
 
 ## The processor object
 
-The processor object is composed of a unique ID for the processor, the processor name and the processor configuration. The configuration is a JSON object whose keys are dependant of the processor itself.
+The processor object is composed of a unique ID for the processor, the processor name and the processor configuration. The configuration is a JSON object whose keys are dependent of the processor itself.
 
 ### Attributes
 

@@ -50,15 +50,14 @@ Types are the most basic way of qualifying fields. Different types unlock differ
 
 Type name | Description
 --------- | -----------
-`text` | textual data
+`text` | text
 `int` | integer
-`double` | floating point number
-`geo_point_2d` | 2D geographical point
+`double` | floating point
+`geo_point_2d` | geographical location (2 dimensions)
 `geo_shape` | geographical shape
 `date` | date
-`datetime` | date and time data
-`image` | image
-`file` | file
+`datetime` | date and time
+`file` | file (blob)
 
 ## Annotate
 
@@ -159,8 +158,8 @@ Annotation name | Field type | Description
 `facet` | `date`, `datetime`, `int`, `decimal`, `text` | Whether the field can serve as a filter
 `facetsort` | all field types, facet only | How to sort the facets. Possible arguments are `count` and `-count` for all field types, `alphanum` and `-alphanum` for `date`, `datetime` and `text`, `num` and `-num` for `decimal` and `int`
 `disjunctive` | `decimal`, `int` and `text`, facet only | Whether multiple values can be selected for the facet
-`timeseries_precision` | `date` and `datetime` | precision of the field when used in a timeseries query. Possible arguments are `year`, `month` and `day` for `date`, `hour` and `minute` for `datetime` 
-`timerangeFilter` | `date` and `datetime`, facet only | Whether to active the timerange filter 
+`timeseries_precision` | `date` and `datetime` | display precision of the field. Possible arguments are `year`, `month` and `day` for `date`, `hour` and `minute` for `datetime`
+`timerangeFilter` | `date` and `datetime`, facet only | Whether to activate the timerange filter
 `unit` | `int` and `decimal` | The unit of the field. Supported units are listed [in the dedicated chapter](#units)
 `decimals` | `decimal only` | The argument is the number of digits to appear after the decimal point
 `sortable` | `text` | whether the field should be sortable in table view
