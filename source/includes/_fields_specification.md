@@ -360,7 +360,7 @@ POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/da_abcdef/
 ```HTTP
 curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/fields_specifications/
     -u username:password \
-    -d '{"name": "annotate", "args": {"field": "right_name", "annotation": "facet"}'
+    -d '{"name": "annotate", "args": {"field": "right_name", "annotation": "facet"}}'
 ```
 
 > Example response
