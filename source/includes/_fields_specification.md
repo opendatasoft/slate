@@ -438,7 +438,7 @@ PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UI
 ```HTTP
 curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abcdef/fields_specifications/pr_abcdfe
     -u username:password \
-    -d '{"name": "annotate", "args": {"field": "other_field", "annotation": "facet"}'
+    -d '{"name": "annotate", "args": {"field": "other_field", "annotation": "facet"}}'
 }
 
 ```
