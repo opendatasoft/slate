@@ -12,6 +12,7 @@ includes:
   - introduction
   - topics
   - files
+  - api_keys
   - datasets
   - dataset_status
   - dataset_actions
