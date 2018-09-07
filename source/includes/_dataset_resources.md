@@ -1,4 +1,4 @@
-# Dataset Resources
+# Dataset resources
 
 ## The resource object
 
@@ -217,7 +217,7 @@ The newly updated [resource object](#the-resource-object).
 
 ## Preview the first few rows of the extracted resource
 
-In order to test a resource configuration, it can be useful to preview the data. There are two ways of doing this, one uses the configuration of an existing resource to generate a preview, and the other one uses the configuration passed in the payload. 
+In order to test a resource configuration, it can be useful to preview the data. There are two ways of doing this, one uses the configuration of an existing resource to generate a preview, and the other one uses the configuration passed in the payload.
 
 > Payload-based call definition
 
