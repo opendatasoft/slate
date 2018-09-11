@@ -196,28 +196,6 @@ Returns an API key object.
 PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/apikeys/7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3/
 ```
 
-> Example request for an empty API key
-
-```shell
-curl https://yourdomain.opendatasoft.com/api/management/v2/apikeys/7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3/ \
-    -X PUT \
-    -u username:password \
-    -d '{}'
-```
-
-> Example response for an empty API key
-
-```json
-{
-    "key": "7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3",
-    "label": "My first API key",
-    "permissions": [
-        "edit_dataset",
-        "explore_restricted_dataset"
-    ]
-}
-```
-
 > Example request providing a label
 
 ```shell
@@ -259,6 +237,27 @@ curl http://yourdomain.opendatasoft.com/api/management/v2/apikeys/ \
         "edit_dataset",
         "publish_dataset"
     ]
+}
+```
+
+> Example request for an empty API key (invalid)
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/apikeys/7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3/ \
+    -X PUT \
+    -u username:password \
+    -d '{}'
+```
+
+> Example response for an empty API key
+
+```json
+{
+    "status_code": 400,
+    "message": "'permissions' or 'label' must be provided to update an API key",
+    "raw_params": {},
+    "raw_message": "'permissions' or 'label' must be provided to update an API key",
+    "error_key": "PermissionsOrLabelMissingFromAPIKeyUpdateException"
 }
 ```
 
