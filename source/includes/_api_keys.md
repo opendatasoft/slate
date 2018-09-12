@@ -51,7 +51,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/apikeys/ \
             "edit_dataset",
             "explore_restricted_dataset"
         ]
-    }
+    },
     {...},
     {...}
 ]
