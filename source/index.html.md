@@ -13,6 +13,7 @@ includes:
   - topics
   - users
   - api_keys
+  - permissions
   - files
   - datasets
   - dataset_status
