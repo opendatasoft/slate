@@ -4,7 +4,7 @@ Users, groups and API keys can bear permissions that grant users the right to ac
 
 ## Available permissions
 
-There are three kinds of permissions:
+There are 3 kinds of permissions:
 
 - domain level permissions, that grant rights to a user, group or API key on the whole domain,
 - dataset level permissions, that grant rights to a user, group or API key on a specific dataset,
