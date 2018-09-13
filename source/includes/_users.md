@@ -8,7 +8,7 @@ Most of the times, users are invited on a domain via an e-mail:
 
 - this invitation links the new user or existing user to this domain, allowing domain administrator to grant them permissions to perform specific actions.
 
-In other words, user accounts are shared between all OpenDataSoft domains, but an user must be linked to a specific domain via an invitation before being granted specific permissions on this domain.
+In other words, user accounts are shared between all OpenDataSoft domains, but a user must be linked to a specific domain via an invitation before being granted specific permissions on this domain.
 
 Through the management API, it is possible to:
 
