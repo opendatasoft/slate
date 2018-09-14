@@ -11,8 +11,10 @@ toc_footers:
 includes:
   - introduction
   - topics
-  - files
+  - users
   - api_keys
+  - permissions
+  - files
   - datasets
   - dataset_status
   - dataset_actions
