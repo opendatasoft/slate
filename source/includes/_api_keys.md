@@ -221,8 +221,8 @@ curl http://yourdomain.opendatasoft.com/api/management/v2/apikeys/7f5e144f079444
 > Example request providing a label and permissions
 
 ```shell
-curl http://yourdomain.opendatasoft.com/api/management/v2/apikeys/ \
-    -X POST \
+curl http://yourdomain.opendatasoft.com/api/management/v2/apikeys/7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3/ \
+    -X PUT \
     -u username:password \
     -d '{"label": "My own label", "permissions": ["edit_dataset", "publish_dataset"]}'
 ```
