@@ -12,6 +12,7 @@ includes:
   - introduction
   - topics
   - users
+  - groups
   - api_keys
   - permissions
   - files
