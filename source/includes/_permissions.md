@@ -268,7 +268,7 @@ Requires one of the following:
 Requires one of the following:
 
 - domain permission: `edit_dataset` and `publish_dataset`
-- current dataset permission: `(edit_dataset` and domain:publish_dataset) or `publish_dataset`
+- current dataset permission: (`edit_dataset` and domain:`publish_dataset`) or `publish_dataset`
 
 ### Dataset Unsaved Resource Preview
 
@@ -520,7 +520,7 @@ Requires one of the following:
 Requires one of the following:
 
 - domain permission: `edit_dataset` and `publish_dataset`
-- current dataset permission: `(edit_dataset` and domain:publish_dataset) or `publish_dataset`
+- current dataset permission: (`edit_dataset` and domain:`publish_dataset`) or `publish_dataset`
 
 ### Dataset Unpublish Action
 
@@ -529,7 +529,7 @@ Requires one of the following:
 Requires one of the following:
 
 - domain permission: `edit_dataset` and `publish_dataset`
-- current dataset permission: `(edit_dataset` and domain:publish_dataset) or `publish_dataset`
+- current dataset permission: (`edit_dataset` and domain:`publish_dataset`) or `publish_dataset`
 
 ### Catalog Export
 
