@@ -2,14 +2,15 @@
 import csv
 import sys
 
+PERMISSIONS_LIST = ["EDIT_DOMAIN", "EDIT_PAGE", "EDIT_DATASET", "PUBLISH_DATASET",
+                    "MANAGE_DATASET", "CREATE_DATASET", "EDIT_REUSE", "MANAGE_SUBDOMAINS",
+                    "EDIT_THEME", "CREATE_PAGE", "MANAGE_PAGE", "EXPLORE_RESTRICTED_DATASET",
+                    "EXPLORE_PUBLIC_DATASET", "EXPLORE_MONITORING", "EXPLORE_RESTRICTED_PAGE"]
+
 def format_permissions(permissions):
-    res = []
-    for word in permissions.split(' '):
-        if word.isupper():
-            res.append('`{}`'.format(word))
-        else:
-            res.append(word)
-    return ' '.join(res).lower()
+    for perm in PERMISSIONS_LIST:
+        permissions = permissions.replace(perm, '`{}`'.format(perm.lower()))
+    return permissions
 
 if len(sys.argv) != 2:
     print 'Usage: {} <permissions_csv_file>'.format(sys.argv[0])
