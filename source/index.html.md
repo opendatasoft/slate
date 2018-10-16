@@ -11,19 +11,24 @@ toc_footers:
 includes:
   - introduction
   - topics
+  - users
+  - api_keys
+  - permissions
   - files
   - datasets
   - dataset_status
   - dataset_actions
   - records_errors
   - dataset_changes
+  - dataset_resources
   - dataset_metadata
   - dataset_attachments
   - dataset_security
+  - processing
+  - fields_specification
   - pages
   - page_security
   - form_widgets
-  - jobs
   - misc
 
 search: true

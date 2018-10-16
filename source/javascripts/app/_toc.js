@@ -3,6 +3,7 @@
 ;(function () {
   'use strict';
 
+  var htmlPattern = /<[^>]*>/g;
   var loaded = false;
 
   var debounce = function(func, waitTime) {
@@ -76,11 +77,16 @@
         $best.siblings(tocListSelector).addClass("active");
         $toc.find(tocListSelector).filter(":not(.active)").slideUp(150);
         $toc.find(tocListSelector).filter(".active").slideDown(150);
-        // TODO remove classnames
-        document.title = $best.data("title") + " – " + originalTitle;
 
-        //- Add by ods to write in url the section title
-        window.location.hash = $best.data("title");
+        if (window.history.replaceState) {
+          window.history.replaceState(null, "", best);
+        }
+        var thisTitle = $best.data("title")
+        if (thisTitle !== undefined && thisTitle.length > 0) {
+          document.title = thisTitle + " – " + originalTitle;
+        } else {
+          document.title = originalTitle;
+        }
       }
     };
 
