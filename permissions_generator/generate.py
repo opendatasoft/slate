@@ -1,4 +1,4 @@
-#env python
+#! env python
 import csv
 import sys
 
@@ -28,7 +28,6 @@ with open(sys.argv[1], 'rb') as csvfile:
         print '`{} /api/management/v2{}`\n'.format(row[2], row[1])
 
         required = []
-
 
         if row[3]:
             required.append('domain permission: {}'.format(format_permissions(row[3])))
