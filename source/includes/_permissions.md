@@ -2,6 +2,8 @@
 
 Users, groups and API keys can bear permissions that grant users the right to access protected endpoints or perform restricted actions on a domain.
 
+As API keys can never have more authorizations than their owner, permissions given to an API key must also be given to the user who owns the API key for them to be taken into account.
+
 ## Available permissions
 
 There are 3 kinds of permissions:

@@ -2,16 +2,46 @@
 
 ## Authentication
 
-> Example authenticated request
+The management API supports API keys and basic auth for authentication.
+
+API keys are recommended for any endpoint that supports them since they do not require using a user's password, which would provide unlimited access to the corresponding account if stolen. API keys are a way to mitigate this risk since they can be revoked easily and can be configured to provide only the necessary permissions for a given usage.
+
+### API key
+
+> Example authenticated request with an API key
+
+```shell
+curl https://mydomain.opendatasoft.com/api/management/v2/datasets?apikey=7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3
+```
+
+After being generated and given appropriate permissions with the [corresponding endpoints](#api-keys), an API key can be used for every management API endpoint (unless specified in this documentation).
+
+An API key must be passed with every authenticated request as the query parameter `apikey`.
+
+### Basic auth
+
+> Example authenticated request with Basic Auth
 
 ```shell
 curl https://mydomain.opendatasoft.com/api/management/v2/datasets
   -u username:password
 ```
 
-The API currently only supports basic auth for authentication.
+Basic auth credentials can be passed as the `Authorization` header, or via the authentication option any API client (e.g: curl, Postman, Python Requests, etc.) implements.
 
-Both username and password must be specified with each call.
+The Authorization field is constructed as follows ([Wikipedia](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side)):
+
+- the username and password are combined with a single colon (`:`)
+- the resulting string is encoded using a variant of Base64
+- the authorization method and a space (e.g. "Basic ") is then prepended to the encoded string
+
+For example, if the user has `Aladdin` as the username and `OpenSesame` as the password, then the field's value is the base64-encoding of `Aladdin:OpenSesame`, or `QWxhZGRpbjpPcGVuU2VzYW1l`.
+
+The Authorization header will appear as:
+
+`Authorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l`
+
+Please note that this header can easily be decoded back to the original username and password, so it must never be shared with anyone.
 
 ## Errors
 
