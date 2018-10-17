@@ -2,7 +2,7 @@
 
 A group is an entity comprising several users. When users are added to a group, they benefit from the permissions, quotas and limits of this group.
 
-Through the management API, it is possible, for the current domain, to:
+Through the management API, the following can be performed on the current domain:
 
 - list groups,
 - lookup a specific group,
