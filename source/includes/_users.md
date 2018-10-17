@@ -16,7 +16,8 @@ Through the management API, it is possible to:
 - lookup a specific user,
 - invite users on the domain (via an e-mail address),
 - grant users permissions, quotas and limits on the domain,
-- and add them to groups, and delete users.
+- add or remove them from groups,
+- delete users from the domain.
 
 ## The User object
 
@@ -263,7 +264,7 @@ Returns a User object.
 > Definition
 
 ```HTTP
-PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/users/louise.von-data/
+PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/users/<username>/
 ```
 
 > Example request
