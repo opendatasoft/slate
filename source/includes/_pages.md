@@ -1,10 +1,10 @@
 # Pages
 
-Pages can be used to write editorial content directly on the platform, build advanced dashboards and organize 
+Pages can be used to write editorial content directly on the platform, build advanced dashboards and organize
 data portals.
 
 Through the management API, it is possible to list, create, edit and delete pages as well as to configure pages
-visiblity on the portal. 
+visiblity on the portal.
 
 
 ## The page object
@@ -53,8 +53,8 @@ Attribute | Description
 `title` <br> *object* | Internationalized page title
 `description` <br> *string* | Page description
 `layout` | The HTML layout to use for this page. Possible values are `single-main.html`, `main-left-col-right.html`, `homepage-searchbox.html`, `single-main-contact.html`, `dataset-catalog-overview.html`, `dataset-of-datasets.html`, `reuses.html`, `custom.html`
-`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout 
-`tags` <br> *array of strings*  | List of string used to classify and sort pages
+`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout
+`tags` <br> *array of strings*  | List of strings used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal
 `created_at` <br> *datetime*  | Date when the page was created
 `last_modified` <br> *datetime*  | Date when the page was last edited
@@ -222,33 +222,33 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages \
 
 ```json
 {
-    "slug": "my-page", 
+    "slug": "my-page",
     "title": {
-        "fr": "Titre de la page", 
+        "fr": "Titre de la page",
         "en": "Page title"
-    }, 
-    "description": "The page description", 
-    "layout": "single-main.html", 
+    },
+    "description": "The page description",
+    "layout": "single-main.html",
     "content": {
         "main": {
             "text": {
-                "fr": "Contenu de la page", 
+                "fr": "Contenu de la page",
                 "en": "Page content"
             }
         }
     },
     "tags": [
-        "tag1", 
+        "tag1",
         "tag2"
-    ], 
-    "restricted": true, 
-    "pushed_by_parent": false, 
-    "has_subdomain_copies": false, 
-    "created_at": "2018-03-28T09:37:30.704488+00:00", 
-    "last_modified": "2018-03-28T09:37:30.704488+00:00", 
+    ],
+    "restricted": true,
+    "pushed_by_parent": false,
+    "has_subdomain_copies": false,
+    "created_at": "2018-03-28T09:37:30.704488+00:00",
+    "last_modified": "2018-03-28T09:37:30.704488+00:00",
     "last_modified_user": {
         "username": "john.doe"
-    }, 
+    },
     "author": {
         "username": "john.doe"
     }
@@ -269,8 +269,8 @@ Parameter | Description
 `title` <br> *object* | Internationalized page title
 `description` <br> *string* | Page description
 `layout` | The HTML layout to use for this page. Possible values are `single-main.html`, `main-left-col-right.html`, `homepage-searchbox.html`, `single-main-contact.html`, `dataset-catalog-overview.html`, `dataset-of-datasets.html`, `reuses.html`, `custom.html`
-`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout 
-`tags` <br> *array of strings*  | List of string used to classify and sort pages
+`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout
+`tags` <br> *array of strings*  | List of strings used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal. This parameter is only available if you have the permission to manage the pages' security
 
 ### Returns
@@ -298,33 +298,33 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page \
 
 ```json
 {
-    "slug": "my-page", 
+    "slug": "my-page",
     "title": {
-        "fr": "Titre de la page", 
+        "fr": "Titre de la page",
         "en": "Page title"
-    }, 
-    "description": "The page description", 
-    "layout": "single-main.html", 
+    },
+    "description": "The page description",
+    "layout": "single-main.html",
     "content": {
         "main": {
             "text": {
-                "fr": "Contenu de la page", 
+                "fr": "Contenu de la page",
                 "en": "Page content"
             }
         }
     },
     "tags": [
-        "tag1", 
+        "tag1",
         "tag2"
-    ], 
-    "restricted": true, 
-    "pushed_by_parent": false, 
-    "has_subdomain_copies": false, 
-    "created_at": "2018-03-28T09:37:30.704488+00:00", 
-    "last_modified": "2018-03-28T09:37:30.704488+00:00", 
+    ],
+    "restricted": true,
+    "pushed_by_parent": false,
+    "has_subdomain_copies": false,
+    "created_at": "2018-03-28T09:37:30.704488+00:00",
+    "last_modified": "2018-03-28T09:37:30.704488+00:00",
     "last_modified_user": {
         "username": "john.doe"
-    }, 
+    },
     "author": {
         "username": "john.doe"
     }
@@ -344,8 +344,8 @@ Parameter | Description
 `title` <br> *object* | Internationalized page title
 `description` <br> *string* | Page description
 `layout` | The HTML layout to use for this page. Possible values are `single-main.html`, `main-left-col-right.html`, `homepage-searchbox.html`, `single-main-contact.html`, `dataset-catalog-overview.html`, `dataset-of-datasets.html`, `reuses.html`, `custom.html`
-`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout 
-`tags` <br> *array of strings*  | List of string used to classify and sort pages
+`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout
+`tags` <br> *array of strings*  | List of strings used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal. This parameter is only available if you have the permission to manage the pages' security
 
 ### Returns
