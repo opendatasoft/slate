@@ -26,6 +26,8 @@ includes:
   - dataset_security
   - processing
   - fields_specification
+  - pages
+  - page_security
   - form_widgets
   - misc
 
