@@ -4,7 +4,7 @@
 
 The management API supports API keys and basic auth for authentication.
 
-API keys are recommended for any endpoint that supports them since they don not require using a user's password, which would provide unlimited access to the corresponding account if stolen. API keys are a way to mitigate this risk since they can be revoked easily and can be configured to provide only the necessary permissions for a given usage.
+API keys are recommended for any endpoint that supports them since they do not require using a user's password, which would provide unlimited access to the corresponding account if stolen. API keys are a way to mitigate this risk since they can be revoked easily and can be configured to provide only the necessary permissions for a given usage.
 
 ### API key
 
