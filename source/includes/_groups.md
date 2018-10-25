@@ -41,8 +41,8 @@ Attribute | Description
 `group_id` <br> *string*   | The group identifier
 `user_count` <br> *number* | The count of users in the group
 `permissions` <br> *array* | A list of permissions granted to these group members
-`limits` <br> *object*     | An object holding the group's limits on this domain
-`quotas` <br> *object*     | An object holding the group's quotas on this domain
+`quotas` <br> *[quotas object](#the-quotas-object)* | An object holding the group's quotas on this domain
+`limits` <br> *[limits object](#the-limits-object)* | An object holding the group's limits on this domain
 
 ## List groups
 
@@ -222,8 +222,8 @@ Parameter | Description
 --------- | -----------
 `title` <br> *string*       | **optional** The group title
 `permissions` <br> *array*  | **optional** A list of permissions to grant the group
-`quotas` <br> *object*      | **optional** An object holding the quotas to grant the group
-`limits` <br> *object*      | **optional** An object holding the limits to grant the group
+`quotas` <br> *[quotas object](#the-quotas-object)* | **optional** An object holding the quotas to grant the group
+`limits` <br> *[limits object](#the-limits-object)* | **optional** An object holding the limits to grant the group
 
 ### Returns
 
