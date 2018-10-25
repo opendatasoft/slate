@@ -1,0 +1,64 @@
+﻿"﻿Endpoint",URL pattern,Verb,Domain permissions,Any dataset permissions,Current dataset permissions
+Dataset Index,/datasets/,GET,CREATE_DATASET or EDIT_DATASET,EDIT_DATASET or PUBLISH_DATASET,
+Dataset Create,/datasets/,POST,CREATE_DATASET,,
+Dataset Lookup,/datasets/<dataset_uid>/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Delete,/datasets/<dataset_uid>/,DELETE,EDIT_DATASET,,EDIT_DATASET
+Dataset Abort Action,/datasets/<dataset_uid>/abort/,PUT,EDIT_DATASET and PUBLISH_DATASET,,(EDIT_DATASET and domain:PUBLISH_DATASET) or PUBLISH_DATASET
+Dataset Attachements Index,/datasets/<dataset_uid>/attachments/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Attachements Create,/datasets/<dataset_uid>/attachments/,POST,EDIT_DATASET,,EDIT_DATASET
+Dataset Attachment Lookup,/datasets/<dataset_uid>/attachments/<attachment_uid>/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Attachment Delete,/datasets/<dataset_uid>/attachments/<attachment_uid>/,DELETE,EDIT_DATASET,,EDIT_DATASET
+Dataset Change Index,/datasets/<dataset_uid>/changes/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Attachment Download,/datasets/<dataset_uid>/download_attachment/<attachment_uid>,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset System Processor Index,/datasets/<dataset_uid>/fields_specifications/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset System Processor Create,/datasets/<dataset_uid>/fields_specifications/,POST,EDIT_DATASET,,EDIT_DATASET
+Dataset System Processor Lookup,/datasets/<dataset_uid>/fields_specifications/<processor_uid>/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset System Processor Update,/datasets/<dataset_uid>/fields_specifications/<processor_uid>/,PUT,EDIT_DATASET,,EDIT_DATASET
+Dataset Processor Guess Params,/datasets/<dataset_uid>/guess_processor_params/,POST,EDIT_DATASET,,EDIT_DATASET
+Dataset Metadata Index,/datasets/<dataset_uid>/metadata/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Metadata Lookup,/datasets/<dataset_uid>/metadata/<template_name>/<metadata_name>/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Metadata Update,/datasets/<dataset_uid>/metadata/<template_name>/<metadata_name>/,PUT,EDIT_DATASET,,EDIT_DATASET
+Dataset Metadata Delete,/datasets/<dataset_uid>/metadata/<template_name>/<metadata_name>/,DELETE,EDIT_DATASET,,EDIT_DATASET
+Dataset Processor Index,/datasets/<dataset_uid>/processors/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Processor Create,/datasets/<dataset_uid>/processors/,POST,EDIT_DATASET,,EDIT_DATASET
+Dataset Processor Lookup,/datasets/<dataset_uid>/processors/<processor_uid>/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Processor Update,/datasets/<dataset_uid>/processors/<processor_uid>/,PUT,EDIT_DATASET,,EDIT_DATASET
+Dataset Publish Action,/datasets/<dataset_uid>/publish/,PUT,EDIT_DATASET and PUBLISH_DATASET,,(EDIT_DATASET and domain:PUBLISH_DATASET) or PUBLISH_DATASET
+Dataset Unsaved Resource Preview,/datasets/<dataset_uid>/resource_preview/,POST,EDIT_DATASET,,EDIT_DATASET
+Dataset Resource Index,/datasets/<dataset_uid>/resources/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Resource Create,/datasets/<dataset_uid>/resources/,POST,EDIT_DATASET,,EDIT_DATASET
+Dataset Resource Lookup,/datasets/<dataset_uid>/resources/<resource_uid>/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Resource Update,/datasets/<dataset_uid>/resources/<resource_uid>/,PUT,EDIT_DATASET,,EDIT_DATASET
+Dataset Resource Delete,/datasets/<dataset_uid>/resources/<resource_uid>/,DELETE,EDIT_DATASET,,EDIT_DATASET
+Dataset Resource Preview,/datasets/<dataset_uid>/resources/<resource_uid>/preview/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Restore Change Action,/datasets/<dataset_uid>/restore_change/,PUT,EDIT_DATASET,,EDIT_DATASET
+Dataset Schedule Index,/datasets/<dataset_uid>/schedules/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Schedule Create,/datasets/<dataset_uid>/schedules/,POST,EDIT_DATASET,,EDIT_DATASET
+Dataset Schedule Lookup,/datasets/<dataset_uid>/schedules/<schedule_uid>/,GET,EDIT_DATASET,,EDIT_DATASET or PUBLISH_DATASET
+Dataset Schedule Update,/datasets/<dataset_uid>/schedules/<schedule_uid>/,PUT,EDIT_DATASET,,EDIT_DATASET
+Dataset Schedule Delete,/datasets/<dataset_uid>/schedules/<schedule_uid>/,DELETE,EDIT_DATASET,,EDIT_DATASET
+Dataset Access Policy Lookup,/datasets/<dataset_uid>/security/access_policy/,GET,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Access Policy Update,/datasets/<dataset_uid>/security/access_policy/,PUT,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Default Security Lookup,/datasets/<dataset_uid>/security/default/,GET,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Default Security Update,/datasets/<dataset_uid>/security/default/,PUT,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Group Security Index,/datasets/<dataset_uid>/security/groups/,GET,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Group Security Create,/datasets/<dataset_uid>/security/groups/,POST,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Group Security Lookup,/datasets/<dataset_uid>/security/groups/<group_id>/,GET,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Group Security Update,/datasets/<dataset_uid>/security/groups/<group_id>/,PUT,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Group Security Delete,/datasets/<dataset_uid>/security/groups/<group_id>/,DELETE,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset User Security Index,/datasets/<dataset_uid>/security/users/,GET,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset User Security Create,/datasets/<dataset_uid>/security/users/,POST,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset User Security Lookup,/datasets/<dataset_uid>/security/users/<username>/,GET,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset User Security Update,/datasets/<dataset_uid>/security/users/<username>/,PUT,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset User Security Delete,/datasets/<dataset_uid>/security/users/<username>/,DELETE,EDIT_DATASET and MANAGE_DATASET,,EDIT_DATASET and MANAGE_DATASET
+Dataset Status,/datasets/<dataset_uid>/status/,GET,EDIT_DATASET and PUBLISH_DATASET,,(EDIT_DATASET and domain:PUBLISH_DATASET) or PUBLISH_DATASET
+Dataset Unpublish Action,/datasets/<dataset_uid>/unpublish/,PUT,EDIT_DATASET and PUBLISH_DATASET,,(EDIT_DATASET and domain:PUBLISH_DATASET) or PUBLISH_DATASET
+Catalog Export,/export_datasets/<export_format>/,GET,CREATE_DATASET or EDIT_DATASET,EDIT_DATASET or PUBLISH_DATASET,
+Extractors Index,/extractors/,GET,CREATE_DATASET or EDIT_DATASET,EDIT_DATASET,
+System Processor Index,/fields_specifications/,GET,CREATE_DATASET or EDIT_DATASET,EDIT_DATASET,
+Guess Extractor Params,/guess_extractor_params/,POST,CREATE_DATASET or EDIT_DATASET,EDIT_DATASET,
+Guess Extractors,/guess_extractors/,POST,CREATE_DATASET or EDIT_DATASET,EDIT_DATASET,
+Processor Index,/processors/,GET,CREATE_DATASET or EDIT_DATASET,EDIT_DATASET,
+File Index,/files/,GET,,,
+File Lookup,/files/<file_id>/,GET,,,
+File Download,/download_file/<file_id>/,POST,,,
