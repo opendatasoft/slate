@@ -69,9 +69,9 @@ Attribute | Description
 `is_active` <br> *boolean*      | True if the user can connect to their account
 `pending_user_validation` <br> *boolean*   | True if the user did not validate their e-mail address yet
 `date_joined` <br> *date*       | The date when the user joined the domain
-`limits` <br> *object*          | An object holding the user's limits on this domain
 `is_ods` <br> *boolean*         | True if the user belongs to the OpenDataSoft organization
-`quotas` <br> *object*          | An object holding the user's quotas on this domain
+`quotas` <br> *[quotas object](#the-quotas-object)*   | An object holding the user's quotas on this domain
+`limits` <br> *[limits object](#the-limits-object)*   | An object holding the user's limits on this domain
 `datasets_index_filters` <br> *string*     | The user's filter preferences on the dataset index
 `last_seen` <br> *string*       | The date when the user used their account for the last time
 
@@ -320,8 +320,8 @@ Parameter | Description
 --------- | -----------
 `group_ids` <br> *array*    | **optional** A list of group identifiers to add the user to
 `permissions` <br> *array*  | **optional** A list of permissions to grant the user
-`quotas` <br> *object*      | **optional** An object holding the quotas to grant the user
-`limits` <br> *object*      | **optional** An object holding the limits to grant the user
+`quotas` <br> *[quotas object](#the-quotas-object)* | **optional** An object holding the quotas to grant the user
+`limits` <br> *[limits object](#the-limits-object)* | **optional** An object holding the limits to grant the user
 
 ### Returns
 
