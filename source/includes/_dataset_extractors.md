@@ -34,7 +34,8 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/extractors/
         "type": "string",
         "name": "separator"
     }, {...}]
-}```
+}
+```
 
 The enpoint returns the list of all available extractors, represented with their type, their label, their authentication mode and their available parameters.
 
