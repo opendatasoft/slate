@@ -1,6 +1,6 @@
 # Extractors
 
-Extractors are the components of the OpenDataSoft platform that translate a data source such as a file or an API into a list of records that can then be processed and indexed. The OpenDataSoft platform offer a lot of different extractors for different types of sources, from the simple CSV file to complex APIs. The extractor for a source must be defined when [creating a Resource](#create-a-new-resource). This section documents how to get the list of extractors available for the domain, and how to figure out which extractor is right for your resource as well as the set of parameters that will give the best results.
+Extractors are the components of the OpenDataSoft platform that translate a data source such as a file or an API into a list of records that can then be processed and indexed. The OpenDataSoft platform offers a lot of different extractors for different types of sources, from the simple CSV file to complex APIs. The extractor for a source must be defined when [creating a Resource](#create-a-new-resource). This section documents how to get the list of extractors available for the domain, and how to figure out which extractor is right for your resource as well as the set of parameters that will give the best results.
 
 ## List available extractors
 
@@ -59,8 +59,8 @@ Parameter | Description
 `description` | parameter description <br> *string*
 `default` | default value for the parameter <br> *parameter type*
 `is_mandatory` | whether the field is mandatory <br> *boolean*
-`choices` | set of all possible values for the parameter when <br> *array of choices* only present when applicable
-`hidden` | whether the parameter is shown in the interface <br> *boolean* only present if the value is true. 
+`choices` | set of all possible values for the parameter <br> *array of choices* only present when applicable
+`hidden` | whether the parameter is shown in the interface <br> *boolean* only present if the value is true
 
 ## Guess the right extractor for a source
 
