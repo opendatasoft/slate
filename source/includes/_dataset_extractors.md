@@ -97,7 +97,7 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/guess_extracto
 }
 ```
 
-The endpoint takes an URL and optionnaly credentials to user in oder to gain access to this URL, and outputs a list of extractors that are likely to work well for this URL, as well as a list of the other extractors available on the domain that are not likely to succeed in extracting records out of that URL. 
+The endpoint takes an URL and optionally credentials to use in oder to gain access to this URL, and outputs a list of extractors that are likely to work well for this URL, as well as a list of the other extractors available on the domain that are not likely to succeed in extracting records out of that URL. 
 
 ### Parameters
 
@@ -152,4 +152,4 @@ Parameter | Description
 `extractor` | extractor type. <br> *string*.
 
 ### Returns
-An object composed of the name of the extractor as well as an object whose keys are the name of the guessed parameter and the values the guessed value.
+An object composed of the name of the extractor as well as an object whose keys are the name of the guessed parameter and whose values are the guessed values.
