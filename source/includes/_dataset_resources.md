@@ -27,7 +27,7 @@ Attribute | Description
 `resource_uid` <br> *string* | Unique identifier for the resource
 `url` <br> *string* | URL of the resource
 `title` <br> *string* | friendly title
-`type` <br> *string* | extractor type that should handle this resource
+`type` <br> *[extractor](#extractors)* | extractor type that should handle this resource
 `params` <br> *object* | parameters passed to the extractor
 `credentials` <br> *object* | resource credentials
 
