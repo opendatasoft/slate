@@ -167,7 +167,10 @@ curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/secu
       "last_name": "Last name",
       "email": "myuser@example.com",
       "is_active": true,
-      "is_ods": false
+      "is_ods": false,
+      "account_type": "global",
+      "display_name": "myuser",
+      "auth_providers_type": [],
     }
   },
   {...},
