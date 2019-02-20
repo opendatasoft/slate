@@ -63,7 +63,7 @@ Through the management API, it is possible to:
 
 Attribute | Description
 --------- | -----------
-`username` <br> *string*        | The user's fully qualified username<br>unique for a domain
+`username` <br> *string*        | The user's username
 `first_name` <br> *string*      | The user's first name
 `last_name` <br> *string*       | The user's last name
 `email` <br> *string*           | The user's e-mail address
