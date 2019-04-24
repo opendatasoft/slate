@@ -2,7 +2,7 @@
 
 ## The resource object
 
-The resource object describes a resource on the OpenDataSoft platform. It is composed of a URL, a title, a type, a parameter object and a credentials object. The URL is where data will be pulled to populate the dataset. Resources urls can (and often do!) point to [files](#files) uploaded to the platform using the `odsfile://` url scheme.
+The resource object describes a resource on the Opendatasoft platform. It is composed of a URL, a title, a type, a parameter object and a credentials object. The URL is where data will be pulled to populate the dataset. Resources urls can (and often do!) point to [files](#files) uploaded to the platform using the `odsfile://` url scheme.
 
 ### Attributes
 
