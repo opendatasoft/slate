@@ -4,11 +4,11 @@ A user is a person who authentifies themself to utilize the platform.
 
 Most of the times, users are invited on a domain via an e-mail:
 
-- if the user doesn't have an OpenDataSoft account, the e-mail provides them a link to create their account and choose a password,
+- if the user doesn't have an Opendatasoft account, the e-mail provides them a link to create their account and choose a password,
 
 - this invitation links the new user or existing user to this domain, allowing domain administrator to grant them permissions to perform specific actions.
 
-In other words, user accounts are shared between all OpenDataSoft domains, but a user must be linked to a specific domain via an invitation before being granted specific permissions on this domain.
+In other words, user accounts are shared between all Opendatasoft domains, but a user must be linked to a specific domain via an invitation before being granted specific permissions on this domain.
 
 Through the management API, it is possible to:
 
@@ -69,7 +69,7 @@ Attribute | Description
 `is_active` <br> *boolean*      | True if the user can connect to their account
 `pending_user_validation` <br> *boolean*   | True if the user did not validate their e-mail address yet
 `date_joined` <br> *date*       | The date when the user joined the domain
-`is_ods` <br> *boolean*         | True if the user belongs to the OpenDataSoft organization
+`is_ods` <br> *boolean*         | True if the user belongs to the Opendatasoft organization
 `quotas` <br> *[quotas object](#the-quotas-object)*   | An object holding the user's quotas on this domain
 `limits` <br> *[limits object](#the-limits-object)*   | An object holding the user's limits on this domain
 `datasets_index_filters` <br> *string*     | The user's filter preferences on the dataset index
@@ -195,10 +195,10 @@ Returns a JSON object with requested e-mail addresses as keys and a status for t
 
 Status    | Description
 --------- | -----------
-`success: <username>` | The invitation was successfully sent, and the newly invited user will have `<username>` as a username. The mentioned username can either correspond to a user that already exists to a newly created user if they did not have an OpenDataSoft account yet.
+`success: <username>` | The invitation was successfully sent, and the newly invited user will have `<username>` as a username. The mentioned username can either correspond to a user that already exists to a newly created user if they did not have an Opendatasoft account yet.
 `already-member`   | The provided e-mail address corresponds to a user already linked to the domain
 `invalid-email`    | The provided e-mail address is invalid
-`forbidden-email`  | The provided e-mail address can not be invited on an OpenDataSoft domain
+`forbidden-email`  | The provided e-mail address can not be invited on an Opendatasoft domain
 `license-users-exceeded` | The domain license does not allow to invite more users
 
 ## Retrieve a user

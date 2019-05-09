@@ -1,6 +1,6 @@
 # Processing
 
-The OpenDataSoft platform allows you to apply one or more processors to a dataset. These processors are units of data transformation and other processing. Each processor represents a configurable operation that will be applied to all rows of a dataset. Examples of what you can do with a processor include replacing text with a regex, geocoding an address into geographical coordinates, creating a new column that contains the result of a substraction between two existing columns and much more. A general-purpose presentation of processors and their capabilities is available on the [data processing documentation](https://docs.opendatasoft.com/en/sourcing_and_processing_data/processing_data.html).
+The Opendatasoft platform allows you to apply one or more processors to a dataset. These processors are units of data transformation and other processing. Each processor represents a configurable operation that will be applied to all rows of a dataset. Examples of what you can do with a processor include replacing text with a regex, geocoding an address into geographical coordinates, creating a new column that contains the result of a substraction between two existing columns and much more. A general-purpose presentation of processors and their capabilities is available on the [data processing documentation](https://docs.opendatasoft.com/en/sourcing_and_processing_data/processing_data.html).
 
 ## The processor object
 
@@ -265,7 +265,7 @@ On successful deletion, the endpoint returns a HTTP 204 without any content.
 
 ## Retrieve possible processor parameters from processor name
 
-For some processors and some processors parameters, the OpenDataSoft platform has a way to suggest values for the processor parameters. It can for instance figure out the list of fields the processor could operate on.
+For some processors and some processors parameters, the Opendatasoft platform has a way to suggest values for the processor parameters. It can for instance figure out the list of fields the processor could operate on.
 
 This endpoint is meant to expose this feature, by taking a processor name and returning the set of possible values for each parameter.
 
