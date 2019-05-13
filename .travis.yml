@@ -6,19 +6,20 @@ rvm:
 cache: bundler
 env:
   global:
-  - DEPLOY_PATH=/var/www/apidoc/management
-  - DEPLOY_BETA_PATH=/var/www/betaapidoc/management
-  - secure: 0N7jHUCXb2AgKGpAN3necIZJsScF0L+1QtcQC+/cVw0nDgfX2aQLcvJ5deOSsWvTSo1FXwo3lZYuR+SDiWXkuMJjomFw8N266mBIXzXPj6rA3V0yzRGfpPQvPDtPQCDsnwh4EIHUGa4rxXqCIJzFf/rVvK8WZKZDzRdjNoTNisR1TJ7IpqZ+jfuW51YpQyQGzLpxitq9lOHkgWEmQZwvTymH7CHUf9KOh0ug2lIuxeZrYpM2UTF1iZU6rvL1ahaHaqltMYWYokx1zBwFOaq42epyMMNML/IqQojK8rQF9bXMMIaRLg8e0lOfeY1pwIwts6cDaYt8oud0/JRB1Qc21X36nrr3Lz1nGQ+ovCneCXFMGTggXX1z2wdQ27+KNNuAEzCWwR2Wd8Mtcldkst82YHGPvvL08c21BO9rIv0x6/ZtF02deEC6KvzoXK0vSyCDl9aP0Y36K3+TGJ/O0p3tPisKXZEoOlm83KOgks+qMdF/CEKpH9JPXGJYHBjJDr3s8PfEy0Mfsp112deU9iKduSVqjh3LHnbvi5/AqFPFV03bqU6Aw/FaKNE1XMKrTe2e5u75171QBNFBrr0d9udLRQbLYCfI9QvmeWQfdCKLj1dhNTpyqAk2xcxsUPlx1eNspvtMAryOVO4nrjjtlB6KjFzTrgshxC5F+GwNsyU4F1Q=
-  - secure: fL9No899ywFs7OwD+/0IzBN6PCnSrB+fDjAiKjMNsr87vZHlmecaD4Q9QFpIaLBxyeBe1UqS4X8kJMAMAd02gvZ/EPp/h0Jp4gHd80XbHTQutEJpOBkW6M/waGwZQ7BrsGkMYj8EH52ylHOLoF3U0fCKbKZ0bDihURRvQyjVXMTxn9R1V0IZx2NNT/jOd1A+u8jhiDPYzNkIsBADCJg6zCKsqbFdH9Gfa5dEs2p+tb/ZWkqnnLuNFhbZW+xzURJUlQrSkrI0iFFtFFnMAWI1Y5WVsvAbUnCikUCDg6l2lOWy5tEEbBHosAWF+esNokuI0NiOc2fueK/BSAPUXKcY2JNcl0PnXDg5RizdF01o7wnWVCO87oEgNHkcLUYq5nxoYXBhSG5W6DfFau10ddpgUjels0o+00zv8SNRK/KT9qMccRVRr7kwXWeguAHs+GbPQPD7LnzNsVY8rOcCDIitUmJRchN0sQ/lNBqZcs61EySP5qWKT3b857dnawdXeq3Dm7VtOvpZ5GEOAJsxCiGbyKE+6JnpCtLH9gd7dtfkjZjP0+OrYU2PJa+aiQiKC33F4CJYBuz7zgjlFVhtuDGLKv3xKFdYVdtLGg4VOFgAG8FFxDHtLmLRGcuWdzu1wg1C0dvPbWoyhemrNZmvgw9O3F8chL0IlMwinieqN/9TJ4Q=
+  - DEPLOY_PATH=/var/www/help/management-api/
+  - DEPLOY_BETA_PATH=/var/www/betahelp/management-api/
+  - secure: "FEklW7WPhFaKNb3Zfyn45hUvP0MEC6FADM9IKYIVcHGv85UDjCdfBzDFlAtjuS7LXlf2HW90j3+Tb5oqhq9IR2kOL67mC68DW7uRuKuPkB+WTNdwo49qCIKFoGzqMvp5ezFTQHSyLe931NKfHsS20c/zJF+Z4R6ffv7R5b5zxnx0lWAD4oVXtCOhpQRBalTIM6BA4yElXiOH+YZgKD4/7cGkxTlBGt7bs+q9IbQ2DoYbrFxECBuq6Nu0SkVpMSNYfurT/oS9mfZSbiVS8qDnpyD3QN8z1YTVnzNNOqmpC0Cwb86bCbGMOt9YyIFKe+46fP8d/3YFNBAjbQ/aRLkDvCb9y66WYK1L20DJT72v4af3eDsObM+UOKlkIk0Fl8WNWdVmH/bVPlPe9gvxtVmhjUl0ggtq44W+1JDFHh71UUYult3wLopmPzeqhKypCAWp7KB8SnzC5lzfSuFmyNfwC4QS0HjrI9TzTxQsJsBNfbkQnAiZJjuA1of5AYekzLMFRkZFmvWpvJOVqBDuhKRPHJmFAPgnBUEPR4l2MFYp1CCnaWD8GceqbRA+seqrObODB4BFpzGWvy/wVfH9wSbeicWUsBfZTBZQXvOTkdy6B8u91pMfLhIehjJdy9YJPNeqA7zpIOTTuSWhyWM+5XTCn8bXpmmygXUukhelhODO1KY="
+  - secure: "LG5p7/0Lz6DIJaA5dGJc4F8MGYQbLILs6eIUZ8lsa4s7d/QCj1M2zokcIkIJThDIWtk7WBUBNYg15yL9+YNwtNFbMmlAfM48kjxbzw4UXUISazqdtzgJG00sj25xuWsMSAxo2+zeqfv4y6JMNXJ8fSfHFPsG1OfsYg4JSQIrz1Nt3aWWTyVoxPRpqUgZ1Mmgidez0dUovVmGOmiy12KoAcvM5O7HaaSvPrjKY66aq/eUSHnwf3uUS8JY+aojubRVvXfIPkgCoHrcm3hWZ4Qt5Js2S/LXeaYfkb5HC6kRRINjTZ73/fAQDlEF+ko5noLhVYvo9WB3Fp9EdIW8x/ChZkrrGqsnWHPiVQ2BDaagSB/4ZmGqpGFR6RhKLcX7Sxfx50+It/Xx1UOb6XUMPvOO02rcBmQzlVcGzd4OtLOOuAoTdnXGmbGA856BlX2hL3bSlSgZuP/HBzKTk7Nz3N+NPa6hsN6B7EnQUKhuC3+3yIEMkmzRUXDto8MCPSiaUmH+BD1L0EqqcyJIiSMvX1ElC/Rbi/H49b8elVn+Bec0kZnLCYW/DnDdYSciVBPPir9P17ZwrQ90d/k66Ng62rJX4VNavGBcOJ42G5Ggwx5R+x4NggjmqShkZq0a/vK20IukrjDzjrQGhPIiqyz+BQaJUm4EfkyGRAwNzH+dmS47/yY="
 install: bundle install
 script: bundle exec middleman build
 after_success:
-  - openssl aes-256-cbc -K $encrypted_f1b17dcb4d11_key -iv $encrypted_f1b17dcb4d11_iv -in .travis.deploy.enc -out .travis.deploy -d
+  - openssl aes-256-cbc -K $encrypted_28a00963dc4e_key -iv $encrypted_28a00963dc4e_iv -in .travis.deploy.enc -out .travis.deploy -d
   - chmod 600 .travis.deploy
   - eval "$(ssh-agent -s)"
   - ssh-add .travis.deploy
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && rsync -e "ssh -o StrictHostKeyChecking=no" -az --force --delete build/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PATH" 2>/dev/null
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "develop" && rsync -e "ssh -o StrictHostKeyChecking=no" -az --force --delete build/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_BETA_PATH" 2>/dev/null
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "chore/deploy-to-pluto" && rsync -e "ssh -o StrictHostKeyChecking=no" -az --force --delete build/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_BETA_PATH" 2>/dev/null
 notifications:
   slack:
     secure: P/I0H5JW8Dw0ZprYm+ChcKg3D8Ma1Eatm1oXSCrOi9+iev85BnP2gibo3DJKazyvRiG2wbEhShNAe9cX5g0DfLn+LKpR4hSPs99d462PGYfo26d70eRvu1TiX3r3aOChY0x0JKh1qP5sqxbHyzVqIiMn1pnQ5NOauc1CDHMjNQ5gtVcxe7VUI7tGeyslJ4q6Pg3MeNEcWxLJlJZf37krTU6VDT2j4PsQd7z2pGodNW2P/x7LPcUCSBbmkmq2Bs8jIKJaaI5LIYN3hd/gXW6blHDGLeO8FY9nLF8vBgGkRXqn+VITVYLsgnoxKmypqN75mBgplBesVPATO4EN9h2EIMB22ugHyX5s1ybqsdDMhQPwNegBSq4ocjGnPW4BjQOtwD3U/NmuVd29LK0GmiJYPdsDlOI3zbuWb2AaaMiDdsDNGBJbiMCKhlER37E5lAr/v7SkajIse8uICkxvdXSnYxazQRHUhDHwaeDZS601SBwlLRrayrycD3s4Zc9EWVhftXB97H60qdrvBHDjrTzGNwKNQxRTj1Mxp1C2yv2cdlx7uoCrCtMuiq4kjxlZOaxAD0pL8DGsrKfgu0jslK2BRfA5wMk6BNxLuwcDIg6VJT7Q78s1SJ6NMZQJcAPHdH7m0eq5fQs8fOzAa5OveWnLudWR/KZTLJHEy21krWjT9B8=
