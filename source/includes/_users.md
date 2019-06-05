@@ -44,7 +44,6 @@ Through the management API, it is possible to:
         }
     ],
     "is_active": true,
-    "pending_user_validation": false,
     "date_joined": "2018-05-02T09:36:30.531746+00:00",
     "limits": {},
     "is_ods": false,
@@ -67,7 +66,6 @@ Attribute | Description
 `permissions` <br> *array*      | A list of permissions granted to this user
 `groups` <br> *array*           | A list of groups the user belongs to
 `is_active` <br> *boolean*      | True if the user can connect to their account
-`pending_user_validation` <br> *boolean*   | True if the user did not validate their e-mail address yet
 `date_joined` <br> *date*       | The date when the user joined the domain
 `is_ods` <br> *boolean*         | True if the user belongs to the Opendatasoft organization
 `quotas` <br> *[quotas object](#the-quotas-object)*   | An object holding the user's quotas on this domain
@@ -114,7 +112,6 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/users/ \
             }
         ],
         "is_active": true,
-        "pending_user_validation": false,
         "date_joined": "2018-05-02T09:36:30.531746+00:00",
         "limits": {},
         "is_ods": false,
@@ -239,7 +236,6 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/users/louise.von-data
         }
     ],
     "is_active": true,
-    "pending_user_validation": false,
     "date_joined": "2018-05-02T09:36:30.531746+00:00",
     "limits": {},
     "is_ods": false,
@@ -298,7 +294,6 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/users/louise.von-data
         }
     ],
     "is_active": true,
-    "pending_user_validation": false,
     "date_joined": "2018-05-02T09:36:30.531746+00:00",
     "limits": {},
     "is_ods": false,
