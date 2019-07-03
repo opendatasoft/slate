@@ -321,3 +321,25 @@ Parameter | Description
 ### Returns
 
 Returns a User object.
+
+## Remove a user from the domain
+
+> Definition
+
+```HTTP
+DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/users/<username>/
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/users/louise.von-data/ \
+    -X DELETE \
+    -u username:password
+```
+
+This endpoint removes the requested user from the domain.
+
+### Returns
+
+On success the endpoint returns an empty 204 HTTP response. If the user is the only domain administrator left, the call will fail and an error specifying that a removal of the only domain administrator is unallowed will be returned.
