@@ -1,6 +1,6 @@
 # Files
 
-On the OpenDataSoft platform, files can be used as data source to create new datasets, and as dataset attachments, to add extra informations to datasets.
+On the Opendatasoft platform, files can be used as data source to create new datasets, and as dataset attachments, to add extra informations to datasets.
 
 ## The file object
 
