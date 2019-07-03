@@ -25,6 +25,7 @@ includes:
   - dataset_resources
   - dataset_metadata
   - dataset_attachments
+  - dataset_alternative_exports
   - dataset_security
   - processing
   - fields_specification
