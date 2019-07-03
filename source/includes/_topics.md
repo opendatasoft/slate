@@ -170,7 +170,7 @@ curl http://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXX/secu
       "is_ods": false,
       "account_type": "global",
       "display_name": "myuser",
-      "auth_provider_types": [],
+      "auth_provider_types": []
     }
   },
   {...},
