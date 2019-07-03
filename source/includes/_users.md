@@ -31,7 +31,7 @@ Through the management API, it is possible to:
     "email": "louise.von-data@opendatasoft.com",
     "account_type": "global",
     "display_name": "louise.von-data",
-    "auth_providers_type": [],
+    "auth_provider_types": [],
     "permissions": [
         "explore_restricted_dataset",
         "edit_dataset"
@@ -68,7 +68,7 @@ Attribute | Description
 `email` <br> *string*           | The user's e-mail address
 `account_type` <br> *string*    | The user's account type.<br> Possible values are `global`, `linked` and `local`
 `display_name` <br> *string*    | The user's display name<br>simplified version of the `username`
-`auth_providers_type` <br> *array of string*    | The list of potential authentification providers type for this user.<br> Possible values are `central` and `saml`
+`auth_provider_types` <br> *array of string*    | The list of potential authentification providers type for this user.<br> Currently `saml` is the only available provider.
 `permissions` <br> *array*      | A list of permissions granted to this user
 `groups` <br> *array*           | A list of groups the user belongs to
 `is_active` <br> *boolean*      | True if the user can connect to their account
@@ -105,7 +105,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/users/ \
         "email": "louise.von-data@opendatasoft.com",
         "account_type": "global",
         "display_name": "louise.von-data",
-        "auth_providers_type": [],
+        "auth_provider_types": [],
         "permissions": [
             "explore_restricted_dataset",
             "edit_dataset"
@@ -232,7 +232,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/users/louise.von-data
     "email": "louise.von-data@opendatasoft.com",
     "account_type": "global",
     "display_name": "louise.von-data",
-    "auth_providers_type": [],
+    "auth_provider_types": [],
     "permissions": [
         "explore_restricted_dataset",
         "edit_dataset"
@@ -294,7 +294,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/users/louise.von-data
     "email": "louise.von-data@opendatasoft.com",
     "account_type": "global",
     "display_name": "louise.von-data",
-    "auth_providers_type": [],
+    "auth_provider_types": [],
     "permissions": [
         "publish_dataset"
     ],
