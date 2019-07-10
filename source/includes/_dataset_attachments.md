@@ -12,7 +12,7 @@ The attachment object contains information about the file.
 
 ```json
 {
-    "attachment_uid": "file_csv",
+    "attachment_uid": "at_cba987",
     "url": "odsfile://file.csv"
 }
 ```
@@ -43,10 +43,10 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/at
 
 ```json
 [{
-    "attachment_uid": "file_csv",
+    "attachment_uid": "at_cba987",
     "url": "odsfile://file.csv"
 },{
-    "attachment_uid": "file2_csv",
+    "attachment_uid": "at_abc123",
     "url": "odsfile://file2.csv"
 }]
 ```
@@ -74,18 +74,14 @@ POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_U
 ```HTTP
 curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments
     -u username:password \
-    -d {
-        "file": {
-            "file_id": "attached_spreadsheet.xlsx"
-        }
-    }
+    -d {"url": "odsfile://file.csv"}
 ```
 
 ### Parameters
 
 Parameter | Description
 --------- | -----------
-`file` <br> File to attach to the dataset
+`url` <br> The URL of the file to attach to the dataset. This can be a odsfile.
 
 ### Returns
 
@@ -104,7 +100,7 @@ GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UI
 > Example request
 
 ```HTTP
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments/file_csv
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments/at_XXXXXX
     -u username:password
 ```
 
@@ -112,7 +108,7 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/at
 
 ```json
 {
-    "attachment_uid": "file_csv",
+    "attachment_uid": "at_cba987",
     "url": "odsfile://file.csv"
 }
 ```
@@ -140,7 +136,7 @@ DELETE https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET
 > Example request
 
 ```HTTP
-curl -XDELETE https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments/file_csv
+curl -XDELETE https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/attachments/at_XXXXXX
     -u username:password
 ```
 
@@ -166,7 +162,7 @@ GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UI
 > Example request
 
 ```HTTP
-curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/download_attachment/file_csv
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/download_attachment/at_XXXXXX
     -u username:password
 ```
 
