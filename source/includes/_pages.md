@@ -19,13 +19,15 @@ visiblity on the portal.
         "en": "Page title"
     },
     "description": "The page description",
-    "layout": "single-main.html",
+    "template": "custom.html",
     "content": {
-        "main": {
-            "text": {
-                "fr": "Contenu de la page",
-                "en": "Page content"
-            }
+        "html": {
+            "fr": "Contenu de la page",
+            "en": "Page content"
+        },
+        "css": {
+          "en": "p { color: black; }",
+          "fr": "p { color: black; }",
         }
     },
     "tags": [
@@ -52,8 +54,8 @@ Attribute | Description
 `slug` <br> *string* | Human readable identifier used to generate the page URL
 `title` <br> *object* | Internationalized page title
 `description` <br> *string* | Page description
-`layout` | The HTML layout to use for this page. Possible values are `single-main.html`, `main-left-col-right.html`, `homepage-searchbox.html`, `single-main-contact.html`, `dataset-catalog-overview.html`, `dataset-of-datasets.html`, `reuses.html`, `custom.html`
-`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout
+`template` | The HTML template used by this page
+`content` <br> *[page_content object](#the-page-content-object)* | The internationalized page content
 `tags` <br> *array of strings*  | List of strings used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal
 `created_at` <br> *datetime*  | Date when the page was created
@@ -62,6 +64,29 @@ Attribute | Description
 `author` <br> *[user object](#the-user-object)* <br> <em class="expandable">expandable</em> | The user who created the page
 `pushed_by_parent` <br> *boolean* | Inform if the page has been distributed by a parent domain
 `has_subdomain_copies` <br> *boolean* | Inform if the page been distributed to any subdomain
+
+## The page content object
+
+> Example object
+
+```json
+{
+    "html": {
+      "en": "<p>Hello</p>",
+      "fr": "<p>Bonjour</p>"
+    },
+    "css": {
+      "en": "p { color: black; }",
+      "fr": "p { color: black; }"
+    }
+}
+```
+### Attributes
+
+Attribute | Description
+--------- | -----------
+`html` <br> *object* | Internationalized HTML content
+`css` <br> *object* | Internationalized CSS content
 
 ## Retrieve all pages
 
@@ -90,14 +115,16 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages \
                 "en": "Page title"
             },
             "description": "The page description",
-            "layout": "single-main.html",
+            "template": "custom.html",
             "content": {
-                "main": {
-                    "text": {
-                        "fr": "Contenu de la page",
-                        "en": "Page content"
-                    }
-                }
+              "html": {
+                  "fr": "Contenu de la page",
+                  "en": "Page content"
+              },
+              "css": {
+                "en": "p { color: black; }",
+                "fr": "p { color: black; }",
+              }
             },
             "tags": [
                 "tag1",
@@ -164,13 +191,15 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page \
         "en": "Page title"
     },
     "description": "The page description",
-    "layout": "single-main.html",
+    "template": "custom.html",
     "content": {
-        "main": {
-            "text": {
-                "fr": "Contenu de la page",
-                "en": "Page content"
-            }
+        "html": {
+            "fr": "Contenu de la page",
+            "en": "Page content"
+        },
+        "css": {
+          "en": "p { color: black; }",
+          "fr": "p { color: black; }",
         }
     },
     "tags": [
@@ -215,7 +244,7 @@ POST https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages
 curl https://yourdomain.opendatasoft.com/api/management/v2/pages \
     -X POST \
     -u username:password \
-    -d '{"slug": "my-page", "title": {"fr": "Titre de la page", "en": "Page title"}, "description": "The page description", "layout": "single-main.html", "content": {"main": {"text": {"fr": "Contenu de la page", "en": "Page content"}}}, "tags": ["tag1", "tag2"], "restricted": true}'
+    -d '{"slug": "my-page", "title": {"fr": "Titre de la page", "en": "Page title"}, "description": "The page description", "template": "contact.html", "content": {"html": {"fr": "Contenu de la page", "en": "Page content"}, "css": {"fr": "p { color: black; }", "en": "p { color: black; }"}}, "tags": ["tag1", "tag2"], "restricted": true}'
 ```
 
 > Example response
@@ -228,13 +257,15 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages \
         "en": "Page title"
     },
     "description": "The page description",
-    "layout": "single-main.html",
+    "template": "contact.html",
     "content": {
-        "main": {
-            "text": {
-                "fr": "Contenu de la page",
-                "en": "Page content"
-            }
+        "html": {
+            "fr": "Contenu de la page",
+            "en": "Page content"
+        },
+        "css": {
+          "en": "p { color: black; }",
+          "fr": "p { color: black; }",
         }
     },
     "tags": [
@@ -268,8 +299,8 @@ Parameter | Description
 `slug` <br> *string* | Human readable identifier used to generate the page's URL
 `title` <br> *object* | Internationalized page title
 `description` <br> *string* | Page description
-`layout` | The HTML layout to use for this page. Possible values are `single-main.html`, `main-left-col-right.html`, `homepage-searchbox.html`, `single-main-contact.html`, `dataset-catalog-overview.html`, `dataset-of-datasets.html`, `reuses.html`, `custom.html`
-`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout
+`template` | The HTML template used by this page
+`content` <br> *[page_content object](#the-page-content-object)* | The internationalized page content
 `tags` <br> *array of strings*  | List of strings used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal. This parameter is only available if you have the permission to manage the pages' security
 
@@ -291,7 +322,7 @@ PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/pages/{PAGE_SLUG}
 curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page \
     -X PUT \
     -u username:password \
-    -d '{"title": {"fr": "Nouveau titre de la page", "en": "New page title"}, "description": "The page description", "layout": "single-main.html", "content": {"main": {"text": {"fr": "Contenu de la page", "en": "Page content"}}}, "tags": ["tag1", "tag2"], "restricted": true}'
+    -d '{"title": {"fr": "Nouveau titre de la page", "en": "New page title"}, "description": "The page description", "template": "contact.html", "content": {"html": {"fr": "Contenu de la page", "en": "Page content"}, "css": {"fr": "p { color: black; }", "en": "p { color: black; }"}}, "tags": ["tag1", "tag2"], "restricted": true}'
 ```
 
 > Example response
@@ -304,13 +335,15 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages/my-page \
         "en": "Page title"
     },
     "description": "The page description",
-    "layout": "single-main.html",
+    "template": "contact.html",
     "content": {
-        "main": {
-            "text": {
-                "fr": "Contenu de la page",
-                "en": "Page content"
-            }
+        "html": {
+            "fr": "Contenu de la page",
+            "en": "Page content"
+        },
+        "css": {
+          "en": "p { color: black; }",
+          "fr": "p { color: black; }",
         }
     },
     "tags": [
@@ -343,8 +376,8 @@ Parameter | Description
 --------- | -----------
 `title` <br> *object* | Internationalized page title
 `description` <br> *string* | Page description
-`layout` | The HTML layout to use for this page. Possible values are `single-main.html`, `main-left-col-right.html`, `homepage-searchbox.html`, `single-main-contact.html`, `dataset-catalog-overview.html`, `dataset-of-datasets.html`, `reuses.html`, `custom.html`
-`content` <br> *object* | Internationalized page content. The shape of the object depends on the chosen layout
+`template` | The HTML template used by this page
+`content` <br> *[page_content object](#the-page-content-object)* | The internationalized page content
 `tags` <br> *array of strings*  | List of strings used to classify and sort pages
 `restricted` <br> *boolean* | Defines if the page is visible to every user who can explore the portal. This parameter is only available if you have the permission to manage the pages' security
 
@@ -405,14 +438,16 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/pages/ \
             "en": "Page title"
         },
         "description": "The page description",
-        "layout": "single-main.html",
+        "template": "contact.html",
         "content": {
-            "main": {
-                "text": {
-                    "fr": "Contenu de la page",
-                    "en": "Page content"
-                }
-            }
+          "html": {
+              "fr": "Contenu de la page",
+              "en": "Page content"
+          },
+          "css": {
+            "en": "p { color: black; }",
+            "fr": "p { color: black; }",
+          }
         },
         "tags": [
             "tag1",
