@@ -31,6 +31,7 @@ includes:
   - fields_specification
   - pages
   - page_security
+  - harvesters
   - form_widgets
   - misc
 

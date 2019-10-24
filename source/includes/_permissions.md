@@ -586,3 +586,75 @@ Requires one of the following:
 
 - domain permission: `create_dataset` or `edit_dataset`
 - any dataset permission: `edit_dataset`
+
+### List Harvesters
+
+`GET /api/management/v2/harvesters/`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### Harvester Lookup
+
+`GET /api/management/v2/harvesters/<harvester_id>`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### Delete a Harvester
+
+`DELETE /api/management/v2/harvesters/<harvester_id>`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### Update a Harvester
+
+`PUT /api/management/v2/harvesters/<harvester_id>`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### Preview Harvester results
+
+`GET /api/management/v2/harvesters/<harvester_id>/preview/`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### View Harvester errors
+
+`GET /api/management/v2/harvesters/<harvester_id>/preview/`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### Start a Harvester
+
+`PUT /api/management/v2/harvesters/<harvester_id>`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### Publish the datasets attached to a Harvester
+
+`PUT /api/management/v2/harvesters/<harvester_id>/publish/`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
+
+### Unpublish the datasets attached to a Harvester
+
+`PUT /api/management/v2/harvesters/<harvester_id>/unpublish/`
+
+Requires all of the following:
+
+- domain permission: `create_dataset`, `edit_dataset` and `publish_dataset`
