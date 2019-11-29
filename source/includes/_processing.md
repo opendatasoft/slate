@@ -12,7 +12,7 @@ The processor object is composed of a unique ID for the processor, the processor
 
 ```json
 {
-    "processor_uid": "pr_abcdef", 
+    "processor_uid": "pr_abcdef",
     "name":"regexp_replace",
     "args": {
         "field": "text_field",
@@ -31,7 +31,7 @@ Attribute | Description
 
 ## List all available processors
 
-This endpoint allows the caller to find out what processors are available to them 
+This endpoint allows the caller to find out what processors are available to them
 
 > Definition
 
@@ -88,7 +88,7 @@ GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UI
 > Example request
 
 ```HTTP
-curl -XGET https://yourdomain.opendatasoft.com/api/management/datasets/da_abcdef/processors/
+curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abcdef/processors/
     -u username:password
 ```
 
@@ -96,7 +96,7 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/datasets/da_abcdef
 
 ```json
 [{
-    "processor_uid": "pr_abcdef", 
+    "processor_uid": "pr_abcdef",
     "name":"regexp_replace",
     "args": {
         "field": "text_field",
@@ -221,7 +221,7 @@ curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abc
 
 ```json
 {
-    "processor_uid": "pr_abcdef", 
+    "processor_uid": "pr_abcdef",
     "name":"regexp_replace",
     "args": {
         "field": "text_field",
