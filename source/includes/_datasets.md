@@ -105,8 +105,8 @@ This endpoint lists all the datasets that can be edited by this user.
 Parameter | Default | Description
 --------- | ------- | -----------
 `where` <br> *string* | None | Filter expression used to restrict returned datasets ([ODSQL documentation](https://docs.opendatasoft.com/api/explore/v2.html#where-clause))
-`start` <br> *string* | 0 | Index of the first item to return
-`rows` <br> *string* | 10 | Number of items to return. Max value: 100
+`rows` <br> *string* | 10 | Number of items to return per page. Max value: 100
+`page` <br> *string* | 1 | Request a specific page of results
 `sort` <br> *string* | None | Field on which to sort the results list
 `include_app_metas` <br> *string* | false | Explicitely request application metadata for each datasets
 `timezone` <br> *string* | UTC | Timezone applied on datetime fields in query and response
