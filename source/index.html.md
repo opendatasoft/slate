@@ -27,6 +27,7 @@ includes:
   - dataset_attachments
   - dataset_alternative_exports
   - dataset_security
+  - harvesters
   - processing
   - fields_specification
   - pages
