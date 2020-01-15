@@ -1,6 +1,6 @@
 # Harvesters
 
-Harvesters provide a way for administrators to easily create and update an important number of datasets by importing them from an external source such as a CSW catalog or an ArcGIS service, among many others.
+Harvesters provide a way for administrators to create and update an important number of datasets by importing them from an external source such as a CSW catalog or an ArcGIS service, among many others.
 Your user and your API key need the permissions "create_dataset", "edit_dataset" and "publish_dataset".
 
 
@@ -13,7 +13,7 @@ Through the management API, it is possible to:
 - delete a harvester and optionally delete its datasets
 
 
-## List Harvesters
+## List harvesters
 
 > Definition
 
