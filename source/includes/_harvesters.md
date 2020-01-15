@@ -99,5 +99,86 @@ curl https://yourdomain.opendatasoft.com/api/management/v2/harvesters/ \
 ]
 ```
 
-This endpoint lists all the API harvesters on the domain.
+This endpoint lists all the harvesters on the domain, including their parameters.
 
+
+## Start a harvester
+
+> Definition
+
+```HTTP
+PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/harvesters/<harvester_id>/start/
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/harvesters/my_harvester/start/ \
+    -X PUT \
+    -u username:password
+```
+
+This endpoint will start a harvester. If it succeeds, it will return a status code 200 with the harvester details.
+
+
+## Publish a harvester's datasets
+
+> Definition
+
+```HTTP
+PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/harvesters/<harvester_id>/publish/
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/harvesters/my_harvester/publish/ \
+    -X PUT \
+    -u username:password
+```
+
+This endpoint will publish all datasets attached to the harvester.
+If it succeeds, it will return a status code 200 with the harvester details.
+
+
+## Unpublish a harvester's datasets
+
+> Definition
+
+```HTTP
+PUT https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/harvesters/<harvester_id>/unpublish/
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/harvesters/my_harvester/unpublish/ \
+    -X PUT \
+    -u username:password
+```
+
+This endpoint will unpublish all datasets attached to the harvester.
+If it succeeds, it will return a status code 200 with the harvester details.
+
+
+## Delete a harvester (and its datasets)
+
+> Definition
+
+```HTTP
+DELETE https://{DOMAIN_ID}.opendatasoft.com/api/management/v2/harvesters/<harvester_id>/?delete_attached_datasets=0
+```
+
+> Example request
+
+```shell
+curl https://yourdomain.opendatasoft.com/api/management/v2/harvesters/my_harvester/?delete_attached_datasets=0 \
+    -X DELETE \
+    -u username:password
+```
+
+This endpoint will delete the harvester and all its attached datasets if `delete_attached_datasets=1`.
+
+If you set `delete_attached_datasets=0`, then the harvester will be deleted but the attached datasets will be kept.
+
+If it succeeds, it will returns a status code 204 with an empty body.

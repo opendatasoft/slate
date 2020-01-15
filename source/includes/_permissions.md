@@ -637,7 +637,7 @@ Requires all of the following:
 
 ### Start a Harvester
 
-`PUT /api/management/v2/harvesters/<harvester_id>`
+`PUT /api/management/v2/harvesters/<harvester_id>/start/`
 
 Requires all of the following:
 
