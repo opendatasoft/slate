@@ -22,11 +22,26 @@ The processor object is composed of a unique ID for the processor, the processor
 }
 ```
 
+> Example object with label
+
+```json
+{
+    "processor_uid": "pr_mgnlcn",
+    "name":"expression",
+    "label":"my_column > or < 0",
+    "args": {
+        "output_field": "result",
+        "expression": "{{my_column > 0 ? 'positive' : 'negative'}}"
+    }
+}
+```
+
 Attribute | Description
 --------- | -----------
 `name` <br> *string* | Name of the processor
 `args` <br> *object* | Processor configuration
 `processor_uid` <br> *string* | Unique identifier for the processor
+`label` <br> *string* | (optional) Label of the processor
 
 
 ## List all available processors
