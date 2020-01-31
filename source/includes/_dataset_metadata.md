@@ -30,7 +30,7 @@ This object stores both the definition and the value of a given metadata.
 Attribute | Description
 --------- | -----------
 `name` <br> *string* | Identifier for the object (inherited from the [definition](#the-metadata-definition-object)'s name)
-`template` <br> *[metadate template object](#the-metadata-template-object)* | Group of the current object
+`template` <br> *[metadata template object](#the-metadata-template-object)* | Group of the current object
 `definition` <br> *[form object](#the-form-object)* <br> <em class="expandable">expandable</em> | The definition of the metadata type and widget
 `value` | The object's value (may not be the indexed value, see below)
 `remote_value` | The remote object's metadata value (see below)
@@ -214,6 +214,78 @@ Parameter | Description
 
 The updated [metadata object](#the-metadata-object).
 
+
+## Update multiple metadata values at once
+
+> Definition
+
+```HTTP
+PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/metadata/
+```
+
+> Example request
+
+```HTTP
+curl https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/metadata/ \
+    -u username:password \
+    -X PUT \
+    -d '{"metas": [{"template_name": "default", "metadata_name": "title", "override_remote_value": false, "value": "My Dataset"}, \
+    {"template_name": "default", "metadata_name": "keyword", "override_remote_value": false, "value": ["keyword1", "keyword"]}]}'
+```
+
+> Example response
+
+```json
+[
+  {
+      "name": "title",
+      "template": {
+          "name": "default",
+          "label": "Standard",
+          "purpose": "general"
+      },
+      "definition": {},
+      "value": "My Dataset",
+      "remote_value": null,
+      "override_remote_value": false
+  },
+  {
+      "name": "keyword",
+      "template": {
+          "name": "default",
+          "label": "Standard",
+          "purpose": "general"
+      },
+      "definition": {},
+      "value": [
+        "keyword1",
+        "keyword"
+        ],
+      "remote_value": null,
+      "override_remote_value": false
+  }
+]
+```
+
+Send a list of metadata values to update all of them at once.
+
+### Parameters
+
+A JSON object passed in the request's body containing a list of metadata names and values.
+See [metadata object](#the-metadata-object) for reference on the metadata parameters.
+
+#### General case
+
+Parameter | Description
+--------- | -----------
+`template_name` | The metadata template name, for instance `default`.
+`metadata_name` | The metadata name, for instance `title`.
+`value` | The new metadata value. <br> Must conform to the metadata definition's type. Can be `null`.
+`override_remote_value` <br> *boolean* | Applies only to federated or harvested datasets. Flag indicating whether the indexed value is `value` or `remote_value`. If `false` the value of `value` is always deleted.
+
+### Returns
+
+All of the dataset's [metadata objects](#the-metadata-object) reflecting the updated values.
 
 ## Reset a metadata value
 
