@@ -12,12 +12,12 @@ The processor object is composed of a unique ID for the processor, the processor
 
 ```json
 {
-    "processor_uid": "pr_abcdef",
-    "name":"regexp_replace",
-    "args": {
-        "field": "text_field",
-        "regexp": ".*",
-        "new": "Hello World"
+    "processor_uid" : "pr_abcdef",
+    "name" : "regexp_replace",
+    "args" : {
+        "field" : "text_field",
+        "regexp" : ".*",
+        "new" : "Hello World"
     }
 }
 ```
@@ -26,12 +26,12 @@ The processor object is composed of a unique ID for the processor, the processor
 
 ```json
 {
-    "processor_uid": "pr_mgnlcn",
-    "name":"expression",
-    "label":"my_column > or < 0",
-    "args": {
-        "output_field": "result",
-        "expression": "{{my_column > 0 ? 'positive' : 'negative'}}"
+    "processor_uid" : "pr_mgnlcn",
+    "name" : "expression",
+    "label" : "my_column > or < 0",
+    "args" : {
+        "output_field" : "result",
+        "expression" : "{{my_column > 0 ? 'positive' : 'negative'}}"
     }
 }
 ```
@@ -111,21 +111,21 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abc
 
 ```json
 [{
-    "processor_uid": "pr_abcdef",
-    "name":"regexp_replace",
-    "args": {
-        "field": "text_field",
-        "regexp": ".*",
-        "new": "Hello World"
+    "processor_uid" : "pr_abcdef",
+    "name" : "regexp_replace",
+    "args" : {
+        "field" : "text_field",
+        "regexp" : ".*",
+        "new" : "Hello World"
     }
 }, {
-    "processor_uid": "pr_zyxwvu",
-    "name": "string_replace",
-    "args": {
-        "field": "text_field",
-        "all_fields": false,
-        "old": "World",
-        "new": "World!"
+    "processor_uid" : "pr_zyxwvu",
+    "name" : "string_replace",
+    "args" : {
+        "field" : "text_field",
+        "all_fields" : false,
+        "old" : "World",
+        "new" : "World!"
     }
 }]
 ```
@@ -158,11 +158,11 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATA
 
 ```json
 {
-    "processor_uid": "pr_newnew",
-    "name": "string_extractor",
-    "args": {
-        "field": "text_field",
-        "regexp": "(?P<planet>^World)"
+    "processor_uid" : "pr_newnew",
+    "name" : "string_extractor",
+    "args" : {
+        "field" : "text_field",
+        "regexp" : "(?P<planet>^World)"
     }
 }
 ```
@@ -202,11 +202,11 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abc
 
 ```json
 {
-    "processor_uid": "pr_newnew",
-    "name": "string_extractor",
-    "args": {
-        "field": "text_field",
-        "regexp": "(?P<planet>^World)"
+    "processor_uid" : "pr_newnew",
+    "name" : "string_extractor",
+    "args" : {
+        "field" : "text_field",
+        "regexp" : "(?P<planet>^World)"
     }
 }
 ```
@@ -236,12 +236,12 @@ curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_abc
 
 ```json
 {
-    "processor_uid": "pr_abcdef",
-    "name":"regexp_replace",
-    "args": {
-        "field": "text_field",
-        "regexp": ".*",
-        "new": "Bonjour Monde"
+    "processor_uid" : "pr_abcdef",
+    "name" : "regexp_replace",
+    "args" : {
+        "field" : "text_field",
+        "regexp" : ".*",
+        "new" : "Bonjour Monde"
     }
 }
 ```
@@ -303,14 +303,14 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATA
 
 ```json
 {
-    "json_array_field": {
-        "text_field": {
-            "annotations": [],
-            "description": null,
-            "label": "text_field",
-            "name": "text_field",
-            "original_name": "text_field",
-            "type": "text"
+    "json_array_field" : {
+        "text_field" : {
+            "annotations" : [],
+            "description" : null,
+            "label" : "text_field",
+            "name" : "text_field",
+            "original_name" : "text_field",
+            "type" : "text"
         }
     }
 }
