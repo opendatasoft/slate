@@ -2,12 +2,18 @@ sudo: false
 language: ruby
 rvm:
   - 2.4.2
+cache: bundler
 env:
   global:
   - DEPLOY_PATH=/var/www/help/management-api/
   - DEPLOY_BETA_PATH=/var/www/betahelp/management-api/
   - secure: "FEklW7WPhFaKNb3Zfyn45hUvP0MEC6FADM9IKYIVcHGv85UDjCdfBzDFlAtjuS7LXlf2HW90j3+Tb5oqhq9IR2kOL67mC68DW7uRuKuPkB+WTNdwo49qCIKFoGzqMvp5ezFTQHSyLe931NKfHsS20c/zJF+Z4R6ffv7R5b5zxnx0lWAD4oVXtCOhpQRBalTIM6BA4yElXiOH+YZgKD4/7cGkxTlBGt7bs+q9IbQ2DoYbrFxECBuq6Nu0SkVpMSNYfurT/oS9mfZSbiVS8qDnpyD3QN8z1YTVnzNNOqmpC0Cwb86bCbGMOt9YyIFKe+46fP8d/3YFNBAjbQ/aRLkDvCb9y66WYK1L20DJT72v4af3eDsObM+UOKlkIk0Fl8WNWdVmH/bVPlPe9gvxtVmhjUl0ggtq44W+1JDFHh71UUYult3wLopmPzeqhKypCAWp7KB8SnzC5lzfSuFmyNfwC4QS0HjrI9TzTxQsJsBNfbkQnAiZJjuA1of5AYekzLMFRkZFmvWpvJOVqBDuhKRPHJmFAPgnBUEPR4l2MFYp1CCnaWD8GceqbRA+seqrObODB4BFpzGWvy/wVfH9wSbeicWUsBfZTBZQXvOTkdy6B8u91pMfLhIehjJdy9YJPNeqA7zpIOTTuSWhyWM+5XTCn8bXpmmygXUukhelhODO1KY="
   - secure: "LG5p7/0Lz6DIJaA5dGJc4F8MGYQbLILs6eIUZ8lsa4s7d/QCj1M2zokcIkIJThDIWtk7WBUBNYg15yL9+YNwtNFbMmlAfM48kjxbzw4UXUISazqdtzgJG00sj25xuWsMSAxo2+zeqfv4y6JMNXJ8fSfHFPsG1OfsYg4JSQIrz1Nt3aWWTyVoxPRpqUgZ1Mmgidez0dUovVmGOmiy12KoAcvM5O7HaaSvPrjKY66aq/eUSHnwf3uUS8JY+aojubRVvXfIPkgCoHrcm3hWZ4Qt5Js2S/LXeaYfkb5HC6kRRINjTZ73/fAQDlEF+ko5noLhVYvo9WB3Fp9EdIW8x/ChZkrrGqsnWHPiVQ2BDaagSB/4ZmGqpGFR6RhKLcX7Sxfx50+It/Xx1UOb6XUMPvOO02rcBmQzlVcGzd4OtLOOuAoTdnXGmbGA856BlX2hL3bSlSgZuP/HBzKTk7Nz3N+NPa6hsN6B7EnQUKhuC3+3yIEMkmzRUXDto8MCPSiaUmH+BD1L0EqqcyJIiSMvX1ElC/Rbi/H49b8elVn+Bec0kZnLCYW/DnDdYSciVBPPir9P17ZwrQ90d/k66Ng62rJX4VNavGBcOJ42G5Ggwx5R+x4NggjmqShkZq0a/vK20IukrjDzjrQGhPIiqyz+BQaJUm4EfkyGRAwNzH+dmS47/yY="
+before_install:
+  - rvm use @global
+  - gem uninstall bundler -x
+  - gem install bundler --version=2.1.4
+  - bundler --version
 install: bundle install
 script: bundle exec middleman build
 after_success:
