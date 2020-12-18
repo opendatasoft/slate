@@ -2,7 +2,6 @@ sudo: false
 language: ruby
 rvm:
   - 2.4.2
-cache: bundler
 env:
   global:
   - DEPLOY_PATH=/var/www/help/management-api/
