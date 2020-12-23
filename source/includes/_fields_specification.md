@@ -105,7 +105,7 @@ Type name | Description
     "name": "annotate",
     "args": {
         "field": "datetime_field",
-        "annotation": "timeseries_precision",
+        "annotation": "timeserie_precision",
         "args": ["hour"]
     },
 }
@@ -158,7 +158,7 @@ Annotation name | Field type | Description
 `facet` | `date`, `datetime`, `int`, `decimal`, `text` | Whether the field can serve as a filter
 `facetsort` | all field types, facet only | How to sort the facets. Possible arguments are `count` and `-count` for all field types, `alphanum` and `-alphanum` for `date`, `datetime` and `text`, `num` and `-num` for `decimal` and `int`
 `disjunctive` | `decimal`, `int` and `text`, facet only | Whether multiple values can be selected for the facet
-`timeseries_precision` | `date` and `datetime` | display precision of the field. Possible arguments are `year`, `month` and `day` for `date`, `hour` and `minute` for `datetime`
+`timeserie_precision` | `date` and `datetime` | display precision of the field. Possible arguments are `year`, `month` and `day` for `date`, `hour` and `minute` for `datetime`
 `timerangeFilter` | `date` and `datetime`, facet only | Whether to activate the timerange filter
 `unit` | `int` and `decimal` | The unit of the field. Supported units are listed [in the dedicated chapter](#units)
 `decimals` | `decimal only` | The argument is the number of digits to appear after the decimal point
