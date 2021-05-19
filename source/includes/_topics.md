@@ -8,15 +8,26 @@ API keys are recommended for any endpoint that supports them since they do not r
 
 ### API key
 
-> Example authenticated request with an API key
+> Example authenticated request using an `Authorization: Apikey <API_KEY>` header
 
 ```shell
-curl https://mydomain.opendatasoft.com/api/management/v2/datasets?apikey=7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3
+curl --header 'Authorization: Apikey 7f5e144f079444b20fd360cf77e9fcbe6d10b10a378d995c208796e3
+https://mydomain.opendatasoft.com/api/management/v2/datasets
 ```
 
-After being generated and given appropriate permissions with the [corresponding endpoints](#api-keys), an API key can be used for every management API endpoint (unless specified in this documentation).
+After generating an API key and [assigning it appropriate permissions](#api-keys), you can use this API key to make authenticated requests. It is good practice to pass the API key to the `Authorization` header in the following format:
 
-An API key must be passed with every authenticated request as the query parameter `apikey`.
+`Authorization: Apikey <API_KEY>`
+
+Alternatively, you can pass the API key as a query parameter in the following format:
+
+`apikey=<API_KEY>`
+
+Replace `<API_KEY>`with your API key.
+
+<aside class="important">
+<p>We recommend passing the API key via a header over in a query parameter because headers are not stored in your browser history or server logs, minimizing the risk of exposure of your API key.</p>
+</aside>
 
 ### Basic auth
 
