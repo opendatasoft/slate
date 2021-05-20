@@ -2,7 +2,7 @@
 
 ## The resource object
 
-The resource object describes a resource on the Opendatasoft platform. It is composed of a URL, a title, a type, a parameter object and a credentials object. The URL is where data will be pulled to populate the dataset. Resources urls can (and often do!) point to [files](#files) uploaded to the platform using the `odsfile://` url scheme.
+The resource object describes a resource on the Opendatasoft platform. It is composed of a URL, a title, a type, and a parameter object. The URL is where data will be pulled to populate the dataset. Resources urls can (and often do!) point to [files](#files) uploaded to the platform using the `odsfile://` url scheme.
 
 ### Attributes
 
@@ -17,8 +17,7 @@ The resource object describes a resource on the Opendatasoft platform. It is com
     "params": {
         "headers_first_row": false,
         "separator": ";"
-    },
-    "credentials": {},
+    }
 }
 ```
 
@@ -29,7 +28,6 @@ Attribute | Description
 `title` <br> *string* | friendly title
 `type` <br> *[extractor](#extractors)* | extractor type that should handle this resource
 `params` <br> *object* | parameters passed to the extractor
-`credentials` <br> *object* | resource credentials
 
 ## List dataset resources
 
@@ -59,8 +57,7 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXX
     "params": {
         "headers_first_row": false,
         "separator": ";"
-    },
-    "credentials": {}
+    }
 }, {...}]
 ```
 
@@ -83,7 +80,7 @@ POST https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_U
 ```HTTP
 curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/
     -u username:password \
-    -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}, "credentials": {} }'
+    -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}}'
 ```
 
 > Example response
@@ -97,8 +94,7 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XX
     "params": {
         "headers_first_row": false,
         "separator": ";"
-    },
-    "credentials": {}
+    }
 }
 ```
 
@@ -140,8 +136,7 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXX
     "params": {
         "headers_first_row": false,
         "separator": ";"
-    },
-    "credentials": {}
+    }
 }
 ```
 
@@ -185,7 +180,7 @@ PUT https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UI
 ```HTTP
 curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/{RESOURCE_UID}
     -u username:password \
-    -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}, "credentials": {} }'
+    -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}}'
 
 ```
 
@@ -200,8 +195,7 @@ curl -XPUT https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXX
     "params": {
         "headers_first_row": false,
         "separator": ";"
-    },
-    "credentials": {}
+    }
 }
 ```
 
@@ -236,7 +230,7 @@ GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/r
 ```HTTP
 curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resource_preview
     -u username:password \
-    -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}, "credentials": {} }'
+    -d '{ "url": "odsfile://resource.csv", "title": "My Awesome Data File", "type": "csvfile", "params": {"headers_first_row": false, "separator": ";"}}'
 ```
 
 > Example UID-based request

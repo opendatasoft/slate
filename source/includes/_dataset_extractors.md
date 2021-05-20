@@ -37,7 +37,7 @@ curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/extractors/
 }
 ```
 
-The enpoint returns the list of all available extractors, represented with their type, their label, their authentication mode and their available parameters.
+The endpoint returns the list of all available extractors, represented with their type, their label, their authentication mode, and their available parameters.
 
 ### Returns
 A list of extractors, represented by the following fields:
@@ -64,7 +64,7 @@ Parameter | Description
 
 ## Guess the right extractor for a source
 
-Before configuring a resource one must determine which extractor will perform well with the data source. In order to do that, this endpoint can be called with a URL (`odsfile` or remote).
+Before configuring a resource, one must determine which extractor will perform well with the data source. In order to do that, this endpoint can be called with a URL (`odsfile` or remote).
 
 > Definition
 
@@ -97,17 +97,16 @@ curl -XPOST https://yourdomain.opendatasoft.com/api/management/v2/guess_extracto
 }
 ```
 
-The endpoint takes an URL and optionally credentials to use in oder to gain access to this URL, and outputs a list of extractors that are likely to work well for this URL, as well as a list of the other extractors available on the domain that are not likely to succeed in extracting records out of that URL. 
+The endpoint takes an URL and outputs a list of extractors that are likely to work well for this URL, as well as a list of the other extractors available on the domain that are not likely to succeed in extracting records out of that URL.
 
 ### Parameters
 
 Parameter | Description
 --------- | -----------
 `url` | source URL <br> *string* can be remote (`ftp` or `https` for instance) or a local file with `odsfile`.
-`credentials` | credentials used to gain access to the source URL <br> *string*.
 
 ### Returns
-Returns a list of recommanded extractors filled with the extractor types that are likely to succeed at extracting records out of the URL as well as a list of all other extractors available on the platform that are not likely to do so.
+Returns a list of recommended extractors filled with the extractor types that are likely to succeed at extracting records out of the URL as well as a list of all other extractors available on the platform that are not likely to do so.
 
 
 ## Guess an extractor parameters
