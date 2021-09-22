@@ -326,6 +326,15 @@ Requires one of the following:
 - domain permission: `edit_dataset`
 - current dataset permission: `edit_dataset`
 
+### Dataset Resource Download
+
+`GET /api/management/v2/datasets/<dataset_uid>/resources/<resource_uid>/download`
+
+Requires one of the following:
+
+- domain permission: `edit_dataset`
+- current dataset permission: `edit_dataset` or `publish_dataset`
+
 ### Dataset Resource Preview
 
 `GET /api/management/v2/datasets/<dataset_uid>/resources/<resource_uid>/preview/`
