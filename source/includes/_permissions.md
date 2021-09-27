@@ -333,7 +333,7 @@ Requires one of the following:
 Requires one of the following:
 
 - domain permission: `edit_dataset`
-- current dataset permission: `edit_dataset` or `publish_dataset`
+- current dataset permission: `edit_dataset`
 
 ### Dataset Resource Preview
 

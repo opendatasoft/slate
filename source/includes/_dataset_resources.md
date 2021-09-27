@@ -211,7 +211,7 @@ The newly updated [resource object](#the-resource-object).
 
 ## Download a resource
 
-This API endpoint is meant to download a resource specified with its UID.
+This API endpoint is meant to download the file used by a resource specified with its UID.
 
 > Definition
 
@@ -237,7 +237,7 @@ No parameters
 
 ### Returns
 
-The resource with the specified UID
+The file used by the resource with the specified UID
 
 ## Preview the first few rows of the extracted resource
 
