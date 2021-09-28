@@ -209,6 +209,36 @@ The payload must be a valid resource object without any uid.
 
 The newly updated [resource object](#the-resource-object).
 
+## Download a resource
+
+This API endpoint is meant to download the file used by a resource specified with its UID.
+
+> Definition
+
+```HTTP
+GET https://{YOURDOMAIN}.opendatasoft.com/api/management/v2/datasets/{DATASET_UID}/resources/{RESOURCE_UID}/download
+```
+
+> Example request
+
+```HTTP
+curl -XGET https://yourdomain.opendatasoft.com/api/management/v2/datasets/da_XXXXXX/resources/{RESOURCE_UID}/download
+    -u username:password \
+
+```
+
+The resource must be a file uploaded to the platform: its URL uses the `odsfile://` URL scheme.
+
+This endpoint takes a resource UID in its URL path.
+
+### Parameters
+
+No parameters
+
+### Returns
+
+The file used by the resource with the specified UID
+
 ## Preview the first few rows of the extracted resource
 
 In order to test a resource configuration, it can be useful to preview the data. There are two ways of doing this, one uses the configuration of an existing resource to generate a preview, and the other one uses the configuration passed in the payload.
