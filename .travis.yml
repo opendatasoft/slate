@@ -12,7 +12,7 @@ env:
 before_install:
   - rvm use @global
   - gem uninstall bundler -x
-  - yes | gem install bundler --version=2.2.5
+  - gem install bundler --version=2.2.5 --force
   - bundler --version
 install: bundle install
 script: bundle exec middleman build
