@@ -1,7 +1,7 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.4.2
+  - 2.7.2
 cache: bundler
 env:
   global:
@@ -12,7 +12,7 @@ env:
 before_install:
   - rvm use @global
   - gem uninstall bundler -x
-  - gem install bundler --version=2.1.4
+  - gem install bundler --version=2.2.5
   - bundler --version
 install: bundle install
 script: bundle exec middleman build
