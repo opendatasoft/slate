@@ -7,7 +7,7 @@ https://mydomain.opendatasoft.com/api/management/v2
 ```
 
 <aside class="warning">
-  <p>The Management API is deprecated. Please prefer use the <a href="/apis/ods-automation-v1/">Automation API</a>.</p>
+  <span>The Management API is deprecated. Please prefer use the <a href="/apis/ods-automation-v1/">Automation API</a>.</span>
 </aside>
 
 The Opendatasoft management API is organized around REST. Our API has predictable, resource-oriented URLs, and uses
